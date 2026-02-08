@@ -1,0 +1,51 @@
+{signal: 
+ [
+   { "name": "Legend",
+  "wave": "3...7...4...8...",  "data": [
+    "Yellow: speculative instruction",
+    "Green: jump target instruction",
+    "Orange: jump instruction",
+    "X: flushed instructions "
+  ]
+    
+},
+   { "name": "note", "wave": "=...............", "data": ["Jump resolved in MEM stage; no branch prediction; synchronous flush"] },
+   {},
+  {name: 'CLK'       , wave: 'P...............',"period": 1 },
+   {name: 'PC', 	   wave: '22242222..4.2222',data: ['addr_B', 'addr_C', 'addr_D','jump_addr','addr_P','addr_Q','addr_R','addr_S','jump2_addr'],node:'.a.1'},
+   //   {name: 'PC_en', 	   wave: '1......0.1.01',data: ['B', '', 'idle','w_valid','idle','w_valid','idle'],node:'.a..',phase: -0.2},
+   
+ //  {},
+  
+       {name: 'valid_im', wave: '1......0.101....',node:'....v.......w.' },
+     {name: 'fetcher' , wave:  '33337432.3237777', data: ['A', 'B','C','D','trgt_inst','P','Q','','R','','S','trgt2_inst']},
+   {},
+   {name: 'id_stage' , wave: '43388743..888777', data: ['Y', 'A','B','X','X','trgt_inst','P','Q','X','X','X','trgt2_inst']                     ,node: '...c......e'  , phase:0},
+   {name: 'exe_stage ', wave: '743888743.888877', data: ['', 'Y','A','X','X','X','trgt_inst','P','Q','X','X','X','X','trgt2_inst',''],node: '...b......d..',phase:0},
+    {name: 'mem_stage'   , wave: '774888874.888887', data: ['', '','Y','X','X','X','X','trgt_inst','P','X','X','X','X','X','trgt_inst2']  ,node: '..2a......g'},
+   {name: 'jump',wave: '0.10....1.0.....', data: ['idle', 'w_valid', 'idle','w_valid','idle','w_valid','idle'], node: '..j.....q',phase: -0.1},
+   { name: 'flush',  wave: '0.1.0...1...0...',phase: 0,node: '..1',node: '..x.z...f...p',phase : -0.3},
+   {},
+   { name: 'note2',  wave: '2...............',phase: 0,data: ['!Mem stage is stalled till jump address is not sampled by PC: enable of PC acts as flush for mem stage when jump is active!']},
+   { name: 'note3',  wave: '2...............',phase: 0,data: ['!Flush signal is activated by jump signal, and deactivated synchronously by first valid once jump address has been sampled!']},
+   {},
+  { name: 'penalty',  wave: 'x..2...xxx2....x', data: ['in best case scenario 4 cycles lost','delayed valid of target instr leads to more lost cycles'],},
+
+
+],
+     edge: [
+     'x~>b',
+    'x~>c', '2~>1', '2->j', 'q-~>f', 'f~>d', 'f~>e','3->c','r->d','t-~>e','v->z','j-~>x','w->p','f~>g',"d->|instruction fetch resumes|"
+  ],
+ config: {hscale: 2},
+
+  "head": {
+     "text": "Jump instruction handling and pipe flush",
+     "tick": "0"
+  },
+     "foot": {
+     "text": "Memory considered alwayes ready in this representation, and valid to act as enable of PC and new request fetch",
+  },
+   
+     
+     }

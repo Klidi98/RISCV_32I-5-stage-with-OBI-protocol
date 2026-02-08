@@ -1,0 +1,7 @@
+cls
+
+vsim -batch work.tb_microprocessor
+
+run -all
+
+quit -f

@@ -1,0 +1,32 @@
+{signal: 
+ [
+  
+  {name: 'CLK', wave: 'P.......',"period": 2 },
+  {name: 'rst_n', wave: '01..............'},
+   [
+   "core",
+  {name: 'PC',  	wave: '3...3.....3...3.', data: ['0x40000', '0x40004', '0x40008', '0x4000C','0x40010','0x40014']},
+     {name: 'PC_en', wave: '0.1.0...1.0.1.0.',phase:-0.2},
+ // {name: 'PC_en', 	wave: '0.1.0...1.0..1.0'},
+  {name: 'state', 	wave: '2.4.5.4...5...5.', data: ['idle', 'start_req', 'ISSUE_NEXT','start_req','ISSUE_NEXT'], node: '..0.1.2...3'},
+     {name: 'stall', 	wave: 'x0..............' },
+     {name: 'request', wave: '0.1.1.....0.1.0.', phase: -0.5, node: '..a.b.....c.d.e'},
+    
+],
+  [
+  "Memory",
+  {name: 'ready', wave: 'x1..0...1.0.1...', node: '...4.5.........'},
+  {name: 'valid', wave: 'x0..1.0.....1.0.', node: '....s6....q.r.t..'},
+    {name: 'Instruction', wave: 'xxxx2.xxxxxx2.xx',data:['I0','I1']},
+    ],
+0
+],
+         edge: [
+     's-~>b',
+    '4~>1', '5~>2', 'q-~>c', '6~>2', '0->a','3->c','r->d','t-~>e'
+  ],
+ config: {hscale: 2},
+  "head": {
+     "text": "Instruction Fetch OBI -  Memory not alwyas ready: memory releases data N cycles after request from core",
+
+  },}

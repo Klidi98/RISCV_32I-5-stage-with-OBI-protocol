@@ -1,0 +1,50 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+--
+entity Hazard_Detection_Unit is
+    Port (
+        pipe_flush          : in std_logic;                     -- if pipe flush is active no need to stall
+	    previousInstr_op    : in std_logic_vector(6 downto 0);  -- Opcode dell'istruzione decodificata nel ciclo precedente (che quindi in questo ciclo e� in esecuzione)
+        load_rd             : in std_logic_vector(4 downto 0);  -- Destination register of the INstruction decoded in the previous cycle --load instruction
+        exec_rs1            : in std_logic_vector(4 downto 0);  -- Source register 1 of the instruction decoded in this cycle
+        exec_rs2            : in std_logic_vector(4 downto 0);  -- Source register 2 of the instruction decoded in this cycle
+        stall               : out std_logic;                    -- Pipeline stall signal
+ --       forward_enable      : out std_logic                     -- Forwarding unit enable signal
+    );
+end Hazard_Detection_Unit;
+
+
+--saerebbe ancora da considerare i casi di tutti i tipi di istruzione e gestirli di conseguenza, perche' fin'ora non comprende ancora tutti i casi
+-- e puo' (anzi sicuramente fara' nelle giuste condizioni) generare errori.
+architecture Behavioral of Hazard_Detection_Unit is
+
+constant load_opcode : std_logic_vector(6 downto 0) := "0000011"; -- LW opcode
+begin
+    process (previousInstr_op, load_rd, exec_rs1, exec_rs2, pipe_flush)
+    begin
+        -- Initialize signals
+        stall <= '0';
+ --       forward_enable <= '0';
+        
+        -- Detect load-use data dependency
+        --if load_op = "0000011" and (load_rd = exec_rs1 or load_rd = exec_rs2) then
+        --    stall <= '1';  -- Stall pipeline if there's a load-use data dependency
+        --end if;
+        
+	if previousInstr_op = load_opcode and (load_rd = exec_rs1 or load_rd = exec_rs2) and pipe_flush = '0' then
+        	stall <= '1';  -- Stall pipeline if there's a load-use data dependency
+        else
+        	stall <= '0';
+    end if;
+
+        -- Detect other data dependencies
+--    if  previousInstr_op /= "0000000" then
+
+--        if (load_rd = exec_rs1) or (load_rd = exec_rs2)  then--(load_op /= "0000011") and ((load_rd = exec_rs1) or (load_rd = exec_rs2)) then
+--            forward_enable <= '1';  -- Initialize forwarding unit when there's a data dependency
+           
+ --       end if;
+   -- end if;
+    end process;
+end Behavioral;

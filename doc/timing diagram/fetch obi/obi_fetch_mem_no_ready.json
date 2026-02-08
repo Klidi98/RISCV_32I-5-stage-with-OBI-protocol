@@ -1,0 +1,34 @@
+{signal: 
+ [
+   {name: 'Legend', wave: '4.......5.......',data:['START_REQ: rises request untill ready is high','ISSUE_NEXT: allows burst access. If a Valid occurs request is rised in the same cycle']},
+   {},
+  {name: 'CLK', wave: 'P.......',"period": 2 },
+  {name: 'rst_n', wave: '01..............'},
+   [
+   "core",
+  {name: 'PC',  	wave: '3...3.....3...3.', data: ['0x40000', '0x40004', '0x40008', '0x4000C','0x40010','0x40014']},
+     {name: 'PC_en', wave: '0.1.0...1.0.1.0.',phase:-0.7, node : '..7'},
+ // {name: 'PC_en', 	wave: '0.1.0...1.0..1.0'},
+  {name: 'fetch_state', 	wave: '2.4.5.4...5...5.', data: ['idle', 'START_REQ', 'ISSUE_NEXT','start_req','ISSUE_NEXT'], node: '..0.1.2...3'},
+     {name: 'stall', 	wave: 'x0..............' },
+     {name: 'request', wave: '0.1.1.....0.1.0.', phase: -0.5, node: '..a.b.....c.d.e'},
+    
+],
+  [
+  "Memory",
+  {name: 'ready', wave: 'x1..0...1.0.1...', node: '...4.5.........'},
+  {name: 'valid', wave: 'x0..1.0.....1.0.', node: '....s6....q.r.t..'},
+    {name: 'Instruction', wave: 'xxxx2.xxxxxx2.xx',data:['I0','I1']},
+    {name: 'note',wave : '2...............',data:['in ISSUE_NEXT if valid high but memory low go in START_REQ and wait for ready']},
+    ],
+0
+],
+         edge: [
+     's-~>b',
+    '4~>1', '5~>2', 'q-~>c', '6~>2', '0->a','3->c','r->d','t-~>e', 'a-~>7'
+  ],
+ config: {hscale: 2},
+  "head": {
+     "text": "Instruction Fetch OBI -  Memory not alwyas ready: memory releases data N cycles after request from core",
+
+  },}

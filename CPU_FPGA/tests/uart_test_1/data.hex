@@ -1,0 +1,11 @@
+
+main:     file format elf32-littleriscv
+
+
+Disassembly of section .data:
+
+10010000 <uart_msg>:
+10010000:	4155                	.insn	2, 0x4155
+10010002:	5452                	.insn	2, 0x5452
+10010004:	4f20                	.insn	2, 0x4f20
+10010006:	000a0d4b          	.insn	4, 0x000a0d4b
