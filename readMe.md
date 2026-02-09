@@ -17,15 +17,15 @@ The core assumes the valid and ready signals to be synchornous and that the memo
 The protocol supports back-to-back transactions and allows maximum memory throughput when `ready` and `valid` are asserted without introducing unnecessary stalls( memory always ready and one access cycle delay).
 
 **core to memory signals**
-   -request: has to stay high one cycle with ready signal in order to be accepted by memory
-   -addr   : address sent together with request
-   -wdata  : Data to be written in memory, sent together with request
-   -we     : write enable, sent together with request
+   - request: has to stay high one cycle with ready signal in order to be accepted by memory
+   - addr   : address sent together with request
+   - wdata  : Data to be written in memory, sent together with request
+   - we     : write enable, sent together with request
 
 **memory to core signal**
-   -mem_rdy: Ready signal; it states that the request has been accepted. Address and data can change in the next cycle.
-   -rdata  : Data read from memory: only valid when valid signal is high.
-   -valid  : It signals the end of the response phase for both read and write transactions. For a read transaction rdata holds valid data when valid is high.
+   - mem_rdy: Ready signal; it states that the request has been accepted. Address and data can change in the next cycle.
+   - rdata  : Data read from memory: only valid when valid signal is high.
+   - valid  : It signals the end of the response phase for both read and write transactions. For a read transaction rdata holds valid data when valid is high.
    
 
 In progress:
@@ -33,5 +33,5 @@ In progress:
 - add remaining instructions (FENCE, ECALL, EBREAK) completing ISA
 
 PLANNING next:
--exception handler
--program Loader for FPGA
+- exception handler
+- program Loader for FPGA
