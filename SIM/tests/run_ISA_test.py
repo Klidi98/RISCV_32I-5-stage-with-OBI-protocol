@@ -51,17 +51,17 @@ for test in tests:
     print(f"Eseguendo il test ISA per l'istruzione: {test}.bin")
     if test == "lb" or test == "lbu" :
 
-        cmd = f'vsim -c -do "run -all; quit -f" -gFILE_INSTR=isa/{test}.bin -gFILE_DATA="isa/lb_data.txt" {tb_name}'
+        cmd = f'vsim -c -do "run -all; quit -f" -gFILE_INSTR=isa/bin/{test}.bin -gFILE_DATA="isa/bin/lb_data.txt" {tb_name}'
     elif test == "lh" or test == "lhu" :
-        cmd = f'vsim -c -do "run -all; quit -f" -gFILE_INSTR=isa/{test}.bin -gFILE_DATA="isa/lh_data.txt" {tb_name}'
+        cmd = f'vsim -c -do "run -all; quit -f" -gFILE_INSTR=isa/bin/{test}.bin -gFILE_DATA="isa/bin/lh_data.txt" {tb_name}'
     elif test == "lw":
-        cmd = f'vsim -c -do "run -all; quit -f" -gFILE_INSTR=isa/{test}.bin -gFILE_DATA="isa/lw_data.txt" {tb_name}'
+        cmd = f'vsim -c -do "run -all; quit -f" -gFILE_INSTR=isa/bin/{test}.bin -gFILE_DATA="isa/bin/lw_data.txt" {tb_name}'
     elif test == "sb":
-        cmd = f'vsim -c -do "run -all; quit -f" -gFILE_INSTR=isa/{test}.bin -gFILE_DATA="isa/sb_data.txt" {tb_name}'
+        cmd = f'vsim -c -do "run -all; quit -f" -gFILE_INSTR=isa/bin/{test}.bin -gFILE_DATA="isa/bin/sb_data.txt" {tb_name}'
     elif test == "sh":
-        cmd = f'vsim -c -do "run -all; quit -f" -gFILE_INSTR=isa/{test}.bin -gFILE_DATA="isa/sh_data.txt" {tb_name}'
+        cmd = f'vsim -c -do "run -all; quit -f" -gFILE_INSTR=isa/bin/{test}.bin -gFILE_DATA="isa/bin/sh_data.txt" {tb_name}'
     else:
-        cmd = f'vsim -c -do "run -all; quit -f" -gFILE_INSTR=isa/{test}.bin -gFILE_DATA=isa/"data.txt" {tb_name}'
+        cmd = f'vsim -c -do "run -all; quit -f" -gFILE_INSTR=isa/bin/{test}.bin -gFILE_DATA=isa/bin/"data.txt" {tb_name}'
         
         
     sim_result = run_command(cmd)

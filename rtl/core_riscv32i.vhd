@@ -1,8 +1,20 @@
---*file core_riscv32i.vhd
---*Description: Top level of RISC-V 32I core
---*RISC-V32i core with 5-stage pipeline and OBI protocol for memory interfacing
---*Uses ready and valid signals for handshaking with instruction and data memories (and for all external peripherals).
---*Author: Klides Kaba 
+--=============================================================================
+-- File      : core_riscv32i.vhd
+-- Author    : Klides Kaba
+-- Description:
+--   Top-level module of a custom RV32I RISC-V core featuring a 5-stage pipeline.
+--   The core interfaces with instruction and data memories using an OBI-like
+--   ready/valid handshake protocol, suitable for both on-chip memories and
+--   external memory wrappers.
+--
+--   The design includes an asynchronous global reset. Pipeline registers
+--   support both asynchronous reset and synchronous flush mechanisms; for
+--   synthesis simplicity, only control-unit driven signals are reset.
+--
+--   The core has been verified using the RISC-V ISA  compliance test suite (rv32I):
+--   https://github.com/riscv-software-src/riscv-tests
+--=============================================================================
+
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -11,8 +23,8 @@ use ieee.numeric_std.all;
 entity core_riscv32i is
     port (
         
-        x_i_rst_n                   : in    std_logic;
-        x_i_clk                     : in    std_logic;
+        x_i_rst_n                   : in    std_logic;                         -- asynchronous reset (active low)
+        x_i_clk                     : in    std_logic;                         -- input clock
 
         x_instr_32_i                : in    std_logic_vector(31 downto 0);     --instruction fetched from IM
         x_data_32_i                 : in    std_logic_vector(31 downto 0);     --data coming from data memory to cpu (reading from cpu)
@@ -24,12 +36,12 @@ entity core_riscv32i is
         x_valid_im_i                : in    std_logic;                         --valid coming from IM (OBI).
         x_valid_dm_i                : in    std_logic;                         --valid coming from DM (OBI).
 
-        x_request_im_o              : out   std_logic;                   
-        x_request_dm_o              : out   std_logic;
-        x_wren_dm_o                 : out   std_logic;
-        x_byte_enable_dm            : out   std_logic_vector(3 downto 0);      
-        x_addr32_im_o               : out   std_logic_vector(31 downto 0);
-        x_addr32_dm_o               : out   std_logic_vector(31 downto 0)
+        x_request_im_o              : out   std_logic;                         --request signal to Instruction Memory (OBI protocol)
+        x_request_dm_o              : out   std_logic;                         --request signal to Data Memory (OBI protocol)
+        x_wren_dm_o                 : out   std_logic;                         --write enable signal to Data Memory
+        x_byte_enable_dm            : out   std_logic_vector(3 downto 0);      -- byte enable signal to Data Memory
+        x_addr32_im_o               : out   std_logic_vector(31 downto 0);     -- address signal to Instruction Memory 
+        x_addr32_dm_o               : out   std_logic_vector(31 downto 0)      -- address signal to Data Memory
 
     );
 end core_riscv32i;

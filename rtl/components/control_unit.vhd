@@ -306,8 +306,6 @@ begin
         ctr_U_UJ_I      <= '1';
         --CTR_JALRMux     <= '1';   --prima nn c era
 
-      -- others => default già impostato
-
       when others =>
         null;
 

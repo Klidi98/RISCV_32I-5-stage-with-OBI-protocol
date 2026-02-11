@@ -12,7 +12,7 @@ entity PC is
 end PC;
 
 architecture Behavioral of PC is
-    signal reg : std_logic_vector(31 downto 0) :="00000000010000000000000000000000";
+    signal reg : std_logic_vector(31 downto 0) :="00000000010000000000000000000000";   --x"400000"
 begin
     process (clk, rst_n)
     begin

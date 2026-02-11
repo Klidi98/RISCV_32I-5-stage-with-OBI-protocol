@@ -1,4 +1,3 @@
--- VHDL version of the fetcher module
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

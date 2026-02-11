@@ -82,9 +82,6 @@ begin
     dm_we_o       <= dm_we_i;
 
 
-
-
-
 --signal generation for Data Memory during store instruction(write operation).
 process(i_ctr_size_access, i_Alu_result_MEM, dm_wdata_i)
 begin

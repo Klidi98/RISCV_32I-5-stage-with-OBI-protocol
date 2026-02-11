@@ -9,8 +9,7 @@ entity Hazard_Detection_Unit is
         load_rd             : in std_logic_vector(4 downto 0);  -- Destination register of the INstruction decoded in the previous cycle --load instruction
         exec_rs1            : in std_logic_vector(4 downto 0);  -- Source register 1 of the instruction decoded in this cycle
         exec_rs2            : in std_logic_vector(4 downto 0);  -- Source register 2 of the instruction decoded in this cycle
-        stall               : out std_logic                    -- Pipeline stall signal
- --       forward_enable      : out std_logic                     -- Forwarding unit enable signal
+        stall               : out std_logic                     -- Pipeline stall signal
     );
 end Hazard_Detection_Unit;
 
