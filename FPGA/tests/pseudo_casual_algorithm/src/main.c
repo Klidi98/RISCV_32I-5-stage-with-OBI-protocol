@@ -1,6 +1,6 @@
 /* The goal of this firmware is to create a dynamic shimmering visual effect
 on an 8-LED array by simulating variable brightness through Software PWM.
-If anything goes in the pipe causing it to stall, the LEDs would stack on a single pattern.
+If anything goes wrong in the pipe causing it to stall, the LEDs would stack on a single pattern.
 Loaded in rom3.vhd
 */
 
@@ -20,11 +20,11 @@ int main() {
     int pwm_counter = 0;
 
     while (1) {
-        // 1. Generazione Numero Pseudo-Casuale (Galois LFSR a 16-bit)
+        // Generazione Numero Pseudo-Casuale (Galois LFSR a 16-bit)
         bit  = ((lfsr >> 0) ^ (lfsr >> 2) ^ (lfsr >> 3) ^ (lfsr >> 5)) & 1;
         lfsr = (lfsr >> 1) | (bit << 15);
 
-        // 2. Aggiorna la luminosità target dei LED ogni X cicli
+        //  Aggiorna la luminosità target dei LED ogni X cicli
         if ((pwm_counter & 0xFFF) == 0) {
             for(int i = 0; i < 8; i++) {
                 // Prendi un byte dal registro LFSR per ogni LED
@@ -32,7 +32,7 @@ int main() {
             }
         }
 
-        // 3. PWM Software per controllare la luminosità
+        // PWM Software per controllare la luminosità
         unsigned int current_out = 0;
         int duty_cycle = (pwm_counter & 0xFF); // Ciclo da 0 a 255
 
@@ -42,7 +42,7 @@ int main() {
             }
         }
 
-        // Scrittura sui LED
+     
         VOLATILE_REG(LED_ADDR) = current_out;
 
         pwm_counter++;

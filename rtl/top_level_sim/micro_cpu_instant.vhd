@@ -1,9 +1,9 @@
 --#microporcessor file used for simulation and testing.
 --#It has a loader that loads instructions and data into instruction and data memory before starting the cpu core.
---It uses random access delay memories to simulate and test OBI protocol.
+--This version of cpu uses single cycle access memory.
 --##########################################################################
 --##########################################################################
---#Klides Kaba 2025
+
 
 
 library ieee;

@@ -30,7 +30,7 @@ signal w_valid_uart_tx	,w_valid_peripherals					   	: std_logic := '0';
 signal w_byte_enable_dm_cpu										   	: std_logic_vector(3 downto 0);
 signal rst_n_d1,rst_n_d2										    : std_logic := '0';
 
-signal w_data_to_core												:	std_logic_vector(31 downto 0);
+signal w_data_to_core												: std_logic_vector(31 downto 0);
 
 
 begin
@@ -91,7 +91,10 @@ core: entity work.core_riscv32i
 
 --#######################################################################
 --##    Address decoder for peripherals
---## note: for the moment really simple. 
+--## note: for the moment really simple: peripherals are recognised by a single address bit
+-- data memory : from address 0x10010000 to 0x10011000 
+-- GPIO LEDs register: address 0x10011000
+-- UART TX register  : address 0x10012000
 --#######################################################################
 addr_decoder: process(all)
 begin

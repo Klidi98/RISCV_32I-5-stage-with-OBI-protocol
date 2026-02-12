@@ -10,9 +10,6 @@
 --   The design includes an asynchronous global reset. Pipeline registers
 --   support both asynchronous reset and synchronous flush mechanisms; for
 --   synthesis simplicity, only control-unit driven signals are reset.
---
---   The core has been verified using the RISC-V ISA  compliance test suite (rv32I):
---   https://github.com/riscv-software-src/riscv-tests
 --=============================================================================
 
 

@@ -1,4 +1,6 @@
-//program that tests the memory access
+
+//program that tests the memory access ny ordering data and by using a checksum 
+//to check if corrupted data.
 //loaded in rom5.vhd
 
 #define LED_ADDR 0x10011000
@@ -15,18 +17,18 @@ int main() {
     unsigned int checksum;
 
     while (1) {
-        // 1. Inizializzazione: Riempie la memoria con dati decrescenti (peggiore dei casi)
+        // Inizializzazione: Riempie la memoria con dati decrescenti
         for (int i = 0; i < DATA_SIZE; i++) {
             data[i] = DATA_SIZE - i;
         }
         *leds = 0x01; // Fase 1: Inizializzazione (LED 0 acceso)
         delay(200000);
 
-        // 2. Algoritmo Bubble Sort (Accessi pesanti in Lettura/Scrittura)
+        //bubble sort riordino
         for (int i = 0; i < DATA_SIZE - 1; i++) {
             for (int j = 0; j < DATA_SIZE - i - 1; j++) {
                 if (data[j] > data[j+1]) {
-                    // Swap
+               
                     unsigned int temp = data[j];
                     data[j] = data[j+1];
                     data[j+1] = temp;
@@ -37,13 +39,13 @@ int main() {
             delay(1000000);
         }
 
-        // 3. Calcolo del Checksum per validare l'integrità dei dati
+        // Calcolo del Checksum per validare l'integrità dei dati
         checksum = 0;
         for (int i = 0; i < DATA_SIZE; i++) {
             checksum += data[i];
         }
 
-        // 4. Risultato Finale:
+        //  Risultato Finale:
         // Se l'ordinamento è corretto, la somma di 1..16 è 136 (0x88)
         if (checksum == 136) {
             // Successo: Lampeggia tutti i LED 3 volte
