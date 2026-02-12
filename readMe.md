@@ -1,4 +1,4 @@
-##RISCV32I 
+## RISCV32I 
 
 5-stage RV32I RISC-V core with OBI interface, synthesized on Intel Cyclone 10 LP, with Harvard Architecture
 The core implements a classic IF–ID–EX–MEM–WB pipeline, supports 37 instructions of the RV32I ISA( excluding for now EBREAK, ECALL and FENCE) and communicates with instruction/data memory and peripherals through the Open Bus Interface (OBI).
@@ -11,7 +11,7 @@ The design has been synthesized and tested on FPGA at 90 MHz, passing official r
 GPIO (LEDs) and UART peripherals are integrated in the microprocessor architecture for on-board validation and runtime debugging.
 
 
-##OBI protocol:
+## OBI protocol:
 The core doesn't make any assumptions on how many cycles the memory will take to respond and interfaces with it with he following signals.
 The core assumes the valid and ready signals to be synchornous and that the memory can sample the request signal.
 The protocol supports back-to-back transactions and allows maximum memory throughput when `ready` and `valid` are asserted without introducing unnecessary stalls( memory always ready and one access cycle delay).
@@ -28,10 +28,10 @@ The protocol supports back-to-back transactions and allows maximum memory throug
    - valid  : It signals the end of the response phase for both read and write transactions. For a read transaction rdata holds valid data when valid is high.
    
 
-In progress:
+## In progress:
 - more testing programs
 - add remaining instructions (FENCE, ECALL, EBREAK) completing ISA
 
-PLANNING next:
+## PLANNING next:
 - exception handler
 - program Loader for FPGA
