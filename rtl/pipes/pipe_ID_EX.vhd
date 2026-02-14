@@ -8,7 +8,7 @@ entity pipe_ID_EX is
         rstn                : in  std_logic;
         enable              : in  std_logic;
         flusher             : in  std_logic;
- -- Ingressi*******************************************************
+ -- Inputs*******************************************************
         i_debug_instr       : in  std_logic_vector(31 downto 0);
         i_current_pc        : in  std_logic_vector(31 downto 0);
         i_past_pc           : in  std_logic_vector(31 downto 0);
@@ -34,7 +34,7 @@ entity pipe_ID_EX is
         i_Reg2              : in std_logic_vector(31 downto 0);
         i_Immediate         : in std_logic_vector(31 downto 0);
         i_ctr_alu_op        : in std_logic_vector(2 downto 0);
--- Uscite**********************************************************
+-- Outputs**********************************************************
         o_debug_instr       : out  std_logic_vector(31 downto 0);
 	    o_opcode            : out std_logic_vector( 6 downto 0);
         o_current_pc        : out std_logic_vector(31 downto 0);
@@ -65,7 +65,7 @@ entity pipe_ID_EX is
 end entity;
 
 architecture rtl of pipe_ID_EX is
-    -- Registri interni
+   
     signal r_CURRENT_PC  : std_logic_vector(31 downto 0);
     signal r_PAST_PC     : std_logic_vector(31 downto 0);
     signal r_debug_instr : std_logic_vector(31 downto 0);
@@ -135,7 +135,7 @@ begin
         end if;
     end process;
 
--- Uscite
+-- Outputs
     o_CURRENT_PC            <= r_CURRENT_PC;
     o_PAST_PC               <= r_PAST_PC;
     o_opcode                <= r_OPCODE;
@@ -161,4 +161,5 @@ begin
     o_ctr_addsub            <= r_addsub;
     o_ctr_alu_op            <= r_alu_op;
     o_ctr_comp_op           <= r_ctr_comp_op;
+    
 end architecture;

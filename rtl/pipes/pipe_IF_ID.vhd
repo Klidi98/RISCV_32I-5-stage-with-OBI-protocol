@@ -8,7 +8,7 @@ entity pipe_IF_ID is
         reset_n             : in  std_logic;                           -- Reset input (active low)
         enable_i            : in  std_logic;
         flusher             : in  std_logic;
-         -- Ingressi
+
         instruction_i       : in  std_logic_vector(31 downto 0);     
         current_PC_i        : in  std_logic_vector(31 downto 0);   
         previous_PC_i       : in  std_logic_vector(31 downto 0); 

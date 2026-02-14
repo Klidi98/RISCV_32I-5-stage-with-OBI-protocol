@@ -1,7 +1,7 @@
 -- ID_stage.vhdl file
 -- Instruction decoder stage
 -- comprehends register file and Control Unit 
---klides kaba
+
 
 library ieee;
 use ieee.std_logic_1164.all;

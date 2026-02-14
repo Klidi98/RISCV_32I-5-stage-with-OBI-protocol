@@ -1,5 +1,5 @@
 --alu.vhd file
---//
+
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -26,7 +26,7 @@ entity exe_stage is
         i_fu_sel2       :   in std_logic_vector(1 downto 0);    --chooses if anything to forward as second source of the alu
 
     --decoder signals
-        rd1_i, rd2_i    :   in std_logic_vector(31 downto 0);  --source 1 and 2 of the register file
+        rd1_i, rd2_i    :   in std_logic_vector(31 downto 0);   --source 1 and 2 of the register file
         immediate_i     :   in std_logic_vector(31 downto 0);  
         curr_pc_i       :   in std_logic_vector(31 downto 0);
         prev_pc_i       :   in std_logic_vector(31 downto 0);
@@ -121,7 +121,7 @@ alu    :  entity work.alu
 --adder used to calculate jump branch
 branch_adder:   entity work.adder
         port map(
-        a           =>  prev_pc_i,    --curr_pc_i prima
+        a           =>  prev_pc_i,    
         b           =>  w_shifted_imm,
         sum         =>  jump_branch_o
         );

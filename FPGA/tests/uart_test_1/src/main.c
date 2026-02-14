@@ -1,4 +1,5 @@
-/* This program is the first one testing the UART TX integrated with the core.
+/* 
+This program is the first one testing the UART TX integrated with the core.
 It prints a starting message and then continously the letter, while the LEDs blink following a counter continously updated.
 Loaded in rom6.vhd
  */

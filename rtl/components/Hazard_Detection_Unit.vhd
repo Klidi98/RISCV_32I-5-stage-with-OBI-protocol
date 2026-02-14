@@ -22,9 +22,9 @@ constant load_opcode : std_logic_vector(6 downto 0) := "0000011"; -- LW opcode
 begin
     process (previousInstr_op, load_rd, exec_rs1, exec_rs2, pipe_flush)
     begin
-        -- Initialize signals
+
         stall <= '0';
- --       forward_enable <= '0';
+ 
         
         -- Detect load-use data dependency
         --if load_op = "0000011" and (load_rd = exec_rs1 or load_rd = exec_rs2) then

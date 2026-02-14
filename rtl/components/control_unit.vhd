@@ -8,25 +8,22 @@ entity ControlUnit is
     FUNCT3          : in  std_logic_vector(2 downto 0);  
     FUNCT7          : in  std_logic_vector(6 downto 0);  
 
-    -- segnali di controllo principali
-    OpReadWrite     : out std_logic;
-    RegisterWrite   : out std_logic;      --write enable
-    ALUsrc1         : out std_logic;      --sceglie il primo ingresso della ALU
-    ALUsrc2         : out std_logic;      --sceglie il secondo ingresso ALU
-    ctr_addsub      : out std_logic;      --sceglie l'operazione della ALU(somma/sottrazione).
+    
+    RegisterWrite   : out std_logic;      --write enable for register file
+    ALUsrc1         : out std_logic;      --chooses first src for ALU
+    ALUsrc2         : out std_logic;      --chooses second src for ALU
+    ctr_addsub      : out std_logic;      --defines if add or sub instruction(somma/sottrazione).
   
-    ctr_request_dm  : out std_logic;      
+    ctr_request_dm  : out std_logic;       
     ctr_wren_dm     : out std_logic;
     ctr_alu_op      : out std_logic_vector(2 downto 0);
     ctr_comp_op     : out std_logic_vector(1 downto 0);
 
-  
-    -- segnali specifici
     ctr_tipo_I_S_SB : out std_logic_vector(1 downto 0);
     ctr_Signed      : out std_logic;
     ctr_tipo_U_UJ   : out std_logic;
     ctr_MuxFinale   : out std_logic;
-    ctr_branch      : out std_logic;    --segnale che indica se bisogna saltare a nuovo indirizzo o andare in sequenza.
+    ctr_branch      : out std_logic;    --signals if jump instruction.
     ctr_JALRMux     : out std_logic;   
     ctr_LUIMux      : out std_logic; 
     ctr_U_UJ_I      : out std_logic;
@@ -82,7 +79,7 @@ begin
   process(OPCODE, FUNCT3, FUNCT7)
   begin
     -- default: tutti i segnali a 0
-    OpReadWrite     <= '0';
+ 
     RegisterWrite   <= '0';
     ALUsrc1         <= '0';
     ALUsrc2         <= '0';
@@ -109,7 +106,6 @@ begin
         RegisterWrite   <= '1';
         ALUsrc2         <= '1';
         ctr_request_dm  <= '1';
-        OpReadWrite     <= '1';
         ctr_signed      <= '1';
         CTR_tipo_I_S_SB <= "00";       
         ctr_U_UJ_I      <= '1';
@@ -227,7 +223,7 @@ begin
       when "0100011" =>
         ALUsrc2         <= '1';     -- Result of address memory is calculated using immediate value.
         ctr_request_dm  <= '1';
-        OpReadWrite     <= '1';
+  
         CTR_Signed      <= '1';
         CTR_tipo_I_S_SB <= "01";
         ctr_wren_dm     <= '1';
@@ -255,27 +251,27 @@ begin
         if FUNCT3 = "000" then      --BEQ
           CTR_Signed <= '1';
           ctr_comp_op <= "00"; 
---          ctr_alu_op <= "011";   
+   
         end if;
         if FUNCT3 = "001" then      --BNE
           CTR_Signed <= '1';
           ctr_comp_op <= "01";  
---          ctr_alu_op <= "011";  
+
         end if;
         if FUNCT3 = "100" then      --BLT
           CTR_Signed <= '1';
           ctr_comp_op <= "10";   
---          ctr_alu_op <= "011"; 
+
         end if;
         if FUNCT3 = "101" then      --BGE
           CTR_Signed <= '1';
           ctr_comp_op <= "11";
---          ctr_alu_op <= "011";    
+ 
         end if;
         if FUNCT3 = "110" then      --BLTU
           CTR_Signed <= '0';
           ctr_comp_op <= "10";  
---          ctr_alu_op <= "011";  
+
         end if;
         if FUNCT3 = "111" then      --BGEU
           CTR_Signed <= '0';
@@ -291,7 +287,7 @@ begin
         CTR_JALRMux     <= '1';
         CTR_Signed      <= '1';
         ctr_U_UJ_I      <= '1';
-        CTR_JAL_MUXtoRF <= '1';   --prima non c era
+        CTR_JAL_MUXtoRF <= '1';  
 
 
 -- JAL instruction
@@ -304,7 +300,7 @@ begin
         CTR_JAL_MUXtoRF <= '1';
         CTR_Signed      <= '1';
         ctr_U_UJ_I      <= '1';
-        --CTR_JALRMux     <= '1';   --prima nn c era
+   
 
       when others =>
         null;

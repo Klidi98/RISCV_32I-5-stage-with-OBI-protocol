@@ -138,8 +138,8 @@ wait for 150 us;        --assures that after this time, if successfull, the test
 
 wait until falling_edge(clk);
 
---  check on intenral regiasters of the core, if the test passed or not
---  register 3 contains 1 if test successfully completed (as ISA official test suite requires)
+--  check on internal regiasters of the core, if the test passed or not
+--  register 3 contains 1 if test successfully completed (as ISA official test suite requires).
 
         if all_registers(3) = x"00000001" then
             report "RESULT: PASS";

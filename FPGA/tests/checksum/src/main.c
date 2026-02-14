@@ -1,7 +1,7 @@
 
-//program that tests the memory access ny ordering data and by using a checksum 
+//Program that tests the memory accesses by ordering data and by using a checksum 
 //to check if corrupted data.
-//loaded in rom5.vhd
+//Loaded in rom5.vhd
 
 #define LED_ADDR 0x10011000
 #define MEM_BASE 0x10010000
@@ -34,18 +34,18 @@ int main() {
                     data[j+1] = temp;
                 }
             }
-            // Mostra il progresso dell'ordinamento sui LED
+            //  progresso dell'ordinamento sui LED
             *leds = (1 << i); 
             delay(1000000);
         }
 
-        // Calcolo del Checksum per validare l'integrità dei dati
+        // Calcolo del Checksum per l'integrità dei dati
         checksum = 0;
         for (int i = 0; i < DATA_SIZE; i++) {
             checksum += data[i];
         }
 
-        //  Risultato Finale:
+       
         // Se l'ordinamento è corretto, la somma di 1..16 è 136 (0x88)
         if (checksum == 136) {
             // Successo: Lampeggia tutti i LED 3 volte

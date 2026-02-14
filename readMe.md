@@ -4,12 +4,11 @@
 The core implements a classic IF–ID–EX–MEM–WB pipeline, supports 37 instructions of the RV32I ISA( excluding for now EBREAK, ECALL and FENCE) and communicates with instruction/data memory and peripherals through the Open Bus Interface (OBI).
 
 In the design have been implemented the forwarding unit and the hazard detection unit. 
-Considering an always 'ready' single cycle access memory the pipe is stalled only for load or store instructions, which require at least two cycles to conclude, depending on the speed of the memory and during a load word hazard, where the pipe is stalled for one cycle.
+Considering an always 'ready' single cycle access memory the pipe is stalled only for load or store instructions, which require at least two cycles to conclude, depending on the speed of the memory and during a load hazard, where the pipe is stalled for one cycle.
 
 The design has been synthesized and tested on FPGA at 90 MHz, passing official riscv-tests and custom stress tests targeting pipeline hazards and OBI transactions.
 
 GPIO (LEDs) and UART peripherals are integrated in the microprocessor architecture for on-board validation and runtime debugging.
-
 
 ## OBI protocol:
 The core doesn't make any assumptions on how many cycles the memory will take to respond and interfaces with it with he following signals.

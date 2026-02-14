@@ -69,7 +69,7 @@ begin
         end if;
     end process;
 
-    -- Collegamento uscite
+    --Outputs
     o_ctr_rf_write_wb    <= r_RegisterWrite             ;
     o_ctr_lui_wb         <= r_CTR_LUI_mux               ;
     o_ctr_jal_wb         <= r_CTR_JAL_muxtoRF           ;

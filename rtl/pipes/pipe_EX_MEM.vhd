@@ -53,7 +53,7 @@ end entity;
 
 architecture rtl of pipe_EX_MEM is
 
-    -- Registri interni
+
     signal r_signed_ld    : std_logic;
     signal r_destination  : std_logic_vector(4 downto 0);
     signal r_Immediate,r_debug_instr      : std_logic_vector(31 downto 0);
@@ -117,7 +117,7 @@ begin
         end if;
     end process;
 
-    -- collegamento uscite
+
     o_ctr_signed     <= r_ctr_signed;
     o_ctr_size_dm    <= r_ctr_size_dm;
     dReg_out         <= r_destination;

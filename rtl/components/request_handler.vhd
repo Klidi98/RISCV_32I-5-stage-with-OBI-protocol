@@ -5,10 +5,10 @@ entity request_handler is
     port (
         clk       : in  std_logic;
         rst_n     : in  std_logic;
-        block_pp  : in  std_logic;   -- segnale di stall della pipeline
-        ready_i   : in  std_logic;   -- memoria pronta a ricevere
-        valid_i   : in  std_logic;   -- memoria ha risposto
-        req_o     : out std_logic    -- richiesta verso memoria
+        block_pp  : in  std_logic;   -- stalling pipeline signal (if active pipe is stalled)
+        ready_i   : in  std_logic;   -- memory ready to receive
+        valid_i   : in  std_logic;   -- memory has responded to last request
+        req_o     : out std_logic    -- request to  Instruction memory
     );
 end entity;
 
@@ -19,7 +19,7 @@ architecture rtl of request_handler is
 begin
 
     --------------------------------------------------------------------
-    -- Stato e uscita combinazionale (Mealy)
+    --  (Mealy) FSM
     --------------------------------------------------------------------
     process(state, ready_i, valid_i,block_pp)
     begin
@@ -64,9 +64,7 @@ begin
         end case;
     end process;
 
-    --------------------------------------------------------------------
-    -- Registro di stato
-    --------------------------------------------------------------------
+
     process(clk, rst_n)
     begin
         if rst_n = '0' then

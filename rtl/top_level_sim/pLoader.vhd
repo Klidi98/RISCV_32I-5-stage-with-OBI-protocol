@@ -22,7 +22,7 @@ entity pLoader is
         valid_im        : in  std_logic;                               	-- signals that the writing of the previous request has been completed.
         valid_dm        : in  std_logic;
  	
-	we_dm,we_im     : out  std_logic;                            	-- write enable signal for memory
+	    we_dm,we_im     : out  std_logic;                            	-- write enable signal for memory
         request_dm      : out  std_logic;
         request_im      : out  std_logic;
         
@@ -214,16 +214,6 @@ architecture rtl of pLoader is
         end case;
     end process;
 
---process( clk,rst_n  )
---begin
---    if rst_n = '0' then
---        cnt_dm <= 0;
---    elsif rising_edge(clk) then
---        if valid_dm = '1' then
---            cnt_dm <= cnt_dm + 1;
---        end if;
---    end if;
---end process;
 
 data_out <= data_in;
 
