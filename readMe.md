@@ -53,6 +53,7 @@ The protocol supports **back-to-back transactions** and achieves maximum through
   - OBI latency variation
   - back-to-back memory transactions
 - Full simulation environment with program loader for instruction and data memory
+- Video demonstration on FPGA.
 
 ---
 

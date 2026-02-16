@@ -1,0 +1,34 @@
+{signal: 
+ [
+  {name: 'Description ' , wave: '6...............',data: ['Fetching during memory alwyays ready and single cycle access.']},
+  {name: 'CLK', wave: 'P.......',"period": 2 },
+   {name: 'rst_n', wave: '01..............'},
+  {name: 'PC',  	wave: 'x3..3.3.3.3.3.3.', data: ['0x40000', '0x40004', '0x40008', '0x4000C','0x40010','0x40014','0x40018']},
+
+ // {name: 'PC_en', 	wave: '0.1.0...1.0..1.0'},
+  {name: 'state', 	wave: '2.4.5...........', data: ['idle', 'start_req', 'ISSUE_NEXT','start_req','ISSUE_NEXT'], node: '..0.1'},
+    
+  {name: 'request', wave: '0.1.1...........', phase: -0.20, node: '..a..'},
+  {name: 'ready_im', wave: 'x1..............', phase: -0.20, node: '...b'},
+   
+
+ 
+
+  //{name: 'ready_im', wave: '1...............', },
+  {name: 'valid_im', wave: '0...1...........', node: '.........'},
+  {name: 'Instruction', wave: 'xxxx2.2.2.2.2.2.',data:['I0','I1','I2','I3','I4','I5']},
+   
+    {},
+   
+0
+],
+         edge: [
+     's-~>b',
+    'b~>1', '5~>2', 'q-~>c', '6->b', '0->a','3->c','r->d','t-~>e','z-~>g','6-~>7','y~>h'
+  ],
+ config: {hscale: 2},
+  "head": {
+    "text": "Instruction Fetch OBI: Burst access",
+
+  },}
+
