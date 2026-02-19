@@ -1,4 +1,5 @@
 # Simplified Block Diagram of the RISCV32I OBI core
+![block_diagram_core](https://github.com/user-attachments/assets/00795e23-3cb1-46f4-9652-b950137643aa)
 
 The block diagram illustrates the five-stage pipeline, with stages separated by dedicated pipeline registers.
 
