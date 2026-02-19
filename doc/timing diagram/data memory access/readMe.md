@@ -5,19 +5,15 @@ Memory Access FSM Logic
 
 During a memory access instruction (Load or Store), the Control Unit asserts the data memory request signal (ctr_request). The FSM manages the transaction and pipeline flow as follows:
 
-    State Transition (IDLE → W_VALID): When ctr_request is sampled high alongside the ready signal (indicating the Memory is prepared to accept the request), the FSM transitions from the IDLE state to the W_VALID (Wait Valid) state. This allows for the request_dm signal to be high exactly one cycle for access.
+State Transition (IDLE → W_VALID): When ctr_request is sampled high alongside the ready signal (indicating the Memory is prepared to accept the request), the FSM transitions from the IDLE state to the W_VALID (Wait Valid) state. This allows for the request_dm signal to be high exactly one cycle for access.
+Pipeline Stall: While in the W_VALID state,  the pipeline is stalled. The system waits for the valid signal from the Data Memory (DM).
 
-    Pipeline Stall: While in the W_VALID state,  the pipeline is stalled. The system waits for the valid signal from the Data Memory (DM).
+Transaction Completion: The valid signal indicates that the requested data has been successfully loaded or stored. Upon receiving valid:
 
-    Transaction Completion: The valid signal indicates that the requested data has been successfully loaded or stored. Upon receiving valid:
+    The pipeline stall is deasserted.
+    The FSM returns to the IDLE state.
+    The next instruction is sampled, and the pipeline resumes normal operation.
 
-        The pipeline stall is deasserted.
-
-        The FSM returns to the IDLE state.
-
-        The next instruction is sampled, and the pipeline resumes normal operation.
-
-Timing Diagram Analysis: I4 and I5
 
 The timing diagram illustrates two subsequent memory access instructions, I4 and I5:
 
