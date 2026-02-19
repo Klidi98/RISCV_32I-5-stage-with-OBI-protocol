@@ -35,6 +35,7 @@ Pipeline stalls can generate two different behaviors in the fetcher, depending o
 - **START_REQ**:  
   If a stall is asserted in this state, the request signal is forced low and remains deasserted until the stall condition is released. No new memory requests are issued during this phase.
 - **ISSUE_NEXT**:  
-  If a stall occurs in this state while a valid response is received from memory, the FSM transitions back to **START_REQ**.  
-  This prevents continuous request generation and ensures proper synchronization with the stalled pipeline stages.
+  If a stall occurs in this state while a valid response is received from memory, the FSM transitions back to **START_REQ**, to wait for the stall signal to end and restart a new request.
+  Since the pipe is stalled a new instruction coming from previous requests cannot be sampled, so it's saved in a buffer, which will be immediatly sampled once the pipe restarts.
+
 
