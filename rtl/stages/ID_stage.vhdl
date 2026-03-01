@@ -21,7 +21,9 @@ entity id_stage is
         o_opcode                : out std_logic_vector(6 downto 0);
         
         i_stall                 : in std_logic;     -- stall signals that follows NOP instruction
-        i_instr_valid           : in std_logic;     -- valid signal from IF_ID pipeline register
+        i_instr_valid           : in std_logic;     -- valid signal comign from IF_ID pipeline register indicating a valid instructrion fetched
+        o_instr_valid           : out std_logic;    -- indicates valid propagation signal through the pipeline.
+                                                     
 --control unit signals output
         o_ctr_U_UJ_I            : out std_logic;
         o_ctr_write_rf          : out std_logic;
@@ -102,6 +104,7 @@ begin
     w_funct3    <=  i_instruction(14 downto 12);
     w_funct7    <=  i_instruction(31 downto 25);
 
+    o_instr_valid <= not(w_sel_cu);
 
 --if there is a stall codmnition from HDU also the dest. register has to be resetted in order to avoid stalling the pipe for more than 1 cycle.
 process(w_sel_cu, w_opcode)

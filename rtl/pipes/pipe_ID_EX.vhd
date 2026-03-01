@@ -1,3 +1,6 @@
+--* Pipe ID/EX: pipeline register between ID and EX stages
+--* Adding instr_valid. 21/02/2026 -K.K.
+
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -9,6 +12,7 @@ entity pipe_ID_EX is
         enable              : in  std_logic;
         flusher             : in  std_logic;
  -- Inputs*******************************************************
+        i_instr_valid       : in std_logic;
         i_debug_instr       : in  std_logic_vector(31 downto 0);
         i_current_pc        : in  std_logic_vector(31 downto 0);
         i_past_pc           : in  std_logic_vector(31 downto 0);
@@ -35,6 +39,7 @@ entity pipe_ID_EX is
         i_Immediate         : in std_logic_vector(31 downto 0);
         i_ctr_alu_op        : in std_logic_vector(2 downto 0);
 -- Outputs**********************************************************
+        o_instr_valid       : out std_logic;
         o_debug_instr       : out  std_logic_vector(31 downto 0);
 	    o_opcode            : out std_logic_vector( 6 downto 0);
         o_current_pc        : out std_logic_vector(31 downto 0);
@@ -76,7 +81,7 @@ architecture rtl of pipe_ID_EX is
     signal r_ALUsrc1, r_ALUsrc2, r_addsub                       : std_logic;
     signal r_alu_op                                             : std_logic_vector(2 downto 0);
     signal r_CTR_branch, r_MemWrite, r_CTR_signed               : std_logic;
-    signal r_CTR_jalr, r_CTR_LUI,r_ctr_req_dm                   : std_logic;
+    signal r_CTR_jalr, r_CTR_LUI,r_ctr_req_dm,r_instr_valid     : std_logic;
     signal r_CTR_JAL, r_forward_enable ,r_ctr_U_UJ_I            : std_logic;
     signal r_ctr_comp_op                                        : std_logic_vector(1 downto 0);
     signal r_Rs1Addx, r_Rs2Addx, r_DrAddx                       : std_logic_vector(4 downto 0);
@@ -86,7 +91,7 @@ begin
     begin
         if RSTn = '0' then
             -- Reset asincrono
-            
+            r_instr_valid     <= '0';
             r_OPCODE          <= (others => '0');
             r_RegisterWrite   <= '0';
             r_CTR_branch      <= '0';
@@ -95,9 +100,11 @@ begin
             r_CTR_JAL         <= '0';
             r_ctr_req_dm      <= '0';
             r_ctr_U_UJ_I      <= '0';
+            
 
         elsif rising_edge(CLK) then
             if flusher = '1' then
+                r_instr_valid     <= '0';
                 r_RegisterWrite   <= '0';
                 r_CTR_branch      <= '0';
                 r_MemWrite        <= '0';
@@ -106,6 +113,7 @@ begin
 		        r_ctr_req_dm      <= '0';
                 r_CTR_branch      <= '0';
             elsif ENABLE = '1' then
+                r_instr_valid     <= i_instr_valid;
                 r_signed_ld       <= i_ctr_signed_ld;
                 r_ctr_comp_op     <= i_ctr_comp_op;
                 r_alu_op          <= i_ctr_alu_op;
@@ -135,7 +143,8 @@ begin
         end if;
     end process;
 
--- Outputs
+-- Outputs 
+    o_instr_valid           <= r_instr_valid;
     o_CURRENT_PC            <= r_CURRENT_PC;
     o_PAST_PC               <= r_PAST_PC;
     o_opcode                <= r_OPCODE;

@@ -163,7 +163,7 @@ end process;
 --######################################################################
 --**4kB Instruction Memory instance with program already loaded
 --######################################################################
-instruction_memory: entity work.rom_11
+instruction_memory: entity work.rom_10
     port map(
 
            clk                      =>      x_clk                     ,    

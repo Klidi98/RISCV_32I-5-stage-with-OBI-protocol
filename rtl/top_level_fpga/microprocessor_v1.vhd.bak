@@ -6,7 +6,7 @@ entity microprocessor_v1 is
     port(
         x_clk_pll                   : in    std_logic;	                   
         x_rst_n                     : in    std_logic;                          --asynchronous active low reset
-		  x_GPIO_LED_o			         : out   std_logic_vector(31 downto 0);
+		x_GPIO_LED_o			    : out   std_logic_vector(31 downto 0);
         x_UART_tx_o                 : out   std_logic
  
     );
@@ -23,10 +23,10 @@ signal w_req_im_cpu, w_req_dm_cpu, w_wren_dm_cpu                    : std_logic;
 signal w_instr_commit                                               : std_logic;
 signal gpio_LED_reg                                                 : std_logic_vector(31 downto 0) := (others => '0');
 signal gpio_UART_tx_reg                                             : std_logic_vector(23 downto 0) := (others => '0');
-signal gpio_TX_status_reg														  : std_logic_vector(7 downto 0);
+signal gpio_TX_status_reg											: std_logic_vector(7 downto 0);
 signal w_sel_gpio_LED, w_data_memory_sel,w_sel_UART_tx, w_cs_dm     : std_logic;
-signal w_sel_commit_reg,w_valid_commit_reg		            		  : std_logic := '0';
-signal w_valid_gpio_LED	,w_ready_peripherals		                    : std_logic := '0';
+signal w_sel_commit_reg,w_valid_commit_reg		            : std_logic := '0';
+signal w_valid_gpio_LED	,w_ready_peripherals		            : std_logic := '0';
 signal w_valid_uart_tx	,w_valid_peripherals		        	: std_logic := '0';
 signal w_valid_TIMER_1_reg, w_sel_TIMER_1                   		: std_logic := '0';
 signal w_byte_enable_dm_cpu										   	: std_logic_vector(3 downto 0);
@@ -93,7 +93,7 @@ core: entity work.core_riscv32i
             x_request_im_o           =>     w_req_im_cpu            ,
             x_request_dm_o           =>     w_req_dm_cpu            ,
             x_wren_dm_o              =>     w_wren_dm_cpu           ,
-			   x_byte_enable_dm		    =>     w_byte_enable_dm_cpu    ,
+			x_byte_enable_dm		 =>     w_byte_enable_dm_cpu    ,
             x_addr32_im_o            =>     w_addr_im_cpu           ,
             x_addr32_dm_o            =>     w_addr_dm_cpu
     );
@@ -104,49 +104,42 @@ core: entity work.core_riscv32i
 -- data memory              : from address 0x10010000 to 0x10011000 
 -- GPIO LEDs register       : address 0x10011000
 -- UART TX register         : address 0x10012000
--- register                 : address 0x10013000
+-- TIMER_1 register         : address 0x10013000
 -- COMMIT COUNTER register  : address 0x10014000
 
 --#######################################################################
 addr_decoder: process(all)
 begin
 
-w_sel_gpio_led     <= '0';
-w_data_memory_sel  <= '0';
-w_sel_UART_tx      <= '0';
-w_sel_TIMER_1      <= '0';
-w_sel_commit_reg   <= '0';
+w_sel_gpio_led    <= '0';
+w_data_memory_sel <= '0';
+w_sel_UART_tx     <= '0';
 w_valid_peripherals<= '0';
 w_ready_peripherals<= '0';
 w_data_to_core		<= (others =>'0');
 
-
-	 	--Timer_1 register reading selection
-    if  w_addr_dm_cpu(13) = '1' and w_addr_dm_cpu(12) = '1' then
-        w_sel_TIMER_1       <= '1';
-        w_ready_peripherals <= '1';
-        w_valid_peripherals <= w_valid_TIMER_1_reg;
-        w_data_to_core      <= Timer_1_reg;
-		  
---LED register
-   elsif  w_addr_dm_cpu(12) = '1' then
+    if w_addr_dm_cpu(12) = '1' then
         w_sel_gpio_LED   <= '1';
-		  w_valid_peripherals <= w_valid_gpio_led;
-		  w_ready_peripherals <= '1';
-	     w_data_to_core      <= gpio_LED_reg;
-		
-	
-		  
+		w_valid_peripherals <= w_valid_gpio_led;
+		w_ready_peripherals <= '1';
+		w_data_to_core      <= gpio_LED_reg;
 	elsif w_addr_dm_cpu(13) = '1' then
         w_sel_UART_tx  <= '1';
         w_valid_peripherals <= w_valid_uart_tx;
         w_ready_peripherals <= '1';
-		  w_data_to_core(31 downto 25) <= (OTHERS => '0'); 
+		w_data_to_core(31 downto 25) <= (OTHERS => '0'); 
         w_data_to_core(24) <= gpio_tx_status_reg(0);
-		  w_data_to_core(23 downto 0) <= gpio_uart_tx_reg;
+		w_data_to_core(23 downto 0) <= gpio_uart_tx_reg;
 		  
+--Timer_1 register reading selection
+    elsif w_addr_dm_cpu(13) = '1' and w_addr_dm_cpu(12) = '1' then
+        w_sel_TIMER_1       <= '1';
+        w_ready_peripherals <= '1';
+        w_valid_peripherals <= w_valid_TIMER_1_reg;
+        w_data_to_core      <= Timer_1_reg;
+
 --Commit counter register reading selection at address 0x10014000
-    elsif w_addr_dm_cpu(14)  = '1' then
+    elsif w_addr_dm_cpu(14) = '1' then
         w_sel_commit_reg    <= '1';
         w_ready_peripherals <= '1';
         w_valid_peripherals <= w_valid_commit_reg;
@@ -154,16 +147,16 @@ w_data_to_core		<= (others =>'0');
 
     else
         w_data_memory_sel   <= '1';
-	     w_valid_peripherals <= w_valid_dm;
-	     w_ready_peripherals <= w_ready_dm;
-	     w_data_to_core      <= w_dout_from_dm;
+	    w_valid_peripherals <= w_valid_dm;
+	    w_ready_peripherals <= w_ready_dm;
+	    w_data_to_core      <= w_dout_from_dm;
     end if;
 end process;
      
 --######################################################################
 --**4kB Instruction Memory instance with program already loaded
 --######################################################################
-instruction_memory: entity work.rom_11
+instruction_memory: entity work.rom_3
     port map(
 
            clk                      =>      x_clk                     ,    
@@ -183,10 +176,10 @@ data_memory: entity work.mem_fpga
     port map(
 
             clk                      =>      x_clk			            ,
-		    rst_n 				          =>      rst_n_d2		            ,
+		    rst_n 				     =>      rst_n_d2		            ,
             req                      =>      w_cs_dm	                ,
             we                       =>      w_wren_dm_cpu		        ,
-		      be	      				    =>      w_byte_enable_dm_cpu	    ,
+		    be					     =>      w_byte_enable_dm_cpu	    ,
             addr                     =>      w_addr_dm_cpu(11 downto 2) ,
             wdata                    =>      w_din_dm_cpu	            , 
             ready                    =>      w_ready_dm		            ,
@@ -207,16 +200,13 @@ begin
     if rst_n_d2 = '0' then
       gpio_LED_reg 		<= (others=> '0');
       gpio_uart_tx_reg 	<= (others=> '0');
-	   w_valid_gpio_LED 	<= '0';
+	  w_valid_gpio_LED 	<= '0';
       w_valid_uart_tx 	<= '0';
-		w_valid_TIMER_1_reg<= '0';
-		w_valid_commit_reg <= '0';
 		
     elsif rising_edge(x_clk) then
 			w_valid_gpio_LED <= '0';
 			w_valid_uart_tx  <= '0';
-         w_valid_TIMER_1_reg <= '0';
-			w_valid_commit_reg  <= '0';
+            w_valid_TIMER_1_reg <= '0';
 			
         if  (w_sel_gpio_LED = '1' and w_req_dm_cpu = '1') then
             gpio_LED_reg  <= w_din_dm_cpu;
@@ -232,7 +222,6 @@ begin
 --read only timer for committed instructions
         elsif (w_sel_commit_reg = '1' and w_req_dm_cpu = '1') then
             w_valid_commit_reg <= '1';
-				
             
         end if;
     end if;
@@ -259,13 +248,12 @@ CounterProcess:
 process(x_clk, rst_n_d2)
 begin
     if rst_n_d2 = '0' then
-        Timer_1 <= (others => '0');
-		  commit_counter<= (others => '0');
+        Timer_1 <= '0';
 
     elsif rising_edge(x_clk) then
-        Timer_1 <= Timer_1 + 1;
+        Timer_1 <= Timer_1 + '1';
         if w_instr_commit = '1' then
-            commit_counter <= commit_counter + 1; 
+            commit_counter <= commit_counter + '1'; 
         end if;
     end if;
     end process;

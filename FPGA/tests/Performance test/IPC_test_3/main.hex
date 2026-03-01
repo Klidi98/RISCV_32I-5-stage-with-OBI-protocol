@@ -1,0 +1,205 @@
+
+main:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00400000 <_start>:
+  400000:	1fc21197          	auipc	gp,0x1fc21
+  400004:	80018193          	add	gp,gp,-2048 # 20020800 <__global_pointer$>
+  400008:	0fc11117          	auipc	sp,0xfc11
+  40000c:	ff810113          	add	sp,sp,-8 # 10011000 <__stack_top>
+  400010:	00010433          	add	s0,sp,zero
+  400014:	010000ef          	jal	400024 <main>
+
+00400018 <el>:
+  400018:	0000006f          	j	400018 <el>
+  40001c:	00000013          	nop
+  400020:	00000013          	nop
+
+00400024 <main>:
+  400024:	10011137          	lui	sp,0x10011
+  400028:	00002537          	lui	a0,0x2
+  40002c:	71050513          	add	a0,a0,1808 # 2710 <_start-0x3fd8f0>
+  400030:	10013d37          	lui	s10,0x10013
+  400034:	10014db7          	lui	s11,0x10014
+  400038:	000d2403          	lw	s0,0(s10) # 10013000 <CYCLE_ADDR>
+  40003c:	000da483          	lw	s1,0(s11) # 10014000 <INST_ADDR>
+  400040:	00100393          	li	t2,1
+  400044:	00200e13          	li	t3,2
+  400048:	00300e93          	li	t4,3
+  40004c:	00400f13          	li	t5,4
+  400050:	00500f93          	li	t6,5
+
+00400054 <benchmark_loop>:
+  400054:	01c383b3          	add	t2,t2,t3
+  400058:	01de0e33          	add	t3,t3,t4
+  40005c:	01ee8eb3          	add	t4,t4,t5
+  400060:	01ff0f33          	add	t5,t5,t6
+  400064:	007f8fb3          	add	t6,t6,t2
+  400068:	01c383b3          	add	t2,t2,t3
+  40006c:	01de0e33          	add	t3,t3,t4
+  400070:	01ee8eb3          	add	t4,t4,t5
+  400074:	01ff0f33          	add	t5,t5,t6
+  400078:	007f8fb3          	add	t6,t6,t2
+  40007c:	01c383b3          	add	t2,t2,t3
+  400080:	01de0e33          	add	t3,t3,t4
+  400084:	01ee8eb3          	add	t4,t4,t5
+  400088:	01ff0f33          	add	t5,t5,t6
+  40008c:	007f8fb3          	add	t6,t6,t2
+  400090:	01c383b3          	add	t2,t2,t3
+  400094:	01de0e33          	add	t3,t3,t4
+  400098:	01ee8eb3          	add	t4,t4,t5
+  40009c:	01ff0f33          	add	t5,t5,t6
+  4000a0:	007f8fb3          	add	t6,t6,t2
+  4000a4:	01c383b3          	add	t2,t2,t3
+  4000a8:	01de0e33          	add	t3,t3,t4
+  4000ac:	01ee8eb3          	add	t4,t4,t5
+  4000b0:	01ff0f33          	add	t5,t5,t6
+  4000b4:	007f8fb3          	add	t6,t6,t2
+  4000b8:	01c383b3          	add	t2,t2,t3
+  4000bc:	01de0e33          	add	t3,t3,t4
+  4000c0:	01ee8eb3          	add	t4,t4,t5
+  4000c4:	01ff0f33          	add	t5,t5,t6
+  4000c8:	007f8fb3          	add	t6,t6,t2
+  4000cc:	01c383b3          	add	t2,t2,t3
+  4000d0:	01de0e33          	add	t3,t3,t4
+  4000d4:	01ee8eb3          	add	t4,t4,t5
+  4000d8:	01ff0f33          	add	t5,t5,t6
+  4000dc:	007f8fb3          	add	t6,t6,t2
+  4000e0:	01c383b3          	add	t2,t2,t3
+  4000e4:	01de0e33          	add	t3,t3,t4
+  4000e8:	01ee8eb3          	add	t4,t4,t5
+  4000ec:	01ff0f33          	add	t5,t5,t6
+  4000f0:	007f8fb3          	add	t6,t6,t2
+  4000f4:	01c383b3          	add	t2,t2,t3
+  4000f8:	01de0e33          	add	t3,t3,t4
+  4000fc:	01ee8eb3          	add	t4,t4,t5
+  400100:	01ff0f33          	add	t5,t5,t6
+  400104:	007f8fb3          	add	t6,t6,t2
+  400108:	01c383b3          	add	t2,t2,t3
+  40010c:	01de0e33          	add	t3,t3,t4
+  400110:	01ee8eb3          	add	t4,t4,t5
+  400114:	01ff0f33          	add	t5,t5,t6
+  400118:	007f8fb3          	add	t6,t6,t2
+  40011c:	01c383b3          	add	t2,t2,t3
+  400120:	01de0e33          	add	t3,t3,t4
+  400124:	01ee8eb3          	add	t4,t4,t5
+  400128:	01ff0f33          	add	t5,t5,t6
+  40012c:	007f8fb3          	add	t6,t6,t2
+  400130:	01c383b3          	add	t2,t2,t3
+  400134:	01de0e33          	add	t3,t3,t4
+  400138:	01ee8eb3          	add	t4,t4,t5
+  40013c:	01ff0f33          	add	t5,t5,t6
+  400140:	007f8fb3          	add	t6,t6,t2
+  400144:	01c383b3          	add	t2,t2,t3
+  400148:	01de0e33          	add	t3,t3,t4
+  40014c:	01ee8eb3          	add	t4,t4,t5
+  400150:	01ff0f33          	add	t5,t5,t6
+  400154:	007f8fb3          	add	t6,t6,t2
+  400158:	01c383b3          	add	t2,t2,t3
+  40015c:	01de0e33          	add	t3,t3,t4
+  400160:	01ee8eb3          	add	t4,t4,t5
+  400164:	01ff0f33          	add	t5,t5,t6
+  400168:	007f8fb3          	add	t6,t6,t2
+  40016c:	01c383b3          	add	t2,t2,t3
+  400170:	01de0e33          	add	t3,t3,t4
+  400174:	01ee8eb3          	add	t4,t4,t5
+  400178:	01ff0f33          	add	t5,t5,t6
+  40017c:	007f8fb3          	add	t6,t6,t2
+  400180:	01c383b3          	add	t2,t2,t3
+  400184:	01de0e33          	add	t3,t3,t4
+  400188:	01ee8eb3          	add	t4,t4,t5
+  40018c:	01ff0f33          	add	t5,t5,t6
+  400190:	007f8fb3          	add	t6,t6,t2
+  400194:	01c383b3          	add	t2,t2,t3
+  400198:	01de0e33          	add	t3,t3,t4
+  40019c:	01ee8eb3          	add	t4,t4,t5
+  4001a0:	01ff0f33          	add	t5,t5,t6
+  4001a4:	007f8fb3          	add	t6,t6,t2
+  4001a8:	01c383b3          	add	t2,t2,t3
+  4001ac:	01de0e33          	add	t3,t3,t4
+  4001b0:	01ee8eb3          	add	t4,t4,t5
+  4001b4:	01ff0f33          	add	t5,t5,t6
+  4001b8:	007f8fb3          	add	t6,t6,t2
+  4001bc:	01c383b3          	add	t2,t2,t3
+  4001c0:	01de0e33          	add	t3,t3,t4
+  4001c4:	01ee8eb3          	add	t4,t4,t5
+  4001c8:	01ff0f33          	add	t5,t5,t6
+  4001cc:	007f8fb3          	add	t6,t6,t2
+  4001d0:	01c383b3          	add	t2,t2,t3
+  4001d4:	01de0e33          	add	t3,t3,t4
+  4001d8:	01ee8eb3          	add	t4,t4,t5
+  4001dc:	01ff0f33          	add	t5,t5,t6
+  4001e0:	007f8fb3          	add	t6,t6,t2
+  4001e4:	fff50513          	add	a0,a0,-1
+  4001e8:	e60516e3          	bnez	a0,400054 <benchmark_loop>
+  4001ec:	000d2903          	lw	s2,0(s10)
+  4001f0:	000da983          	lw	s3,0(s11)
+  4001f4:	40890933          	sub	s2,s2,s0
+  4001f8:	409989b3          	sub	s3,s3,s1
+  4001fc:	04300513          	li	a0,67
+  400200:	044000ef          	jal	400244 <uart_putc>
+  400204:	03a00513          	li	a0,58
+  400208:	03c000ef          	jal	400244 <uart_putc>
+  40020c:	00090513          	mv	a0,s2
+  400210:	05c000ef          	jal	40026c <uart_put_hex>
+  400214:	00a00513          	li	a0,10
+  400218:	02c000ef          	jal	400244 <uart_putc>
+  40021c:	04900513          	li	a0,73
+  400220:	024000ef          	jal	400244 <uart_putc>
+  400224:	03a00513          	li	a0,58
+  400228:	01c000ef          	jal	400244 <uart_putc>
+  40022c:	00098513          	mv	a0,s3
+  400230:	03c000ef          	jal	40026c <uart_put_hex>
+  400234:	100112b7          	lui	t0,0x10011
+  400238:	00100313          	li	t1,1
+  40023c:	0062a023          	sw	t1,0(t0) # 10011000 <__stack_top>
+
+00400240 <loop_forever>:
+  400240:	0000006f          	j	400240 <loop_forever>
+
+00400244 <uart_putc>:
+  400244:	100125b7          	lui	a1,0x10012
+
+00400248 <wait_busy>:
+  400248:	0005a603          	lw	a2,0(a1) # 10012000 <UART_REG>
+  40024c:	010006b7          	lui	a3,0x1000
+  400250:	00d67633          	and	a2,a2,a3
+  400254:	fe061ae3          	bnez	a2,400248 <wait_busy>
+  400258:	10000693          	li	a3,256
+  40025c:	00d56633          	or	a2,a0,a3
+  400260:	00c5a023          	sw	a2,0(a1)
+  400264:	00a5a023          	sw	a0,0(a1)
+  400268:	00008067          	ret
+
+0040026c <uart_put_hex>:
+  40026c:	fe010113          	add	sp,sp,-32 # 10010fe0 <__bss_start+0xfe0>
+  400270:	00112e23          	sw	ra,28(sp)
+  400274:	00812c23          	sw	s0,24(sp)
+  400278:	00912a23          	sw	s1,20(sp)
+  40027c:	00050413          	mv	s0,a0
+  400280:	00700493          	li	s1,7
+
+00400284 <hex_loop>:
+  400284:	00249713          	sll	a4,s1,0x2
+  400288:	00e45533          	srl	a0,s0,a4
+  40028c:	00f57513          	and	a0,a0,15
+  400290:	00a00793          	li	a5,10
+  400294:	00f54663          	blt	a0,a5,4002a0 <low_digit>
+  400298:	03750513          	add	a0,a0,55
+  40029c:	0080006f          	j	4002a4 <print_digit>
+
+004002a0 <low_digit>:
+  4002a0:	03050513          	add	a0,a0,48
+
+004002a4 <print_digit>:
+  4002a4:	fa1ff0ef          	jal	400244 <uart_putc>
+  4002a8:	fff48493          	add	s1,s1,-1
+  4002ac:	fff00793          	li	a5,-1
+  4002b0:	fcf49ae3          	bne	s1,a5,400284 <hex_loop>
+  4002b4:	01412483          	lw	s1,20(sp)
+  4002b8:	01812403          	lw	s0,24(sp)
+  4002bc:	01c12083          	lw	ra,28(sp)
+  4002c0:	02010113          	add	sp,sp,32
+  4002c4:	00008067          	ret

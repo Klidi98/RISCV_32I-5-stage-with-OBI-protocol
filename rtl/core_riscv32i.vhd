@@ -10,6 +10,7 @@
 --   The design includes an asynchronous global reset. Pipeline registers
 --   support both asynchronous reset and synchronous flush mechanisms; for
 --   synthesis simplicity, only control-unit driven signals are reset.
+
 --=============================================================================
 
 
@@ -23,19 +24,21 @@ entity core_riscv32i is
         x_i_rst_n                   : in    std_logic;                         -- asynchronous reset (active low)
         x_i_clk                     : in    std_logic;                         -- input clock
 
-        x_instr_32_i                : in    std_logic_vector(31 downto 0);     --instruction fetched from IM
-        x_data_32_i                 : in    std_logic_vector(31 downto 0);     --data coming from data memory to cpu (reading from cpu)
+        
+        x_instr_32_i                : in    std_logic_vector(31 downto 0);     -- instruction fetched from IM
+        x_data_32_i                 : in    std_logic_vector(31 downto 0);     -- data coming from data memory to cpu (reading from cpu)
 
-        x_data_32_o                 : out   std_logic_vector(31 downto 0);     --data to be written in memory (writing memory)
+        x_data_32_o                 : out   std_logic_vector(31 downto 0);     -- data to be written in memory (writing memory)
 
-        x_ready_im_i                : in    std_logic;                         --ready signal coming from Instruction Memory (OBI protocol)
-        x_ready_dm_i                : in    std_logic;                         --ready signal coming from Data Memory (OBI protocol)
-        x_valid_im_i                : in    std_logic;                         --valid coming from IM (OBI).
-        x_valid_dm_i                : in    std_logic;                         --valid coming from DM (OBI).
+        x_ready_im_i                : in    std_logic;                         -- ready signal coming from Instruction Memory (OBI protocol)
+        x_ready_dm_i                : in    std_logic;                         -- ready signal coming from Data Memory (OBI protocol)
+        x_valid_im_i                : in    std_logic;                         -- valid coming from IM (OBI).
+        x_valid_dm_i                : in    std_logic;                         -- valid coming from DM (OBI).
 
-        x_request_im_o              : out   std_logic;                         --request signal to Instruction Memory (OBI protocol)
-        x_request_dm_o              : out   std_logic;                         --request signal to Data Memory (OBI protocol)
-        x_wren_dm_o                 : out   std_logic;                         --write enable signal to Data Memory
+        x_instr_commit_o            : out   std_logic;                         -- signal that indicates if a valid instruction commited. Useful for debugging and performance measurement (e.g., counting valid instructions per cycle)     
+        x_request_im_o              : out   std_logic;                         -- request signal to Instruction Memory (OBI protocol)
+        x_request_dm_o              : out   std_logic;                         -- request signal to Data Memory (OBI protocol)
+        x_wren_dm_o                 : out   std_logic;                         -- write enable signal to Data Memory
         x_byte_enable_dm            : out   std_logic_vector(3 downto 0);      -- byte enable signal to Data Memory
         x_addr32_im_o               : out   std_logic_vector(31 downto 0);     -- address signal to Instruction Memory 
         x_addr32_dm_o               : out   std_logic_vector(31 downto 0)      -- address signal to Data Memory
@@ -142,7 +145,10 @@ signal       w_rs2_fw_exe               :   std_logic_vector(31 downto 0);
 signal       w_forward_enable_id		:   std_logic;
 signal       w_flush_pipe               :   std_logic;
 signal       w_instr_valid_id           :   std_logic;
-
+signal       w_instr_valid_ex           :   std_logic;
+signal       w_instr_valid_mem          :   std_logic;
+signal       w_instr_valid_wb           :   std_logic;
+signal       w_valid_ins_id             :   std_logic;
 
 signal       w_pp_if_id_enable          :   std_logic;
 signal       w_instr_valid_if           :   std_logic;
@@ -190,13 +196,17 @@ w_enable_pp_mem     <=  w_pc_enable when w_jump_taken = '1' else stall_pipe;
 w_flush_mem_pipe    <=  w_jump_taken AND w_pc_enable;
 
 
-
+--* Pipe IF_ID for instr_valid signal
+--* instr_valid_id chooses in ID stage if instruction fetched from IF stage is valid or not, by choosing the output of 
+--* the contorl unit or a NOP operation.
 Valid_sampling: process(x_i_clk, x_i_rst_n)
 begin
     if x_i_rst_n = '0' then
         w_instr_valid_id <= '0';
     elsif rising_edge(x_i_clk) then
-        if stall_pipe = '1' and w_stall_hdu = '0' then
+        if w_flush_pipe = '1' then
+            w_instr_valid_id <= '0';
+        elsif stall_pipe = '1' and w_stall_hdu = '0' then
             w_instr_valid_id  <= w_instr_valid_if;
         end if;
     end if;
@@ -254,6 +264,7 @@ ID_STAGE: entity work.ID_stage
             i_ctr_write_rf          =>  w_ctr_write_rf_wb       ,
             i_instr_valid           =>  w_instr_valid_id        ,
             i_stall                 =>  w_stall_hdu             ,
+            o_instr_valid           =>  w_valid_ins_id          ,
             o_opcode                =>  w_opcode_id             ,
             o_ctr_U_UJ_I            =>  w_ctr_U_UJ_I_id         ,
             o_ctr_write_rf          =>  w_ctr_write_rf_id       ,
@@ -287,8 +298,9 @@ ID_EX_PP : entity work.pipe_ID_EX
              rstn                   =>  x_i_rst_n               ,
              enable                 =>  stall_pipe              ,
              flusher                =>   w_flush_pipe           ,  
--- Inputs        
-	         i_ctr_addsub           =>  w_ctr_addsub_id		    ,
+-- Inputs________________________________________________________        
+             i_instr_valid          =>  w_valid_ins_id          ,
+	     i_ctr_addsub           =>  w_ctr_addsub_id		        ,
              i_ctr_alu_op           =>  w_ctr_alu_op_id         ,
              i_debug_instr          =>  w_fetched_instr_id      , 
              i_CURRENT_PC           =>  w_current_pc_id         ,
@@ -313,7 +325,8 @@ ID_EX_PP : entity work.pipe_ID_EX
              i_Reg1                 =>  w_rf_reg1_id            ,
              i_Reg2                 =>  w_rf_reg2_id            ,
              i_Immediate            =>  w_immediate_id          ,
--- Outputs   
+-- Outputs______________________________________________________   
+             o_instr_valid          =>  w_instr_valid_ex        ,
              o_CURRENT_PC           =>  w_current_pc_ex         ,
              o_PAST_PC              =>  w_prev_pc_ex            ,
              o_rf_write             =>  w_ctr_write_rf_ex       ,
@@ -378,8 +391,10 @@ EX_MEM_PP: entity work.pipe_EX_MEM
             clk                 =>  x_i_clk                 ,
             rstn                =>  x_i_rst_n               ,
             enable              =>  w_enable_pp_mem         ,                       
-            flusher             =>  w_flush_mem_pipe        ,--w_flush_mem_pipe        ,                   
+            flusher             =>  w_flush_mem_pipe        ,--w_flush_mem_pipe        ,    
+-- inputs _________________________________________________               
             i_debug_instr       =>  w_instr_ex              ,        
+            i_instr_valid       =>  w_instr_valid_ex        ,
             dReg_in             =>  w_rf_dreg_ex            ,
             i_Immediate         =>  w_immediate_ex          ,
             ALUres_in           =>  w_alu_res_ex            ,
@@ -397,7 +412,8 @@ EX_MEM_PP: entity work.pipe_EX_MEM
             i_CTR_RFwrite       =>  w_ctr_write_rf_ex       ,
             i_ctr_signed_ld     =>  w_ctr_signed_ld_ex      ,
             i_ctr_size_dm       =>  w_ctr_comp_op_ex        , 
--- outputs __________________________________________________           
+-- outputs __________________________________________________ 
+            o_instr_valid       =>  w_instr_valid_mem       ,
             o_request_dm        =>  w_ctr_req_dm_mem        ,
             o_wren_dm           =>  w_ctr_wren_mem          ,
             o_Immediate         =>  w_immediate_mem         ,
@@ -446,7 +462,7 @@ MEM_STAGE:  entity work.mem_stage
             dm_addx_o           =>  addr_dm 
         );
 
---pipe memory stage to write back stage
+--pipe for memory stage to write back stage
 MEM_WB_PP:    entity work.pipe_mem_wb
         port map(
             clk                 => x_i_clk                ,  
@@ -454,6 +470,7 @@ MEM_WB_PP:    entity work.pipe_mem_wb
             enable              => stall_pipe             ,      
 -- Inputs_________________________________________________  
             i_debug_instr       => w_instr_mem            ,
+            i_instr_valid       => w_instr_valid_mem      ,
             i_ctr_rf_write_mem  => w_ctr_write_rf_mem     ,
             i_ctr_lui_mem       => w_ctr_lui_mem          ,
             i_ctr_jal_mem       => w_ctr_jal_mem          ,   
@@ -461,7 +478,8 @@ MEM_WB_PP:    entity work.pipe_mem_wb
             i_data_dm_mem       => w_dout_dm_mem          ,
             i_immediate_mem     => w_immediate_mem        ,       
             i_dr_mem            => w_dreg_mem             ,       
--- outputs_________________________________________________          
+-- outputs_________________________________________________  
+            o_instr_valid       => w_instr_valid_wb       ,
             o_ctr_rf_write_wb   => w_ctr_write_rf_wb      ,       
             o_ctr_lui_wb        => w_ctr_lui_wb           ,       
             o_ctr_jal_wb        => w_ctr_jal_wb           ,       
@@ -545,6 +563,11 @@ PIPE_FLUSHER : entity work.pipe_flusher
 
 --**********OUTPUTS ASSIGNMENTS**********--
 
+--* The instruction commit signal is asserted when a valid instruction
+-- reaches the write-back stage and the pipeline is not stalled, indicating 
+-- that an instruction has successfully completed its execution and updated the architectural state.
+    x_instr_commit_O    <= w_instr_valid_wb and stall_pipe;
+    
     x_addr32_im_o       <= w_current_pc_if  ;        
     x_addr32_dm_o       <= addr_dm          ;
 

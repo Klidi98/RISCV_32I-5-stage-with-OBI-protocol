@@ -10,10 +10,13 @@ Timing analysis shows that the critical path is located along the expected datap
 from the Write-Back stage, through the forwarding unit, into the ALU, and up to the EX/MEM pipeline register.
 
 Multiple validation tests have been executed on the FPGA(located in fpga/tests), using both LEDs and UART output to observe correct behaviour.
-These tests include directed programs and small application-level workloads and are documented in the corresponding folders, together with: source code, execution descriptions, and short videos  or screenshots demonstrating the FPGA result .
+These tests include directed programs and small application-level workloads and are documented in the corresponding folders, together with: source code, execution descriptions, and short videos  or screenshots demonstrating the FPGA result.
 
 Microprocessor_v1 is the top level in which the core has been integrated in order to use the Tx Uart and LEds as GPIOs for synthesis.
 Address range given to each peripheral is the sequent:
 -   Data memory : 0x10010000 to 0x10011000
 -   LED register: 0x10010000 -> 4 bytes -> only 8 bits used since 8 LEDs available
--   UART Tx Register: 0x10012000 -> 4 bytes --> 8 bits of data, 1 of 'wr_en', 1 of busy/ready
+-   UART Tx Register: 0x10012000 -> 4 bytes --> 8 bits of data, 1 of 'wr_en', 1
+of busy/ready
+-   Cycle counter : 0x10013000 -> 32 bit counter clock cycles.
+-   Retired Instruction counter -> 32 bit counter commited instructions

@@ -39,7 +39,7 @@ tests = [
     "xor"   ,
     "xori"
 ]
-tb_name = "work.tb_microprocessor"
+tb_name = "../../sim/work.tb_microprocessor"
 results = {}
 
 def run_command(cmd):

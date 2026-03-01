@@ -10,6 +10,7 @@ entity pipe_EX_MEM is
         flusher : in  std_logic;
 
         -- ingressi
+        i_instr_valid   : in  std_logic;
         i_debug_instr   : in  std_logic_vector(31 downto 0);
         dReg_in         : in  std_logic_vector(4 downto 0);
         i_Immediate     : in  std_logic_vector(31 downto 0);
@@ -30,6 +31,7 @@ entity pipe_EX_MEM is
         i_pc_current    : in  std_logic_vector(31 downto 0);
 
         -- uscite
+        o_instr_valid   : out  std_logic;
         o_debug_instr   : out  std_logic_vector(31 downto 0);
         o_request_dm    : out std_logic;
         o_wren_dm       : out std_logic;
@@ -71,12 +73,14 @@ architecture rtl of pipe_EX_MEM is
     signal r_request_dm   : std_logic;
     signal r_ctr_signed   : std_logic;
     signal r_ctr_size_dm  : std_logic_vector(1 downto 0);
+    signal r_instr_valid  : std_logic;
 
 begin
 
     process (CLK, rstn)
     begin
         if RSTN = '0' then
+            r_instr_valid  <= '0';
             r_ctr_signed   <= '0';
             r_CTR_branch   <= '0';
             r_CTR_jal_muxRF<= '0';
@@ -85,7 +89,8 @@ begin
             r_request_dm   <= '0';
         elsif rising_edge(CLK) then
             if flusher = '1' then
-             
+
+                r_instr_valid  <= '0';
                 r_CTR_branch   <= '0';
                 r_CTR_jal_muxRF<= '0';
                 r_CTR_JALR     <= '0';
@@ -95,6 +100,7 @@ begin
                 r_destination  <= (others => '0');
 
             elsif enable = '1' then
+                r_instr_valid  <= i_instr_valid;
                 r_signed_ld    <= i_ctr_signed_ld;
                 r_destination  <= dReg_in;
                 r_Immediate    <= i_Immediate;
@@ -117,7 +123,7 @@ begin
         end if;
     end process;
 
-
+    o_instr_valid    <= r_instr_valid;
     o_ctr_signed     <= r_ctr_signed;
     o_ctr_size_dm    <= r_ctr_size_dm;
     dReg_out         <= r_destination;
@@ -136,5 +142,6 @@ begin
     o_debug_instr    <= r_debug_instr;
     o_pc_current     <= r_PC_plus_4;  
     o_ctr_signed_ld  <= r_signed_ld;
+    
 end architecture;
 

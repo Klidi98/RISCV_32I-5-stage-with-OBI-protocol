@@ -28,7 +28,7 @@ Assuming a single-cycle always-ready memory:
 ---
 
 ## 🔗 OBI Protocol Overview
-
+ 
 The core does not assume any fixed memory latency and interfaces with memory using the **Open Bus Interface (OBI)** handshake protocol.  
 The protocol supports **back-to-back transactions** and achieves maximum throughput when `ready` and `valid` are continuously asserted.
 
@@ -41,7 +41,7 @@ The protocol supports **back-to-back transactions** and achieves maximum through
 ### Memory → Core signals
 - `mem_rdy`: Indicates the request has been accepted; address/data may change next cycle
 - `rdata`: Read data, valid only when `valid` is high
-- `valid`: Signals completion of read/write transaction; for reads, `rdata` is valid when `valid=1`
+- `valid`: Signals completion of read/write transac b tion; for reads, `rdata` is valid when `valid=1`
 
 ---
 
@@ -53,6 +53,7 @@ The protocol supports **back-to-back transactions** and achieves maximum through
   - OBI latency variation
   - back-to-back memory transactions
 - Full simulation environment with program loader for instruction and data memory
+- Performance test calculating IPC.
 - Video demonstration on FPGA.
 
 ---
@@ -60,14 +61,15 @@ The protocol supports **back-to-back transactions** and achieves maximum through
 ## 🚧 In Progress
 
 - Additional test programs
-- Implementation of remaining RV32I system instructions (`FENCE`, `ECALL`, `EBREAK`)
+- Moving branch decision in exe stage.
 
 ---
 
 ## 🧩 Planned Next Steps
 
-- Exception handling infrastructure
-- Program loader for FPGA (instruction/data memory loading at runtime)
+- Move branch decision in exe_stage
+- Implement branch prediction to increase IPC
+- Program loader for FPGA (instruction/data memory loading at runtime).
 
 
 

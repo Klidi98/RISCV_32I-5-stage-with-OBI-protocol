@@ -1,0 +1,1838 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/kabak/Desktop/official riscV/sim/sim
+Eadder
+Z1 w1762879381
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8C:/Users/kabak/Desktop/official riscV/rtl/components/adder.vhd
+Z6 FC:/Users/kabak/Desktop/official riscV/rtl/components/adder.vhd
+l0
+L5
+VeR5lnG[1K_::74kZK][LJ2
+!s100 PgSjV8KcXBzmkj00bofB70
+Z7 OV;C;10.5b;63
+32
+Z8 !s110 1772383464
+!i10b 1
+Z9 !s108 1772383464.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/components/adder.vhd|
+Z11 !s107 C:/Users/kabak/Desktop/official riscV/rtl/components/adder.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit
+Z13 tExplicit 1 CvgOpt 0
+Abehavioral
+R2
+R3
+R4
+Z14 DEx4 work 5 adder 0 22 eR5lnG[1K_::74kZK][LJ2
+l14
+L12
+VTY;kXXQ9DHg5k<<KWaZbO0
+!s100 8LXTk9Jg=YB051mVKV:[F3
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Eadder_sub
+Z15 w1763410925
+R2
+R3
+R4
+R0
+Z16 8C:/Users/kabak/Desktop/official riscV/rtl/components/adder_sub.vhd
+Z17 FC:/Users/kabak/Desktop/official riscV/rtl/components/adder_sub.vhd
+l0
+L5
+V<4ZDeLO40>Ej@Y3@3G=Ib1
+!s100 d6z8>4DDaEX>kNdS4oWVE0
+R7
+32
+R8
+!i10b 1
+R9
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/components/adder_sub.vhd|
+Z19 !s107 C:/Users/kabak/Desktop/official riscV/rtl/components/adder_sub.vhd|
+!i113 1
+R12
+R13
+Abehavioral
+R2
+R3
+R4
+Z20 DEx4 work 9 adder_sub 0 22 <4ZDeLO40>Ej@Y3@3G=Ib1
+l15
+L13
+V==Q7B8Ra<NIH44gH<^]e_0
+!s100 DiBOSIkOm1OQLPX02CD<k1
+R7
+32
+R8
+!i10b 1
+R9
+R18
+R19
+!i113 1
+R12
+R13
+Ealu
+Z21 w1767630360
+R2
+R3
+R4
+R0
+Z22 8C:/Users/kabak/Desktop/official riscV/rtl/components/alu.vhd
+Z23 FC:/Users/kabak/Desktop/official riscV/rtl/components/alu.vhd
+l0
+L5
+V<6dadL`P<zY@MSTEA8bf`3
+!s100 fbca<k]hX`0m5mLT1EO3V2
+R7
+32
+R8
+!i10b 1
+R9
+Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/components/alu.vhd|
+Z25 !s107 C:/Users/kabak/Desktop/official riscV/rtl/components/alu.vhd|
+!i113 1
+R12
+R13
+Artl
+R20
+Z26 DEx4 work 14 alu_comparator 0 22 bjk:WzlF2I`3gi;9Bc1EH2
+R2
+R3
+R4
+Z27 DEx4 work 3 alu 0 22 <6dadL`P<zY@MSTEA8bf`3
+l36
+L20
+V<@V492h`E_D3oO8m3eAbQ3
+!s100 M@R26gLU3jg;zFA08RdS`2
+R7
+32
+R8
+!i10b 1
+R9
+R24
+R25
+!i113 1
+R12
+R13
+Ealu_comparator
+Z28 w1767736124
+R2
+R3
+R4
+R0
+Z29 8C:/Users/kabak/Desktop/official riscV/rtl/components/alu_comparator.vhd
+Z30 FC:/Users/kabak/Desktop/official riscV/rtl/components/alu_comparator.vhd
+l0
+L5
+Vbjk:WzlF2I`3gi;9Bc1EH2
+!s100 >`10lE;[3L>5DkjU[J:ci1
+R7
+32
+R8
+!i10b 1
+R9
+Z31 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/components/alu_comparator.vhd|
+Z32 !s107 C:/Users/kabak/Desktop/official riscV/rtl/components/alu_comparator.vhd|
+!i113 1
+R12
+R13
+Abeh
+R2
+R3
+R4
+R26
+l20
+L15
+VHiBoR`5dU89LS8[[[YiHa1
+!s100 e95`NifoSLemATA<0<e`b3
+R7
+32
+R8
+!i10b 1
+R9
+R31
+R32
+!i113 1
+R12
+R13
+Ecomparator
+Z33 w1762879382
+R2
+R3
+R4
+R0
+Z34 8C:/Users/kabak/Desktop/official riscV/rtl/components/comparator.vhd
+Z35 FC:/Users/kabak/Desktop/official riscV/rtl/components/comparator.vhd
+l0
+L5
+V<LQXK5ZK=CTLVFiH7VjFF0
+!s100 =E;z8<0^;Q9ZGo9NU:6m61
+R7
+32
+R8
+!i10b 1
+R9
+Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/components/comparator.vhd|
+Z37 !s107 C:/Users/kabak/Desktop/official riscV/rtl/components/comparator.vhd|
+!i113 1
+R12
+R13
+Abeh
+R2
+R3
+R4
+DEx4 work 10 comparator 0 22 <LQXK5ZK=CTLVFiH7VjFF0
+l18
+L13
+VOJYZdO`0MkkK;DDhXc7H>0
+!s100 5NdWe2m^_g6S;=:Cbj4dE1
+R7
+32
+R8
+!i10b 1
+R9
+R36
+R37
+!i113 1
+R12
+R13
+Econtrolunit
+Z38 w1771074198
+R2
+R3
+R4
+R0
+Z39 8C:/Users/kabak/Desktop/official riscV/rtl/components/control_unit.vhd
+Z40 FC:/Users/kabak/Desktop/official riscV/rtl/components/control_unit.vhd
+l0
+L5
+Vic>M6]TYca8SG9E9nC9cd3
+!s100 bQCz[QAhkVQ63g8k?<l^U0
+R7
+32
+R8
+!i10b 1
+R9
+Z41 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/components/control_unit.vhd|
+Z42 !s107 C:/Users/kabak/Desktop/official riscV/rtl/components/control_unit.vhd|
+!i113 1
+R12
+R13
+Abeh
+R2
+R3
+R4
+Z43 DEx4 work 11 controlunit 0 22 ic>M6]TYca8SG9E9nC9cd3
+l78
+L36
+VIkni6>XEWMRQC@ENhL3n[0
+!s100 :1LI7>^^bm1@==KBBhH7R0
+R7
+32
+R8
+!i10b 1
+R9
+R41
+R42
+!i113 1
+R12
+R13
+Ecore_riscv32i
+Z44 w1772380036
+R2
+R3
+R4
+R0
+Z45 8C:/Users/kabak/Desktop/official riscV/rtl/core_riscv32i.vhd
+Z46 FC:/Users/kabak/Desktop/official riscV/rtl/core_riscv32i.vhd
+l0
+L21
+VZ=_KNXz1C?an8^S9@9XgD1
+!s100 >MH>e5ZSP88;b>N>nl44d2
+R7
+32
+Z47 !s110 1772383468
+!i10b 1
+Z48 !s108 1772383468.000000
+Z49 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/core_riscv32i.vhd|
+Z50 !s107 C:/Users/kabak/Desktop/official riscV/rtl/core_riscv32i.vhd|
+!i113 1
+R12
+R13
+Artl
+Z51 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z52 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z53 DEx4 work 12 pipe_flusher 0 22 YhPFCFnNV0P6_JSn63>^R1
+Z54 DEx4 work 21 hazard_detection_unit 0 22 SYGLMKdIW4c]k24^C=^1n0
+Z55 DEx4 work 14 forwardingunit 0 22 [QORilMjg6M2k;LRX5Ymf1
+Z56 DEx4 work 12 pipe_staller 0 22 fGXJ8FKLD27eT<ElJzK@12
+Z57 DEx4 work 9 writeback 0 22 TCckLc7C^CJT:b9Y:gMbY0
+Z58 DEx4 work 11 pipe_mem_wb 0 22 >hAROE3gVF4=>OY_N8c3C3
+Z59 DEx4 work 9 mem_stage 0 22 n>W594I^@g`YLm5EZbRI@3
+Z60 DEx4 work 11 pipe_ex_mem 0 22 CI?X7<nkjHX1Uk[gJYb:m1
+Z61 DEx4 work 9 exe_stage 0 22 FRLI`f]S57]?J@46cMjUh3
+Z62 DEx4 work 10 pipe_id_ex 0 22 M0ldfLOYOlcL?Dj0XMSbI0
+Z63 DEx4 work 8 id_stage 0 22 CU>d6e:oO@z3^g1Scn8@]1
+Z64 DEx4 work 10 pipe_if_id 0 22 h5gXc6ZN:^T91JIhj1oWB3
+Z65 DEx4 work 5 fetch 0 22 VGg:ZLjlYin58_nDn@]DS0
+R2
+R3
+R4
+Z66 DEx4 work 13 core_riscv32i 0 22 Z=_KNXz1C?an8^S9@9XgD1
+l172
+L49
+VSV;hC:dQH09ml_m:8GO4E1
+!s100 =kIJ3XH2`V`U@S`[KY7KK3
+R7
+32
+R47
+!i10b 1
+R48
+R49
+R50
+!i113 1
+R12
+R13
+Ecpu_handler_states
+Z67 w1767450092
+R2
+R3
+R4
+R0
+Z68 8C:/Users/kabak/Desktop/official riscV/rtl/top_level_sim/cpu_handler_states.vhd
+Z69 FC:/Users/kabak/Desktop/official riscV/rtl/top_level_sim/cpu_handler_states.vhd
+l0
+L8
+VA@6fmH7?JL1z9UU25l`BS3
+!s100 OIaIAceObOdn`:d9L;SgG3
+R7
+32
+Z70 !s110 1772383466
+!i10b 1
+Z71 !s108 1772383466.000000
+Z72 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/top_level_sim/cpu_handler_states.vhd|
+Z73 !s107 C:/Users/kabak/Desktop/official riscV/rtl/top_level_sim/cpu_handler_states.vhd|
+!i113 1
+R12
+R13
+Abeh
+R2
+R3
+R4
+Z74 DEx4 work 18 cpu_handler_states 0 22 A@6fmH7?JL1z9UU25l`BS3
+l25
+L20
+VE9Q:7W=O>Jh5Y6m]G4b^O3
+!s100 hRDOUJTz[c7YTQbIf73n53
+R7
+32
+R70
+!i10b 1
+R71
+R72
+R73
+!i113 1
+R12
+R13
+Edata_mem
+Z75 w1768554684
+R2
+R3
+R4
+R0
+Z76 8C:/Users/kabak/Desktop/official riscV/rtl/memories/data_mem.vhd
+Z77 FC:/Users/kabak/Desktop/official riscV/rtl/memories/data_mem.vhd
+l0
+L5
+V]3H[zIS1g<_N_aA_JVz0=0
+!s100 _Qhe4k<HJ9d1jh<VRGB2F3
+R7
+32
+Z78 !s110 1772383465
+!i10b 1
+Z79 !s108 1772383465.000000
+Z80 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/memories/data_mem.vhd|
+Z81 !s107 C:/Users/kabak/Desktop/official riscV/rtl/memories/data_mem.vhd|
+!i113 1
+R12
+R13
+Artl
+R2
+R3
+R4
+Z82 DEx4 work 8 data_mem 0 22 ]3H[zIS1g<_N_aA_JVz0=0
+l29
+L24
+VD?dFIm6anfiVY^38ZGFX91
+!s100 [Wg2?BN67oO<?nd]2=PkO0
+R7
+32
+R78
+!i10b 1
+R79
+R80
+R81
+!i113 1
+R12
+R13
+Eestensoresegnotipo1
+Z83 w1768077309
+R2
+R3
+R4
+R0
+Z84 8C:/Users/kabak/Desktop/official riscV/rtl/components/EstensoreSegnoTipo1.vhd
+Z85 FC:/Users/kabak/Desktop/official riscV/rtl/components/EstensoreSegnoTipo1.vhd
+l0
+L5
+VgKCKRJ2e4klV1B9Jm[=FA3
+!s100 >h4hR7ABd>`f>d:]P1Ci50
+R7
+32
+R8
+!i10b 1
+R9
+Z86 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/components/EstensoreSegnoTipo1.vhd|
+Z87 !s107 C:/Users/kabak/Desktop/official riscV/rtl/components/EstensoreSegnoTipo1.vhd|
+!i113 1
+R12
+R13
+Abeh
+R2
+R3
+R4
+DEx4 work 19 estensoresegnotipo1 0 22 gKCKRJ2e4klV1B9Jm[=FA3
+l17
+L15
+VZmhLI<Rol^m8HYF9FJNPh3
+!s100 hY1UMBW9lJT2Tg8I;QaFU1
+R7
+32
+R8
+!i10b 1
+R9
+R86
+R87
+!i113 1
+R12
+R13
+Eestensoresegnotipo2
+Z88 w1771074229
+R2
+R3
+R4
+R0
+Z89 8C:/Users/kabak/Desktop/official riscV/rtl/components/EstensoreSegnoTipo2.vhd
+Z90 FC:/Users/kabak/Desktop/official riscV/rtl/components/EstensoreSegnoTipo2.vhd
+l0
+L5
+VRd^>KjTnG@a_`7cDnGmBz0
+!s100 aOZbZ3dLkLemDSb5PP[XV0
+R7
+32
+R8
+!i10b 1
+R9
+Z91 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/components/EstensoreSegnoTipo2.vhd|
+Z92 !s107 C:/Users/kabak/Desktop/official riscV/rtl/components/EstensoreSegnoTipo2.vhd|
+!i113 1
+R12
+R13
+Abeh
+R2
+R3
+R4
+DEx4 work 19 estensoresegnotipo2 0 22 Rd^>KjTnG@a_`7cDnGmBz0
+l17
+L15
+VonU3`R_3fdTnbMVd71RQ40
+!s100 kc>jA_[nOTLck9C5b]OWQ2
+R7
+32
+R8
+!i10b 1
+R9
+R91
+R92
+!i113 1
+R12
+R13
+Eexe_stage
+Z93 w1771074683
+R3
+R4
+R0
+Z94 8C:/Users/kabak/Desktop/official riscV/rtl/stages/Exe_stage.vhd
+Z95 FC:/Users/kabak/Desktop/official riscV/rtl/stages/Exe_stage.vhd
+l0
+L8
+VFRLI`f]S57]?J@46cMjUh3
+!s100 9HbbHj@HzUE<?1lj81jYi3
+R7
+32
+R70
+!i10b 1
+R71
+Z96 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/stages/Exe_stage.vhd|
+Z97 !s107 C:/Users/kabak/Desktop/official riscV/rtl/stages/Exe_stage.vhd|
+!i113 1
+R12
+R13
+Artl
+R14
+Z98 DEx4 work 7 mux4to1 0 22 C=LmZ9[KANY<dMCbm^moQ0
+Z99 DEx4 work 7 mux2to1 0 22 eYaGB9fUeWBkAg4ES6Fl=1
+R2
+R27
+R3
+R4
+R61
+l56
+L44
+V8P?VBA=0PambWSJ`GiH]L1
+!s100 eF;L0fJlUf[4NDiP8kg=10
+R7
+32
+R70
+!i10b 1
+R71
+R96
+R97
+!i113 1
+R12
+R13
+Efetch
+Z100 w1770843059
+R2
+R3
+R4
+R0
+Z101 8C:/Users/kabak/Desktop/official riscV/rtl/stages/IF_stage.vhd
+Z102 FC:/Users/kabak/Desktop/official riscV/rtl/stages/IF_stage.vhd
+l0
+L5
+VVGg:ZLjlYin58_nDn@]DS0
+!s100 9iY9I:E6O3cCnmzk@8gjP0
+R7
+32
+R70
+!i10b 1
+R71
+Z103 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/stages/IF_stage.vhd|
+Z104 !s107 C:/Users/kabak/Desktop/official riscV/rtl/stages/IF_stage.vhd|
+!i113 1
+R12
+R13
+Artl
+R14
+R99
+Z105 DEx4 work 11 generic_reg 0 22 Q5O>mFYjKXeGm08Pgb?e=2
+R51
+R52
+Z106 DEx4 work 2 pc 0 22 ^85b5C=4Cdj;NbH29^NgF0
+Z107 DEx4 work 15 request_handler 0 22 n3Z;2dgVo03b8Yi<IQ:mz0
+R2
+R3
+R4
+R65
+l40
+L31
+ViQ0m6SIbA`cCLKogc=1>91
+!s100 I]=eI:2U2KD;KzzZjjREo0
+R7
+32
+R70
+!i10b 1
+R71
+R103
+R104
+!i113 1
+R12
+R13
+Eforwardingunit
+Z108 w1771074378
+R3
+R4
+R0
+Z109 8C:/Users/kabak/Desktop/official riscV/rtl/components/ForwardingUnit.vhd
+Z110 FC:/Users/kabak/Desktop/official riscV/rtl/components/ForwardingUnit.vhd
+l0
+L5
+V[QORilMjg6M2k;LRX5Ymf1
+!s100 a]lf]j1122BSi;VXoXcIa1
+R7
+32
+R8
+!i10b 1
+R9
+Z111 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/components/ForwardingUnit.vhd|
+Z112 !s107 C:/Users/kabak/Desktop/official riscV/rtl/components/ForwardingUnit.vhd|
+!i113 1
+R12
+R13
+Abehavioral
+R3
+R4
+R55
+l27
+L24
+VO_G?hl032[L@l1fa]W5mR3
+!s100 EaOn5fko_DXQ_j:h^kbRo1
+R7
+32
+R8
+!i10b 1
+R9
+R111
+R112
+!i113 1
+R12
+R13
+Egeneric_reg
+Z113 w1771074952
+R2
+R3
+R4
+R0
+Z114 8C:/Users/kabak/Desktop/official riscV/rtl/components/generic_reg.vhd
+Z115 FC:/Users/kabak/Desktop/official riscV/rtl/components/generic_reg.vhd
+l0
+L5
+VQ5O>mFYjKXeGm08Pgb?e=2
+!s100 RPRM5?EL?UojZ<<QogD003
+R7
+32
+R8
+!i10b 1
+R9
+Z116 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/components/generic_reg.vhd|
+Z117 !s107 C:/Users/kabak/Desktop/official riscV/rtl/components/generic_reg.vhd|
+!i113 1
+R12
+R13
+Abehavioral
+R2
+R3
+R4
+R105
+l21
+L19
+VfKZddYL3:jc=mI8MUd10i0
+!s100 4Ql1mUWI=96HJdm]cE^0o0
+R7
+32
+R8
+!i10b 1
+R9
+R116
+R117
+!i113 1
+R12
+R13
+Ehazard_detection_unit
+Z118 w1771074501
+R3
+R4
+R0
+Z119 8C:/Users/kabak/Desktop/official riscV/rtl/components/Hazard_Detection_Unit.vhd
+Z120 FC:/Users/kabak/Desktop/official riscV/rtl/components/Hazard_Detection_Unit.vhd
+l0
+L5
+VSYGLMKdIW4c]k24^C=^1n0
+!s100 ??=flnEbfO38Nk1iQloke0
+R7
+32
+R8
+!i10b 1
+R9
+Z121 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/components/Hazard_Detection_Unit.vhd|
+Z122 !s107 C:/Users/kabak/Desktop/official riscV/rtl/components/Hazard_Detection_Unit.vhd|
+!i113 1
+R12
+R13
+Abehavioral
+R3
+R4
+R54
+l22
+L19
+V;OZ5GEQQ8bJYK=2A?M2I10
+!s100 X`HX`VbkVVXf;?PddBVBI2
+R7
+32
+R8
+!i10b 1
+R9
+R121
+R122
+!i113 1
+R12
+R13
+Eid_stage
+Z123 w1771791777
+R3
+R4
+R0
+Z124 8C:/Users/kabak/Desktop/official riscV/rtl/stages/ID_stage.vhdl
+Z125 FC:/Users/kabak/Desktop/official riscV/rtl/stages/ID_stage.vhdl
+l0
+L10
+VCU>d6e:oO@z3^g1Scn8@]1
+!s100 oo[fOQPQHh:^:;@Zz`G@c3
+R7
+32
+R70
+!i10b 1
+R71
+Z126 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/stages/ID_stage.vhdl|
+Z127 !s107 C:/Users/kabak/Desktop/official riscV/rtl/stages/ID_stage.vhdl|
+!i113 1
+R12
+R13
+Artl
+R99
+Z128 DEx4 work 20 immediateextension32 0 22 TFVUI:zID<MjQhRJ[;09l2
+Z129 DEx4 work 13 register_file 0 22 mfc]aBWafmgneJD=ib;]n2
+R2
+R43
+R3
+R4
+R63
+l83
+L54
+Ve;3<^P?4=UQfo0MF:eP363
+!s100 IF6iDRHSZ1CLS`PW_GVR11
+R7
+32
+R70
+!i10b 1
+R71
+R126
+R127
+!i113 1
+R12
+R13
+Eimmediateextension32
+Z130 w1768077333
+R3
+R4
+R0
+Z131 8C:/Users/kabak/Desktop/official riscV/rtl/components/immediateExtension32.vhd
+Z132 FC:/Users/kabak/Desktop/official riscV/rtl/components/immediateExtension32.vhd
+l0
+L4
+VTFVUI:zID<MjQhRJ[;09l2
+!s100 @NalbYHGF3Dz4hN_>d7=A2
+R7
+32
+R8
+!i10b 1
+R9
+Z133 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/components/immediateExtension32.vhd|
+Z134 !s107 C:/Users/kabak/Desktop/official riscV/rtl/components/immediateExtension32.vhd|
+!i113 1
+R12
+R13
+Astructural
+R3
+R4
+R128
+l69
+L16
+VPNm_H^V9]fGfXkfjfXIQ[2
+!s100 ICzkikMO4I_ND>AVgXd3P2
+R7
+32
+R8
+!i10b 1
+R9
+R133
+R134
+!i113 1
+R12
+R13
+Eincrement_pc
+Z135 w1767647808
+R2
+R3
+R4
+R0
+Z136 8C:/Users/kabak/Desktop/official riscV/rtl/components/Increment_PC.vhd
+Z137 FC:/Users/kabak/Desktop/official riscV/rtl/components/Increment_PC.vhd
+l0
+L6
+V`?]@dklS=aAWi373LEHmA0
+!s100 [`GodJCHaggSQjh3bT>RL3
+R7
+32
+R8
+!i10b 1
+R9
+Z138 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/components/Increment_PC.vhd|
+Z139 !s107 C:/Users/kabak/Desktop/official riscV/rtl/components/Increment_PC.vhd|
+!i113 1
+R12
+R13
+Abehavioral
+R2
+R3
+R4
+DEx4 work 12 increment_pc 0 22 `?]@dklS=aAWi373LEHmA0
+l15
+L13
+V;0z9M^SZSNBEE@=XkSKkz0
+!s100 5TQQNYJi^6W4CSFZd44W51
+R7
+32
+R8
+!i10b 1
+R9
+R138
+R139
+!i113 1
+R12
+R13
+Emem32_obi
+Z140 w1767122097
+R2
+R3
+R4
+R0
+Z141 8C:/Users/kabak/Desktop/official riscV/rtl/memories/mem32_obi.vhd
+Z142 FC:/Users/kabak/Desktop/official riscV/rtl/memories/mem32_obi.vhd
+l0
+L5
+V<cIXdH:h]bW6lY@FT99210
+!s100 gk4ffkgX5JC0dBmJB61l31
+R7
+32
+R78
+!i10b 1
+R79
+Z143 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/memories/mem32_obi.vhd|
+Z144 !s107 C:/Users/kabak/Desktop/official riscV/rtl/memories/mem32_obi.vhd|
+!i113 1
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 9 mem32_obi 0 22 <cIXdH:h]bW6lY@FT99210
+l39
+L24
+V>66;Q17FHT`PCSE^O_fN^1
+!s100 0nfmfaUPLT;XPn2AIjeQ?2
+R7
+32
+R78
+!i10b 1
+R79
+R143
+R144
+!i113 1
+R12
+R13
+Emem_fpga
+Z145 w1767639571
+R2
+R3
+R4
+R0
+Z146 8C:/Users/kabak/Desktop/official riscV/rtl/memories/mem_fpga.vhd
+Z147 FC:/Users/kabak/Desktop/official riscV/rtl/memories/mem_fpga.vhd
+l0
+L5
+Ve0LB^ZBd?I]_o]KC5Il>02
+!s100 1DR<Zade_IS?[L7?EHObF1
+R7
+32
+R78
+!i10b 1
+R79
+Z148 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/memories/mem_fpga.vhd|
+Z149 !s107 C:/Users/kabak/Desktop/official riscV/rtl/memories/mem_fpga.vhd|
+!i113 1
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 8 mem_fpga 0 22 e0LB^ZBd?I]_o]KC5Il>02
+l36
+L25
+VID8QX[609H6K9`R?zYH_U0
+!s100 ?jLIQ4S8oQF@3oA?h3c[W3
+R7
+32
+R78
+!i10b 1
+R79
+R148
+R149
+!i113 1
+R12
+R13
+Emem_stage
+Z150 w1770843082
+R2
+R3
+R4
+R0
+Z151 8C:/Users/kabak/Desktop/official riscV/rtl/stages/MEM_stage.vhd
+Z152 FC:/Users/kabak/Desktop/official riscV/rtl/stages/MEM_stage.vhd
+l0
+L5
+Vn>W594I^@g`YLm5EZbRI@3
+!s100 2`zNdDJ:ZZLg8jni<<Whe1
+R7
+32
+R70
+!i10b 1
+R71
+Z153 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/stages/MEM_stage.vhd|
+Z154 !s107 C:/Users/kabak/Desktop/official riscV/rtl/stages/MEM_stage.vhd|
+!i113 1
+R12
+R13
+Artl
+Z155 DEx4 work 13 sign_extensor 0 22 caIWo1zm3D]kbO7zJM`7K2
+R2
+R3
+R4
+R59
+l53
+L43
+V8Bh^z;CXGK3z]XgDJ?ki<2
+!s100 eL>:AE`L3UGm4YCL`_AUF0
+R7
+32
+R70
+!i10b 1
+R71
+R153
+R154
+!i113 1
+R12
+R13
+Emem_wrap
+Z156 w1770929754
+R2
+R3
+R4
+R0
+Z157 8C:/Users/kabak/Desktop/official riscV/rtl/memories/mem_wrap.vhd
+Z158 FC:/Users/kabak/Desktop/official riscV/rtl/memories/mem_wrap.vhd
+l0
+L6
+V1_T17ZQThZb9?Dh2715gd2
+!s100 4MHNzRKbM]Gc4VPzz6_Ra3
+R7
+32
+R78
+!i10b 1
+R79
+Z159 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/memories/mem_wrap.vhd|
+Z160 !s107 C:/Users/kabak/Desktop/official riscV/rtl/memories/mem_wrap.vhd|
+!i113 1
+R12
+R13
+Abeh
+R2
+R3
+R4
+DEx4 work 8 mem_wrap 0 22 1_T17ZQThZb9?Dh2715gd2
+l46
+L23
+V5YHX;4OX>X7FnYlReVZmU0
+!s100 ikjBzmN?LU:ELU=[B9g`E0
+R7
+32
+R78
+!i10b 1
+R79
+R159
+R160
+!i113 1
+R12
+R13
+Emicro_cpu_instant
+Z161 w1770929372
+R3
+R4
+R0
+Z162 8C:/Users/kabak/Desktop/official riscV/rtl/top_level_sim/micro_cpu_instant.vhd
+Z163 FC:/Users/kabak/Desktop/official riscV/rtl/top_level_sim/micro_cpu_instant.vhd
+l0
+L12
+VfKG89n0c]Z@6NhZWh8j=h2
+!s100 B[?D1_M3`>jKVO83YSYn61
+R7
+32
+Z164 !s110 1772383467
+!i10b 1
+R71
+Z165 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/top_level_sim/micro_cpu_instant.vhd|
+Z166 !s107 C:/Users/kabak/Desktop/official riscV/rtl/top_level_sim/micro_cpu_instant.vhd|
+!i113 1
+R12
+R13
+Artl
+R82
+Z167 DEx4 work 10 mux_to_mem 0 22 dmZeW`1=QhIejf>cIAFZH1
+R66
+Z168 DEx4 work 7 ploader 0 22 IPS6bDZhOE?H3oe56o5:o0
+R2
+R74
+R3
+R4
+DEx4 work 17 micro_cpu_instant 0 22 fKG89n0c]Z@6NhZWh8j=h2
+l36
+L25
+VRlZ2mDz5<m8OWl@Vii;Fj2
+!s100 ^_a;_Wi;;j@6D>DOU5Uj31
+R7
+32
+R164
+!i10b 1
+R71
+R165
+R166
+!i113 1
+R12
+R13
+Emicro_cpu_obi
+Z169 w1769804631
+R3
+R4
+R0
+Z170 8C:/Users/kabak/Desktop/official riscV/rtl/top_level_sim/micro_cpu_obi.vhd
+Z171 FC:/Users/kabak/Desktop/official riscV/rtl/top_level_sim/micro_cpu_obi.vhd
+l0
+L12
+V6DHbKB=_alka0:W10hAVo3
+!s100 ]MZH<aEf:jo7H17fDZ8Kf3
+R7
+32
+R164
+!i10b 1
+Z172 !s108 1772383467.000000
+Z173 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/top_level_sim/micro_cpu_obi.vhd|
+Z174 !s107 C:/Users/kabak/Desktop/official riscV/rtl/top_level_sim/micro_cpu_obi.vhd|
+!i113 1
+R12
+R13
+Artl
+Z175 DEx4 work 17 random_obi_memory 0 22 ekGS1zeahK=[0mmLT6cZS0
+R167
+R66
+R168
+R2
+R74
+R3
+R4
+Z176 DEx4 work 13 micro_cpu_obi 0 22 6DHbKB=_alka0:W10hAVo3
+l36
+L25
+V`a1oz=7_O1ic9oBhcYR_@3
+!s100 J9>14l:2F;3^Mgmz5HlL`1
+R7
+32
+R164
+!i10b 1
+R172
+R173
+R174
+!i113 1
+R12
+R13
+Emux2to1
+Z177 w1762879383
+R3
+R4
+R0
+Z178 8C:/Users/kabak/Desktop/official riscV/rtl/components/mux2to1.vhd
+Z179 FC:/Users/kabak/Desktop/official riscV/rtl/components/mux2to1.vhd
+l0
+L4
+VeYaGB9fUeWBkAg4ES6Fl=1
+!s100 bgUz1fh<kV@BQXD_A6HLh3
+R7
+32
+R8
+!i10b 1
+R9
+Z180 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/components/mux2to1.vhd|
+Z181 !s107 C:/Users/kabak/Desktop/official riscV/rtl/components/mux2to1.vhd|
+!i113 1
+R12
+R13
+Artl
+R3
+R4
+R99
+l17
+L16
+VQHm<I6eCN7jEU_]<KO`Yf3
+!s100 F=QOA9[oDmbMmKV;PMiKM3
+R7
+32
+R8
+!i10b 1
+R9
+R180
+R181
+!i113 1
+R12
+R13
+Emux4to1
+Z182 w1762879384
+R3
+R4
+R0
+Z183 8C:/Users/kabak/Desktop/official riscV/rtl/components/mux4to1.vhd
+Z184 FC:/Users/kabak/Desktop/official riscV/rtl/components/mux4to1.vhd
+l0
+L8
+VC=LmZ9[KANY<dMCbm^moQ0
+!s100 iAcd9eLgk_QY6kX3D>2dF2
+R7
+32
+R8
+!i10b 1
+R9
+Z185 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/components/mux4to1.vhd|
+Z186 !s107 C:/Users/kabak/Desktop/official riscV/rtl/components/mux4to1.vhd|
+!i113 1
+R12
+R13
+Abeh
+R3
+R4
+R98
+l23
+L22
+VI]Fm]EhXYTgIO1FYLR;TI1
+!s100 7:GbM98T2aN01:@PacNV?3
+R7
+32
+R8
+!i10b 1
+R9
+R185
+R186
+!i113 1
+R12
+R13
+Emux_to_mem
+Z187 w1770929390
+R3
+R4
+R0
+Z188 8C:/Users/kabak/Desktop/official riscV/rtl/top_level_sim/mux_to_mem.vhd
+Z189 FC:/Users/kabak/Desktop/official riscV/rtl/top_level_sim/mux_to_mem.vhd
+l0
+L5
+VdmZeW`1=QhIejf>cIAFZH1
+!s100 VdSjmKB[<MERSa9l<Z6WM0
+R7
+32
+R47
+!i10b 1
+R48
+Z190 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/top_level_sim/mux_to_mem.vhd|
+Z191 !s107 C:/Users/kabak/Desktop/official riscV/rtl/top_level_sim/mux_to_mem.vhd|
+!i113 1
+R12
+R13
+Abeh
+R3
+R4
+R167
+l32
+L31
+VzeMJUc=C`1mHVkd4HBH;_1
+!s100 ETKE1Wd]O`OR:>0UR_fCF3
+R7
+32
+R47
+!i10b 1
+R48
+R190
+R191
+!i113 1
+R12
+R13
+Epc
+Z192 w1770843247
+R51
+R52
+R3
+R4
+R0
+Z193 8C:/Users/kabak/Desktop/official riscV/rtl/components/PC.vhd
+Z194 FC:/Users/kabak/Desktop/official riscV/rtl/components/PC.vhd
+l0
+L5
+V^85b5C=4Cdj;NbH29^NgF0
+!s100 ebZ<ePN<iZ[`J?ESjzK>c0
+R7
+32
+R78
+!i10b 1
+R79
+Z195 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/components/PC.vhd|
+Z196 !s107 C:/Users/kabak/Desktop/official riscV/rtl/components/PC.vhd|
+!i113 1
+R12
+R13
+Abehavioral
+R51
+R52
+R3
+R4
+R106
+l16
+L14
+V]9G4V3:IGo@kL72bdo2kQ2
+!s100 JUh=?9AFNjOGbkTSza2>22
+R7
+32
+R78
+!i10b 1
+R79
+R195
+R196
+!i113 1
+R12
+R13
+Epipe_ex_mem
+Z197 w1771694933
+R2
+R3
+R4
+R0
+Z198 8C:/Users/kabak/Desktop/official riscV/rtl/pipes/pipe_EX_MEM.vhd
+Z199 FC:/Users/kabak/Desktop/official riscV/rtl/pipes/pipe_EX_MEM.vhd
+l0
+L5
+VCI?X7<nkjHX1Uk[gJYb:m1
+!s100 O]BWj6]nAG4kiO`WH5Rf41
+R7
+32
+R78
+!i10b 1
+R79
+Z200 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/pipes/pipe_EX_MEM.vhd|
+Z201 !s107 C:/Users/kabak/Desktop/official riscV/rtl/pipes/pipe_EX_MEM.vhd|
+!i113 1
+R12
+R13
+Artl
+R2
+R3
+R4
+R60
+l78
+L56
+VGFV@@G6H_?kG7dG[P:Wo]3
+!s100 55lLW[OSl7=OhMkzMCT8o0
+R7
+32
+R78
+!i10b 1
+R79
+R200
+R201
+!i113 1
+R12
+R13
+Epipe_flusher
+Z202 w1769984300
+R51
+R52
+R3
+R4
+R0
+Z203 8C:/Users/kabak/Desktop/official riscV/rtl/components/pipe_flusher.vhd
+Z204 FC:/Users/kabak/Desktop/official riscV/rtl/components/pipe_flusher.vhd
+l0
+L5
+VYhPFCFnNV0P6_JSn63>^R1
+!s100 zS[iC65Wk>FUdZ:Q`XGlb0
+R7
+32
+R78
+!i10b 1
+R79
+Z205 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/components/pipe_flusher.vhd|
+Z206 !s107 C:/Users/kabak/Desktop/official riscV/rtl/components/pipe_flusher.vhd|
+!i113 1
+R12
+R13
+Abeh
+R51
+R52
+R3
+R4
+R53
+l21
+L16
+V>fQbgTf]HJYY6VPkFCIQn0
+!s100 ?QjJk]R3DB^]K0DK4EB_E1
+R7
+32
+R78
+!i10b 1
+R79
+R205
+R206
+!i113 1
+R12
+R13
+Epipe_id_ex
+Z207 w1771694840
+R3
+R4
+R0
+Z208 8C:/Users/kabak/Desktop/official riscV/rtl/pipes/pipe_ID_EX.vhd
+Z209 FC:/Users/kabak/Desktop/official riscV/rtl/pipes/pipe_ID_EX.vhd
+l0
+L8
+VM0ldfLOYOlcL?Dj0XMSbI0
+!s100 WkX_2PPU20jP9]<SW1oEM3
+R7
+32
+R78
+!i10b 1
+R79
+Z210 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/pipes/pipe_ID_EX.vhd|
+Z211 !s107 C:/Users/kabak/Desktop/official riscV/rtl/pipes/pipe_ID_EX.vhd|
+!i113 1
+R12
+R13
+Artl
+R3
+R4
+R62
+l89
+L72
+VzFbebIaSEFQG@i`E9<Tb]0
+!s100 5c<N@PnUT89MVkmM?ZC9:1
+R7
+32
+R78
+!i10b 1
+R79
+R210
+R211
+!i113 1
+R12
+R13
+Epipe_if_id
+Z212 w1771072098
+R2
+R3
+R4
+R0
+Z213 8C:/Users/kabak/Desktop/official riscV/rtl/pipes/pipe_IF_ID.vhd
+Z214 FC:/Users/kabak/Desktop/official riscV/rtl/pipes/pipe_IF_ID.vhd
+l0
+L5
+Vh5gXc6ZN:^T91JIhj1oWB3
+!s100 l_BNom]LlATagZ@b`>?0z0
+R7
+32
+R70
+!i10b 1
+R71
+Z215 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/pipes/pipe_IF_ID.vhd|
+Z216 !s107 C:/Users/kabak/Desktop/official riscV/rtl/pipes/pipe_IF_ID.vhd|
+!i113 1
+R12
+R13
+Artl
+R2
+R3
+R4
+R64
+l26
+L24
+Vl2aPXKhAU?2zdQR`1[gRO1
+!s100 z]7CKKz;DE4Si^71]DHd:3
+R7
+32
+R70
+!i10b 1
+R71
+R215
+R216
+!i113 1
+R12
+R13
+Epipe_mem_wb
+Z217 w1771695386
+R2
+R3
+R4
+R0
+Z218 8C:/Users/kabak/Desktop/official riscV/rtl/pipes/pipe_MEM_WB.vhd
+Z219 FC:/Users/kabak/Desktop/official riscV/rtl/pipes/pipe_MEM_WB.vhd
+l0
+L5
+V>hAROE3gVF4=>OY_N8c3C3
+!s100 U@S7l]E<`30gTg]f425QO1
+R7
+32
+R70
+!i10b 1
+R71
+Z220 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/pipes/pipe_MEM_WB.vhd|
+Z221 !s107 C:/Users/kabak/Desktop/official riscV/rtl/pipes/pipe_MEM_WB.vhd|
+!i113 1
+R12
+R13
+Artl
+R2
+R3
+R4
+R58
+l53
+L40
+VQ77_0b2GzV]:<QaUDIo1R2
+!s100 gT:8c6VjjSH7ljESIO_z@1
+R7
+32
+R70
+!i10b 1
+R71
+R220
+R221
+!i113 1
+R12
+R13
+Epipe_staller
+Z222 w1769272807
+R3
+R4
+R0
+Z223 8C:/Users/kabak/Desktop/official riscV/rtl/pipes/pipe_staller.vhd
+Z224 FC:/Users/kabak/Desktop/official riscV/rtl/pipes/pipe_staller.vhd
+l0
+L4
+VfGXJ8FKLD27eT<ElJzK@12
+!s100 695m=Vm]NOMcjJeL=Ogkz1
+R7
+32
+R78
+!i10b 1
+R79
+Z225 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/pipes/pipe_staller.vhd|
+Z226 !s107 C:/Users/kabak/Desktop/official riscV/rtl/pipes/pipe_staller.vhd|
+!i113 1
+R12
+R13
+Artl
+R3
+R4
+R56
+l18
+L14
+V7@OD6QMiMCM2H>D5l_DWb2
+!s100 [lT?ohb87eiTjZ<Q7G^Di2
+R7
+32
+R78
+!i10b 1
+R79
+R225
+R226
+!i113 1
+R12
+R13
+Epll_90mhz
+Z227 w1770151750
+R3
+R4
+R0
+Z228 8C:/Users/kabak/Desktop/official riscV/fpga/quartus/PLL_90Mhz.vhd
+Z229 FC:/Users/kabak/Desktop/official riscV/fpga/quartus/PLL_90Mhz.vhd
+l0
+L43
+V:W`lQn9RiS_eX2iXbi[g60
+!s100 ilj7DMhBEb8]2^T?=e`8A2
+R7
+32
+R47
+!i10b 1
+R48
+Z230 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/fpga/quartus/PLL_90Mhz.vhd|
+Z231 !s107 C:/Users/kabak/Desktop/official riscV/fpga/quartus/PLL_90Mhz.vhd|
+!i113 1
+R12
+R13
+Asyn
+R3
+R4
+DEx4 work 9 pll_90mhz 0 22 :W`lQn9RiS_eX2iXbi[g60
+l126
+L52
+V`WFhL<kEW3jbUkm_F50hE1
+!s100 DFzQ9RE]JJeko]o5BFDmH3
+R7
+32
+R47
+!i10b 1
+R48
+R230
+R231
+!i113 1
+R12
+R13
+Eploader
+Z232 w1771074897
+R2
+R3
+R4
+R0
+Z233 8C:/Users/kabak/Desktop/official riscV/rtl/top_level_sim/pLoader.vhd
+Z234 FC:/Users/kabak/Desktop/official riscV/rtl/top_level_sim/pLoader.vhd
+l0
+L5
+VIPS6bDZhOE?H3oe56o5:o0
+!s100 ^jl4<K>>o9eiL>enHijUg3
+R7
+32
+R47
+!i10b 1
+R48
+Z235 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/top_level_sim/pLoader.vhd|
+Z236 !s107 C:/Users/kabak/Desktop/official riscV/rtl/top_level_sim/pLoader.vhd|
+!i113 1
+R12
+R13
+Artl
+R2
+R3
+R4
+R168
+l57
+L36
+VdNjDQY0SN]hagJI:l>4z=1
+!s100 AklN<=VoHlL;D?;6[:B^h0
+R7
+32
+R47
+!i10b 1
+R48
+R235
+R236
+!i113 1
+R12
+R13
+Erandom_obi_memory
+Z237 w1770667061
+R2
+R3
+R4
+R0
+Z238 8C:/Users/kabak/Desktop/official riscV/rtl/memories/random_obi_memory.vhd
+Z239 FC:/Users/kabak/Desktop/official riscV/rtl/memories/random_obi_memory.vhd
+l0
+L15
+VekGS1zeahK=[0mmLT6cZS0
+!s100 o^9C^dE;YmeeL_`lZ<g[S1
+R7
+33
+R78
+!i10b 1
+R79
+Z240 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/memories/random_obi_memory.vhd|
+Z241 !s107 C:/Users/kabak/Desktop/official riscV/rtl/memories/random_obi_memory.vhd|
+!i113 1
+Z242 o-work work -2008 -explicit
+R13
+Artl
+R2
+R3
+R4
+R175
+l64
+L36
+VXZM38Yl?>F61<LH`@Z@Fb2
+!s100 BH@iRJSKE_L1JNT1YBAU12
+R7
+33
+R78
+!i10b 1
+R79
+R240
+R241
+!i113 1
+R242
+R13
+Eregister_file
+Z243 w1767699583
+R2
+R3
+R4
+R0
+Z244 8C:/Users/kabak/Desktop/official riscV/rtl/components/register_file.vhd
+Z245 FC:/Users/kabak/Desktop/official riscV/rtl/components/register_file.vhd
+l0
+L11
+Vmfc]aBWafmgneJD=ib;]n2
+!s100 b?[j2Ym_[hMUIKAbPXYM[1
+R7
+32
+R78
+!i10b 1
+R79
+Z246 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/components/register_file.vhd|
+Z247 !s107 C:/Users/kabak/Desktop/official riscV/rtl/components/register_file.vhd|
+!i113 1
+R12
+R13
+Abehavioral
+R2
+R3
+R4
+R129
+l34
+L24
+VMWLQzVYUFKBdC4c2Sz7Kk0
+!s100 XGWnbU[a0]06Ul0F`K6240
+R7
+32
+R78
+!i10b 1
+R79
+R246
+R247
+!i113 1
+R12
+R13
+Erequest_handler
+Z248 w1771074604
+R3
+R4
+R0
+Z249 8C:/Users/kabak/Desktop/official riscV/rtl/components/request_handler.vhd
+Z250 FC:/Users/kabak/Desktop/official riscV/rtl/components/request_handler.vhd
+l0
+L4
+Vn3Z;2dgVo03b8Yi<IQ:mz0
+!s100 jjM6Sz0[eB1^>Jf?SK52c1
+R7
+32
+R78
+!i10b 1
+R79
+Z251 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/components/request_handler.vhd|
+Z252 !s107 C:/Users/kabak/Desktop/official riscV/rtl/components/request_handler.vhd|
+!i113 1
+R12
+R13
+Artl
+R3
+R4
+R107
+l19
+L15
+V;CFeHA6H5jlTUa=dHz[733
+!s100 2:>4QMD2NJEGM2WL4]jPM0
+R7
+32
+R78
+!i10b 1
+R79
+R251
+R252
+!i113 1
+R12
+R13
+Esign_extensor
+Z253 w1768423325
+R3
+R4
+R0
+Z254 8C:/Users/kabak/Desktop/official riscV/rtl/components/sign_extensor.vhd
+Z255 FC:/Users/kabak/Desktop/official riscV/rtl/components/sign_extensor.vhd
+l0
+L5
+VcaIWo1zm3D]kbO7zJM`7K2
+!s100 Lcb[YV3H`Yzc3BGDdIVlZ1
+R7
+32
+Z256 !s110 1772383463
+!i10b 1
+Z257 !s108 1772383463.000000
+Z258 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/components/sign_extensor.vhd|
+Z259 !s107 C:/Users/kabak/Desktop/official riscV/rtl/components/sign_extensor.vhd|
+!i113 1
+R12
+R13
+Abeh
+R3
+R4
+R155
+l17
+L15
+VQYiUQF@I:T9i97lEE1:Hz0
+!s100 YJ@nILL:]DSAKHIRSGUYQ2
+R7
+32
+R256
+!i10b 1
+R257
+R258
+R259
+!i113 1
+R12
+R13
+Etb_microprocessor
+Z260 w1771087297
+Z261 DPx4 ieee 16 std_logic_textio 0 22 V5TSK`;aJKC<l]CEg1>mz1
+R2
+R3
+R4
+R0
+Z262 8C:/Users/kabak/Desktop/official riscV/sim/tb/tb_microprocessor.vhd
+Z263 FC:/Users/kabak/Desktop/official riscV/sim/tb/tb_microprocessor.vhd
+l0
+L7
+VO>HZ]me12kllBd19GTT[E0
+!s100 Te7FkDOKTAT;DH19QbOMC0
+R7
+33
+R47
+!i10b 1
+R48
+Z264 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/sim/tb/tb_microprocessor.vhd|
+Z265 !s107 C:/Users/kabak/Desktop/official riscV/sim/tb/tb_microprocessor.vhd|
+!i113 1
+R242
+R13
+Abeh
+Z266 DPx3 std 3 env 0 22 d?`1ck@NdeD@H3RZG7FgZ2
+R176
+R261
+R2
+R3
+R4
+Z267 DEx4 work 17 tb_microprocessor 0 22 O>HZ]me12kllBd19GTT[E0
+l33
+L14
+Z268 VkhRU_Ez4]8?RQj<4_eT5>0
+Z269 !s100 4hOGaTXUO[PD@?Ba0W=053
+R7
+33
+R47
+!i10b 1
+R48
+R264
+R265
+!i113 1
+R242
+R13
+Euart_tx
+Z270 w1770415343
+R2
+R3
+R4
+R0
+Z271 8C:/Users/kabak/Desktop/official riscV/sim/sim/uart_tx.vhd
+Z272 FC:/Users/kabak/Desktop/official riscV/sim/sim/uart_tx.vhd
+l0
+L5
+VgKjkeTQ_a:^8_`e^anVQj0
+!s100 O8SZ4l1iDl3BVFJiG8nl01
+R7
+32
+R70
+!i10b 1
+R71
+Z273 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/sim/sim/uart_tx.vhd|
+Z274 !s107 C:/Users/kabak/Desktop/official riscV/sim/sim/uart_tx.vhd|
+!i113 1
+R12
+R13
+Abehave
+R2
+R3
+R4
+DEx4 work 7 uart_tx 0 22 gKjkeTQ_a:^8_`e^anVQj0
+l35
+L20
+VnkaQz<GVH8l:Me1mka]7J2
+!s100 AFIZl4h1<_^3Qa=_`UeZK1
+R7
+32
+R70
+!i10b 1
+R71
+R273
+R274
+!i113 1
+R12
+R13
+Ewriteback
+Z275 w1771074704
+R3
+R4
+R0
+Z276 8C:/Users/kabak/Desktop/official riscV/rtl/stages/WB_stage.vhd
+Z277 FC:/Users/kabak/Desktop/official riscV/rtl/stages/WB_stage.vhd
+l0
+L4
+VTCckLc7C^CJT:b9Y:gMbY0
+!s100 n4WN<BBEd6U87cMb@FAhc1
+R7
+32
+R70
+!i10b 1
+R71
+Z278 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/kabak/Desktop/official riscV/rtl/stages/WB_stage.vhd|
+Z279 !s107 C:/Users/kabak/Desktop/official riscV/rtl/stages/WB_stage.vhd|
+!i113 1
+R12
+R13
+Abeh
+R98
+R3
+R4
+R57
+l22
+L18
+VUnKY0FaFD@F5aIiS<cJEm0
+!s100 PPGSe1AFaPV0KFYh>Pik^1
+R7
+32
+R70
+!i10b 1
+R71
+R278
+R279
+!i113 1
+R12
+R13

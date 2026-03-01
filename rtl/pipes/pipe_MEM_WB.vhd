@@ -8,8 +8,9 @@ entity pipe_MEM_WB is
         reset_n               : in std_logic;  -- reset attivo basso
         enable                : in std_logic;
 
-        -- ingressi
+        -- inputs
         i_debug_instr         : in  std_logic_vector(31 downto 0); 
+        i_instr_valid         : in  std_logic;
         i_ctr_rf_write_mem    : in  std_logic;
         i_ctr_lui_mem         : in  std_logic;
         i_ctr_jal_mem         : in  std_logic;
@@ -20,13 +21,15 @@ entity pipe_MEM_WB is
         i_immediate_mem       : in  std_logic_vector(31 downto 0);
         i_dr_mem              : in  std_logic_vector(4 downto 0) ;
 
-        -- uscite
+        -- outputs
+        o_instr_valid         : out  std_logic;
         o_debug_instr         : out  std_logic_vector(31 downto 0); 
         o_ctr_mem_reg_wb      : out std_logic;
         o_ctr_rf_write_wb     : out std_logic;
         o_ctr_lui_wb          : out std_logic;
         o_ctr_jal_wb          : out std_logic;
         o_pc_increment_wb     : out std_logic_vector(31 downto 0);
+
    --     o_alu_result_wb       : out std_logic_vector(31 downto 0);
         o_data_dm_wb          : out std_logic_vector(31 downto 0);
         o_immediate_wb        : out std_logic_vector(31 downto 0);
@@ -45,6 +48,7 @@ architecture rtl of Pipe_MEM_WB is
     signal r_DoutDM          : std_logic_vector(31 downto 0);
     signal r_Immediate       : std_logic_vector(31 downto 0);
     signal r_dr              : std_logic_vector(4 downto 0) ;
+    signal r_instr_valid     : std_logic;
 
 begin
 
@@ -52,10 +56,12 @@ begin
     begin
         if reset_n = '0' then
             r_RegisterWrite   <= '0';
+            r_instr_valid     <= '0';
 
             r_debug_instr      <= (others => '0');      
         elsif rising_edge(clk) then
             if enable = '1' then
+                r_instr_valid     <= i_instr_valid      ;
                 r_RegisterWrite   <= i_ctr_rf_write_mem ;
                 r_CTR_LUI_mux     <= i_ctr_lui_mem 	    ;    
                 r_CTR_JAL_muxtoRF <= i_ctr_jal_mem   	;   
@@ -70,6 +76,7 @@ begin
     end process;
 
     --Outputs
+    o_instr_valid        <= r_instr_valid               ;
     o_ctr_rf_write_wb    <= r_RegisterWrite             ;
     o_ctr_lui_wb         <= r_CTR_LUI_mux               ;
     o_ctr_jal_wb         <= r_CTR_JAL_muxtoRF           ;
