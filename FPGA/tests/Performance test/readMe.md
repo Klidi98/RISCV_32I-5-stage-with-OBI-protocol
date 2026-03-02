@@ -5,7 +5,7 @@ This project includes three IPC-oriented tests to validate both correctness and 
 ---
 
 ## 1. Retire Logic Validation (`retired_valid`)
-
+Located in IPC_test_1
 **Goal**  
 Ensure `INST_CNT` increments exactly once per retired instruction.
 
@@ -23,7 +23,7 @@ Ensure `INST_CNT` increments exactly once per retired instruction.
 ---
 
 ## 2. High-IPC ALU Stress Test
-
+Located in IPC_test_2
 **Goal**  
 Measure near-maximum achievable IPC.
 
@@ -43,7 +43,7 @@ Measure near-maximum achievable IPC.
 ---
 
 ## 3. Low-IPC Realistic Loop
-
+Located in IPC_test_3
 **Goal**  
 Measure IPC under non-ideal conditions.
 
@@ -58,3 +58,4 @@ Measure IPC under non-ideal conditions.
 ---
 
 Together, these tests validate architectural correctness and performance across both ideal and realistic workloads.
+
