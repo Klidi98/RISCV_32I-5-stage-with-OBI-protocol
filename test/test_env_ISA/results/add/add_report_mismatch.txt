@@ -1,0 +1,8 @@
+=== REPORT DI VERIFICA RISC-V ===
+Istruzioni totali: GS=499 | RTL=0
+----------------------------------------------------------------------
+
+
+ATTENZIONE: Numero di istruzioni diverso! GS:499 RTL:0
+
+ESITO: FAIL - Trovate 0 incongruenze.

@@ -1,0 +1,186 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity fetch is
+    port (
+
+        clk                     : in  std_logic;
+        rst_n                   : in  std_logic;
+        
+    --Memory interface 
+        o_request               : out  std_logic;                       -- request for IM
+        ready_im                : in   std_logic;                       -- memory is ready for new request
+        valid_im                : in   std_logic;                       -- memory access has been executed
+        next_instruction_i      : in   std_logic_vector(31 downto 0);   -- instruction fetched from memory
+
+    --ports toward next pipeline stage
+        next_instruction_o      : out std_logic_vector(31 downto 0);    -- instruction that will be sent to the next stage (it can be the one just fetched from memory or a buffered one in case of stall)
+        next_pc_o               : out std_logic_vector(31 downto 0) ;
+        current_PC_o            : out std_logic_vector(31 downto 0);    -- PC that points to current fetched instruction
+        valid_instr_o           : out std_logic;
+        o_pending_req           : out std_logic;                       -- signal that indicates if there is a pending request to instruction memory (i.e. a request has been sent but memory has not yet responded with valid_im = '1')
+       
+ --     ports from branch decision stage
+        i_misprediction         : in  std_logic;                        -- signal that indicates if there has been a misprediction resolutin in the branch decision stage
+--        i_prev_prediction       : in  std_logic;                        -- signal that indicates if the previous instruction was a branch and if it was predicted taken or not 
+        --ports from branch predictor
+        i_predict_taken         : in  std_logic;                        -- signal that indicates if the branch is predicted taken or not(coming from Branch predictor).
+        o_prediction            : out std_logic;                        -- prediction that will be propagated into the pipeline together with its relative instruction.
+        i_predicted_trgt        : in  std_logic_vector(31 downto 0);    -- predicted target address coming from the branch predictor
+        o_predicted_trgt        : out std_logic_vector(31 downto 2);    -- predicted targetaddress to be propagated to the exe stage for comparison for JALR instr
+        --Ports from other pipeline stages   
+        i_jump_target           : in  std_logic_vector(31 downto 0);    -- target address of jump instruction from EXE stage
+        i_block_pp              : in  std_logic;
+        i_flush_pp              : in  std_logic
+
+    );
+end entity;
+
+architecture rtl of fetch is  
+
+    signal w_pc_mux_out           : std_logic_vector(31 downto 0);
+    signal w_PC_out,w_next_PC     : std_logic_vector(31 downto 0);
+    signal w_pc_enable            : std_logic;
+    signal w_req_o                : std_logic;
+    signal w_buffered_instruction : std_logic_vector(31 downto 0);
+    signal w_buf_instr_valid      : std_logic;          -- signal that indicates if buffered instruction is valid
+    signal w_valid_instr_o        : std_logic;
+    signal w_pending_trg          : std_logic;          -- signal that indicates if there is a pending jump target to be loaded in the PC register
+    signal pending_trg_reg        : std_logic_vector(31 downto 0);
+    signal w_block_ftch           : std_logic;          -- signal that indicates if the fetch stage is blocked (stall or flush)
+begin
+
+    next_PC_o <= w_PC_out;
+
+    --w_block_ftch <= i_block_pp or i_flush_pp; -- fetch stage is blocked if there is a stall or a flush
+    w_block_ftch <= i_block_pp; -- fetch stage is blocked only if there is a stall, because in case of flush we want to keep sending requests to instruction memory in order to fetch the jump target instruction as soon as possible.
+
+-- buffering instruction when pipeline is stalled: belowe an explanation of how it works
+-- When the pipeline is stalled (i_block_pp = '1') and a valid instruction is fetched from instruction memory (valid_im = '1'),
+-- the instruction is stored in w_buffered_instruction and w_buf_instr_valid is set to '1'.
+-- This buffered instruction can then be output on next_instruction_o when the pipeline is no longer stalled.
+buff_instr_reg:process(clk, rst_n)
+begin
+    if rst_n = '0' then
+        w_buffered_instruction <= (others => '0');
+        w_buf_instr_valid <= '0';
+    elsif rising_edge(clk) then
+        if valid_im = '1' and i_block_pp = '1' then
+            w_buf_instr_valid <= '1';
+            w_buffered_instruction <= next_instruction_i;
+        else if w_valid_instr_o = '1' and i_block_pp = '0' then
+                -- clear the buffered instruction valid signal when pipeline is not stalled  
+            w_buf_instr_valid <= '0';
+        end if;
+        end if;
+        end if;
+    end process;
+
+    --update program counter whhen a request is accepted by instruction memory or when there is a flush due to
+    --mispprediction. This allows to directly update the PC register with the jump target generated by ex_stage.
+    w_pc_enable     <= (w_req_o and ready_im) or (i_flush_pp and i_misprediction);
+--w_pc_enable     <= (w_req_o and ready_im)
+-- logic for pending jump target: when there is a misprediction and the fetch is stalled waiting for instruction,
+-- the jump target cannot be loaded in the PC register, so it is stored 
+-- in pending_trg_reg and w_pending_trg is set to '1'. When the pipeline is no longer stalled,
+-- w_pending_trg is set to '0' and the pending jump target can be loaded in the PC register.
+pending_target_reg: process(clk, rst_n)
+    begin
+        if rst_n <= '0' then
+            w_pending_trg <= '0';
+        elsif rising_edge(clk) then
+            if w_pc_enable = '0' and i_misprediction = '1' then
+                w_pending_trg  <= '1';
+                pending_trg_reg <= i_jump_target;
+            elsif w_pc_enable = '1' then
+                w_pending_trg <= '0';
+            end if;
+        end if;
+end process;
+
+    req_handler: entity work.request_handler
+        port map (
+            clk           =>  clk,
+            rst_n         =>  rst_n,
+            i_block_ftch  =>  w_block_ftch,   -- pipeline is blocked, so no request has to be made to IM
+            ready_i       =>  ready_im, 
+            valid_i       =>  valid_im,
+            req_o         =>  w_req_o,
+            pending_req_o =>  o_pending_req 
+        );
+
+    -- Program Counter register
+    PC_register : entity work.PC
+        port map (
+            clk     => clk,
+            rst_n   => rst_n,
+            enable  => w_pc_enable,
+            data_in => w_pc_mux_out,
+            q       => w_PC_out
+        );
+
+    -- Register for current fetched PC
+    -- This rgister represents the address of the instruction that will be sampled by the pipeline.
+    previousPC: entity work.generic_reg
+        port map (
+            CLK    => clk        ,
+            RESET  => rst_n      ,
+            ENABLE => w_pc_enable,  
+            D_IN   => w_PC_out   ,
+            D_OUT  => current_PC_o
+        );
+
+--the signal predicting if the jump has been taken or not has to be propagated together with its relative instruction in order to enter the 
+--pipeline together.
+    predict_prop: process(clk)
+    begin 
+        if rising_edge(clk) then
+            if rst_n <= '0' then 
+                o_prediction <= '0';
+            elsif (w_pc_enable = '1') then
+                o_prediction    <= i_predict_taken;
+                o_predicted_trgt<= i_predicted_trgt(31 downto 2);
+            end if;
+        end if;
+    end process;
+
+
+ --       w_pc_selector <= i_misprediction & i_prev_prediction;
+--muxer for selecting next PC to be loaded:
+--1) if there is a jump, the next PC will be the jump target coming from EXE stage
+--2) if there is no jump but the branch predictor predicts taken, the next PC will be the predicted target
+--3) if there is no jump and the branch predictor predicts not taken, the next PC will be PC+4 (next sequential instruction)
+--4) if there is a misprediction, next PC will be the PC of the mispredicted instruction coming from branch decision stage. 
+muxPC:process(all)
+    begin
+        if (w_pending_trg = '1') then
+            w_pc_mux_out <= pending_trg_reg;
+            
+        elsif (i_misprediction = '1') then 
+            w_pc_mux_out <= i_jump_target;
+
+        elsif (i_predict_taken = '1') then
+            w_pc_mux_out <= i_predicted_trgt;
+
+        else
+            w_pc_mux_out <= w_next_pc;
+        end if;
+    end process;
+   
+    
+--Adder for PC + 4
+    PC_Adder: entity work.adder
+        port map (
+            a   => w_PC_out,
+            b   => x"00000004",
+            sum => w_next_pc
+        );
+
+o_request <= w_req_o;
+w_valid_instr_o <= '1' when w_buf_instr_valid = '1' else valid_im;
+
+next_instruction_o <= w_buffered_instruction when w_buf_instr_valid = '1' else next_instruction_i;
+
+valid_instr_o <= w_valid_instr_o;
+end architecture;

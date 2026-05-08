@@ -1,0 +1,15 @@
+
+main:     file format elf32-littleriscv
+
+
+Disassembly of section .data:
+
+10010000 <list.0>:
+10010000:	00000007          	.insn	4, 0x0007
+10010004:	00000003          	lb	zero,0(zero) # 0 <_start-0x400000>
+10010008:	0009                	.insn	2, 0x0009
+1001000a:	0000                	.insn	2, 0x
+1001000c:	000c                	.insn	2, 0x000c
+1001000e:	0000                	.insn	2, 0x
+10010010:	ffff                	.insn	2, 0xffff
+10010012:	ffff                	.insn	2, 0xffff

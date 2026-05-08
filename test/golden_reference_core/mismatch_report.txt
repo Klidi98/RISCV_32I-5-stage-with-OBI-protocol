@@ -1,0 +1,430 @@
+=== REPORT DI VERIFICA RISC-V ===
+Istruzioni totali: GS=2086 | RTL=2086
+----------------------------------------------------------------------
+
+[ERROR] line 7 | Instruction: SW
+    INFO: [PC_GS: 004001f8] [PC_RTL: 004001f8]
+    -> MEM STORE: Addr GS=7fffeff8 Data=00400018 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 16 | Instruction: SW
+    INFO: [PC_GS: 00400178] [PC_RTL: 00400178]
+    -> MEM STORE: Addr GS=7fffefe8 Data=00400218 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 19 | Instruction: SW
+    INFO: [PC_GS: 00400184] [PC_RTL: 00400184]
+    -> MEM STORE: Addr GS=7fffefc8 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 20 | Instruction: SW
+    INFO: [PC_GS: 00400188] [PC_RTL: 00400188]
+    -> MEM STORE: Addr GS=7fffefc4 Data=00000000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 30 | Instruction: SW
+    INFO: [PC_GS: 00400074] [PC_RTL: 00400074]
+    -> MEM STORE: Addr GS=7fffefb8 Data=004001ac | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 33 | Instruction: SW
+    INFO: [PC_GS: 00400080] [PC_RTL: 00400080]
+    -> MEM STORE: Addr GS=7fffef98 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 34 | Instruction: SW
+    INFO: [PC_GS: 00400084] [PC_RTL: 00400084]
+    -> MEM STORE: Addr GS=7fffef94 Data=00000000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 75 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef68 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 121 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef68 Data=10010004 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 167 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef68 Data=10010008 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 213 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef68 Data=1001000c | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 259 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef68 Data=10010010 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 305 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef68 Data=10010014 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 351 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef68 Data=10010018 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 397 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef68 Data=1001001c | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 443 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef68 Data=10010020 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 489 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef68 Data=10010024 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 539 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef68 Data=10010028 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 570 | Instruction: SW
+    INFO: [PC_GS: 00400178] [PC_RTL: 00400178]
+    -> MEM STORE: Addr GS=7fffefb8 Data=004001c8 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 573 | Instruction: SW
+    INFO: [PC_GS: 00400184] [PC_RTL: 00400184]
+    -> MEM STORE: Addr GS=7fffef98 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 574 | Instruction: SW
+    INFO: [PC_GS: 00400188] [PC_RTL: 00400188]
+    -> MEM STORE: Addr GS=7fffef94 Data=00000000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 584 | Instruction: SW
+    INFO: [PC_GS: 00400074] [PC_RTL: 00400074]
+    -> MEM STORE: Addr GS=7fffef88 Data=004001ac | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 587 | Instruction: SW
+    INFO: [PC_GS: 00400080] [PC_RTL: 00400080]
+    -> MEM STORE: Addr GS=7fffef68 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 588 | Instruction: SW
+    INFO: [PC_GS: 00400084] [PC_RTL: 00400084]
+    -> MEM STORE: Addr GS=7fffef64 Data=00000000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 642 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef38 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 688 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef38 Data=10010004 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 747 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef38 Data=10010008 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 806 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef38 Data=1001000c | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 852 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef38 Data=10010010 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 898 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef38 Data=10010014 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 935 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef38 Data=10010018 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 966 | Instruction: SW
+    INFO: [PC_GS: 00400178] [PC_RTL: 00400178]
+    -> MEM STORE: Addr GS=7fffef88 Data=004001c8 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 969 | Instruction: SW
+    INFO: [PC_GS: 00400184] [PC_RTL: 00400184]
+    -> MEM STORE: Addr GS=7fffef68 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 970 | Instruction: SW
+    INFO: [PC_GS: 00400188] [PC_RTL: 00400188]
+    -> MEM STORE: Addr GS=7fffef64 Data=00000000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 980 | Instruction: SW
+    INFO: [PC_GS: 00400074] [PC_RTL: 00400074]
+    -> MEM STORE: Addr GS=7fffef58 Data=004001ac | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 983 | Instruction: SW
+    INFO: [PC_GS: 00400080] [PC_RTL: 00400080]
+    -> MEM STORE: Addr GS=7fffef38 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 984 | Instruction: SW
+    INFO: [PC_GS: 00400084] [PC_RTL: 00400084]
+    -> MEM STORE: Addr GS=7fffef34 Data=00000000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1081 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef08 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1112 | Instruction: SW
+    INFO: [PC_GS: 00400178] [PC_RTL: 00400178]
+    -> MEM STORE: Addr GS=7fffef58 Data=004001c8 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1115 | Instruction: SW
+    INFO: [PC_GS: 00400184] [PC_RTL: 00400184]
+    -> MEM STORE: Addr GS=7fffef38 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1116 | Instruction: SW
+    INFO: [PC_GS: 00400188] [PC_RTL: 00400188]
+    -> MEM STORE: Addr GS=7fffef34 Data=00000000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1133 | Instruction: SW
+    INFO: [PC_GS: 00400178] [PC_RTL: 00400178]
+    -> MEM STORE: Addr GS=7fffef58 Data=004001e0 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1136 | Instruction: SW
+    INFO: [PC_GS: 00400184] [PC_RTL: 00400184]
+    -> MEM STORE: Addr GS=7fffef38 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1137 | Instruction: SW
+    INFO: [PC_GS: 00400188] [PC_RTL: 00400188]
+    -> MEM STORE: Addr GS=7fffef34 Data=00000001 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1147 | Instruction: SW
+    INFO: [PC_GS: 00400074] [PC_RTL: 00400074]
+    -> MEM STORE: Addr GS=7fffef28 Data=004001ac | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1150 | Instruction: SW
+    INFO: [PC_GS: 00400080] [PC_RTL: 00400080]
+    -> MEM STORE: Addr GS=7fffef08 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1151 | Instruction: SW
+    INFO: [PC_GS: 00400084] [PC_RTL: 00400084]
+    -> MEM STORE: Addr GS=7fffef04 Data=00000001 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1235 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffeed8 Data=10010004 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1266 | Instruction: SW
+    INFO: [PC_GS: 00400178] [PC_RTL: 00400178]
+    -> MEM STORE: Addr GS=7fffef28 Data=004001c8 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1269 | Instruction: SW
+    INFO: [PC_GS: 00400184] [PC_RTL: 00400184]
+    -> MEM STORE: Addr GS=7fffef08 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1270 | Instruction: SW
+    INFO: [PC_GS: 00400188] [PC_RTL: 00400188]
+    -> MEM STORE: Addr GS=7fffef04 Data=00000001 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1287 | Instruction: SW
+    INFO: [PC_GS: 00400178] [PC_RTL: 00400178]
+    -> MEM STORE: Addr GS=7fffef28 Data=004001e0 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1290 | Instruction: SW
+    INFO: [PC_GS: 00400184] [PC_RTL: 00400184]
+    -> MEM STORE: Addr GS=7fffef08 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1291 | Instruction: SW
+    INFO: [PC_GS: 00400188] [PC_RTL: 00400188]
+    -> MEM STORE: Addr GS=7fffef04 Data=00000002 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1301 | Instruction: SW
+    INFO: [PC_GS: 00400074] [PC_RTL: 00400074]
+    -> MEM STORE: Addr GS=7fffeef8 Data=004001ac | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1304 | Instruction: SW
+    INFO: [PC_GS: 00400080] [PC_RTL: 00400080]
+    -> MEM STORE: Addr GS=7fffeed8 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1305 | Instruction: SW
+    INFO: [PC_GS: 00400084] [PC_RTL: 00400084]
+    -> MEM STORE: Addr GS=7fffeed4 Data=00000002 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1346 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffeea8 Data=10010008 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1392 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffeea8 Data=1001000c | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1442 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffeea8 Data=10010010 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1473 | Instruction: SW
+    INFO: [PC_GS: 00400178] [PC_RTL: 00400178]
+    -> MEM STORE: Addr GS=7fffeef8 Data=004001c8 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1476 | Instruction: SW
+    INFO: [PC_GS: 00400184] [PC_RTL: 00400184]
+    -> MEM STORE: Addr GS=7fffeed8 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1477 | Instruction: SW
+    INFO: [PC_GS: 00400188] [PC_RTL: 00400188]
+    -> MEM STORE: Addr GS=7fffeed4 Data=00000002 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1487 | Instruction: SW
+    INFO: [PC_GS: 00400074] [PC_RTL: 00400074]
+    -> MEM STORE: Addr GS=7fffeec8 Data=004001ac | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1490 | Instruction: SW
+    INFO: [PC_GS: 00400080] [PC_RTL: 00400080]
+    -> MEM STORE: Addr GS=7fffeea8 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1491 | Instruction: SW
+    INFO: [PC_GS: 00400084] [PC_RTL: 00400084]
+    -> MEM STORE: Addr GS=7fffeea4 Data=00000002 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1532 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffee78 Data=10010008 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1569 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffee78 Data=1001000c | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1600 | Instruction: SW
+    INFO: [PC_GS: 00400178] [PC_RTL: 00400178]
+    -> MEM STORE: Addr GS=7fffeec8 Data=004001c8 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1603 | Instruction: SW
+    INFO: [PC_GS: 00400184] [PC_RTL: 00400184]
+    -> MEM STORE: Addr GS=7fffeea8 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1604 | Instruction: SW
+    INFO: [PC_GS: 00400188] [PC_RTL: 00400188]
+    -> MEM STORE: Addr GS=7fffeea4 Data=00000002 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1621 | Instruction: SW
+    INFO: [PC_GS: 00400178] [PC_RTL: 00400178]
+    -> MEM STORE: Addr GS=7fffeec8 Data=004001e0 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1624 | Instruction: SW
+    INFO: [PC_GS: 00400184] [PC_RTL: 00400184]
+    -> MEM STORE: Addr GS=7fffeea8 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1625 | Instruction: SW
+    INFO: [PC_GS: 00400188] [PC_RTL: 00400188]
+    -> MEM STORE: Addr GS=7fffeea4 Data=00000004 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1647 | Instruction: SW
+    INFO: [PC_GS: 00400178] [PC_RTL: 00400178]
+    -> MEM STORE: Addr GS=7fffeef8 Data=004001e0 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1650 | Instruction: SW
+    INFO: [PC_GS: 00400184] [PC_RTL: 00400184]
+    -> MEM STORE: Addr GS=7fffeed8 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1651 | Instruction: SW
+    INFO: [PC_GS: 00400188] [PC_RTL: 00400188]
+    -> MEM STORE: Addr GS=7fffeed4 Data=00000005 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1683 | Instruction: SW
+    INFO: [PC_GS: 00400178] [PC_RTL: 00400178]
+    -> MEM STORE: Addr GS=7fffef88 Data=004001e0 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1686 | Instruction: SW
+    INFO: [PC_GS: 00400184] [PC_RTL: 00400184]
+    -> MEM STORE: Addr GS=7fffef68 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1687 | Instruction: SW
+    INFO: [PC_GS: 00400188] [PC_RTL: 00400188]
+    -> MEM STORE: Addr GS=7fffef64 Data=00000007 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1697 | Instruction: SW
+    INFO: [PC_GS: 00400074] [PC_RTL: 00400074]
+    -> MEM STORE: Addr GS=7fffef58 Data=004001ac | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1700 | Instruction: SW
+    INFO: [PC_GS: 00400080] [PC_RTL: 00400080]
+    -> MEM STORE: Addr GS=7fffef38 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1701 | Instruction: SW
+    INFO: [PC_GS: 00400084] [PC_RTL: 00400084]
+    -> MEM STORE: Addr GS=7fffef34 Data=00000007 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1742 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef08 Data=1001001c | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1788 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef08 Data=10010020 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1825 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffef08 Data=10010024 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1856 | Instruction: SW
+    INFO: [PC_GS: 00400178] [PC_RTL: 00400178]
+    -> MEM STORE: Addr GS=7fffef58 Data=004001c8 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1859 | Instruction: SW
+    INFO: [PC_GS: 00400184] [PC_RTL: 00400184]
+    -> MEM STORE: Addr GS=7fffef38 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1860 | Instruction: SW
+    INFO: [PC_GS: 00400188] [PC_RTL: 00400188]
+    -> MEM STORE: Addr GS=7fffef34 Data=00000007 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1870 | Instruction: SW
+    INFO: [PC_GS: 00400074] [PC_RTL: 00400074]
+    -> MEM STORE: Addr GS=7fffef28 Data=004001ac | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1873 | Instruction: SW
+    INFO: [PC_GS: 00400080] [PC_RTL: 00400080]
+    -> MEM STORE: Addr GS=7fffef08 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1874 | Instruction: SW
+    INFO: [PC_GS: 00400084] [PC_RTL: 00400084]
+    -> MEM STORE: Addr GS=7fffef04 Data=00000007 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1915 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffeed8 Data=1001001c | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1952 | Instruction: SW
+    INFO: [PC_GS: 00400030] [PC_RTL: 00400030]
+    -> MEM STORE: Addr GS=7fffeed8 Data=10010020 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1983 | Instruction: SW
+    INFO: [PC_GS: 00400178] [PC_RTL: 00400178]
+    -> MEM STORE: Addr GS=7fffef28 Data=004001c8 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1986 | Instruction: SW
+    INFO: [PC_GS: 00400184] [PC_RTL: 00400184]
+    -> MEM STORE: Addr GS=7fffef08 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 1987 | Instruction: SW
+    INFO: [PC_GS: 00400188] [PC_RTL: 00400188]
+    -> MEM STORE: Addr GS=7fffef04 Data=00000007 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 2004 | Instruction: SW
+    INFO: [PC_GS: 00400178] [PC_RTL: 00400178]
+    -> MEM STORE: Addr GS=7fffef28 Data=004001e0 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 2007 | Instruction: SW
+    INFO: [PC_GS: 00400184] [PC_RTL: 00400184]
+    -> MEM STORE: Addr GS=7fffef08 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 2008 | Instruction: SW
+    INFO: [PC_GS: 00400188] [PC_RTL: 00400188]
+    -> MEM STORE: Addr GS=7fffef04 Data=00000009 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 2030 | Instruction: SW
+    INFO: [PC_GS: 00400178] [PC_RTL: 00400178]
+    -> MEM STORE: Addr GS=7fffef58 Data=004001e0 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 2033 | Instruction: SW
+    INFO: [PC_GS: 00400184] [PC_RTL: 00400184]
+    -> MEM STORE: Addr GS=7fffef38 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 2034 | Instruction: SW
+    INFO: [PC_GS: 00400188] [PC_RTL: 00400188]
+    -> MEM STORE: Addr GS=7fffef34 Data=0000000a | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 2061 | Instruction: SW
+    INFO: [PC_GS: 00400178] [PC_RTL: 00400178]
+    -> MEM STORE: Addr GS=7fffefb8 Data=004001e0 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 2064 | Instruction: SW
+    INFO: [PC_GS: 00400184] [PC_RTL: 00400184]
+    -> MEM STORE: Addr GS=7fffef98 Data=10010000 | Addr RTL=00000000 Data=00000000
+----------------------------------------
+[ERROR] line 2065 | Instruction: SW
+    INFO: [PC_GS: 00400188] [PC_RTL: 00400188]
+    -> MEM STORE: Addr GS=7fffef94 Data=0000000b | Addr RTL=00000000 Data=00000000
+----------------------------------------
+
+ESITO: FAIL - Trovate 106 incongruenze.

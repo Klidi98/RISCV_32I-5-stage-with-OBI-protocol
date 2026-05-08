@@ -1,0 +1,226 @@
+
+main:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00400000 <_start>:
+  400000:	1fc21197          	auipc	gp,0x1fc21
+  400004:	80018193          	add	gp,gp,-2048 # 20020800 <__global_pointer$>
+  400008:	0fc11117          	auipc	sp,0xfc11
+  40000c:	ff810113          	add	sp,sp,-8 # 10011000 <__stack_top>
+  400010:	00010433          	add	s0,sp,zero
+  400014:	14c000ef          	jal	400160 <main>
+
+00400018 <el>:
+  400018:	0000006f          	j	400018 <el>
+  40001c:	00000013          	nop
+  400020:	00000013          	nop
+
+00400024 <uart_putc>:
+  400024:	fe010113          	add	sp,sp,-32
+  400028:	00812e23          	sw	s0,28(sp)
+  40002c:	02010413          	add	s0,sp,32
+  400030:	00050793          	mv	a5,a0
+  400034:	fef407a3          	sb	a5,-17(s0)
+  400038:	00000013          	nop
+  40003c:	100127b7          	lui	a5,0x10012
+  400040:	0007a703          	lw	a4,0(a5) # 10012000 <__stack_top+0x1000>
+  400044:	010007b7          	lui	a5,0x1000
+  400048:	00f777b3          	and	a5,a4,a5
+  40004c:	fe0798e3          	bnez	a5,40003c <uart_putc+0x18>
+  400050:	100127b7          	lui	a5,0x10012
+  400054:	fef44703          	lbu	a4,-17(s0)
+  400058:	00e7a023          	sw	a4,0(a5) # 10012000 <__stack_top+0x1000>
+  40005c:	fef44703          	lbu	a4,-17(s0)
+  400060:	100127b7          	lui	a5,0x10012
+  400064:	10076713          	or	a4,a4,256
+  400068:	00e7a023          	sw	a4,0(a5) # 10012000 <__stack_top+0x1000>
+  40006c:	100127b7          	lui	a5,0x10012
+  400070:	fef44703          	lbu	a4,-17(s0)
+  400074:	00e7a023          	sw	a4,0(a5) # 10012000 <__stack_top+0x1000>
+  400078:	00000013          	nop
+  40007c:	01c12403          	lw	s0,28(sp)
+  400080:	02010113          	add	sp,sp,32
+  400084:	00008067          	ret
+
+00400088 <uart_put_hex>:
+  400088:	fd010113          	add	sp,sp,-48
+  40008c:	02112623          	sw	ra,44(sp)
+  400090:	02812423          	sw	s0,40(sp)
+  400094:	03010413          	add	s0,sp,48
+  400098:	fca42e23          	sw	a0,-36(s0)
+  40009c:	00700793          	li	a5,7
+  4000a0:	fef42623          	sw	a5,-20(s0)
+  4000a4:	0600006f          	j	400104 <uart_put_hex+0x7c>
+  4000a8:	fec42783          	lw	a5,-20(s0)
+  4000ac:	00279793          	sll	a5,a5,0x2
+  4000b0:	fdc42703          	lw	a4,-36(s0)
+  4000b4:	00f757b3          	srl	a5,a4,a5
+  4000b8:	00f7f793          	and	a5,a5,15
+  4000bc:	fef42423          	sw	a5,-24(s0)
+  4000c0:	fe842703          	lw	a4,-24(s0)
+  4000c4:	00900793          	li	a5,9
+  4000c8:	00e7ec63          	bltu	a5,a4,4000e0 <uart_put_hex+0x58>
+  4000cc:	fe842783          	lw	a5,-24(s0)
+  4000d0:	0ff7f793          	zext.b	a5,a5
+  4000d4:	03078793          	add	a5,a5,48
+  4000d8:	0ff7f793          	zext.b	a5,a5
+  4000dc:	0140006f          	j	4000f0 <uart_put_hex+0x68>
+  4000e0:	fe842783          	lw	a5,-24(s0)
+  4000e4:	0ff7f793          	zext.b	a5,a5
+  4000e8:	03778793          	add	a5,a5,55
+  4000ec:	0ff7f793          	zext.b	a5,a5
+  4000f0:	00078513          	mv	a0,a5
+  4000f4:	f31ff0ef          	jal	400024 <uart_putc>
+  4000f8:	fec42783          	lw	a5,-20(s0)
+  4000fc:	fff78793          	add	a5,a5,-1
+  400100:	fef42623          	sw	a5,-20(s0)
+  400104:	fec42783          	lw	a5,-20(s0)
+  400108:	fa07d0e3          	bgez	a5,4000a8 <uart_put_hex+0x20>
+  40010c:	00000013          	nop
+  400110:	00000013          	nop
+  400114:	02c12083          	lw	ra,44(sp)
+  400118:	02812403          	lw	s0,40(sp)
+  40011c:	03010113          	add	sp,sp,48
+  400120:	00008067          	ret
+
+00400124 <delay>:
+  400124:	fe010113          	add	sp,sp,-32
+  400128:	00812e23          	sw	s0,28(sp)
+  40012c:	02010413          	add	s0,sp,32
+  400130:	fea42623          	sw	a0,-20(s0)
+  400134:	0080006f          	j	40013c <delay+0x18>
+  400138:	00000013          	nop
+  40013c:	fec42783          	lw	a5,-20(s0)
+  400140:	fff78713          	add	a4,a5,-1
+  400144:	fee42623          	sw	a4,-20(s0)
+  400148:	fe0798e3          	bnez	a5,400138 <delay+0x14>
+  40014c:	00000013          	nop
+  400150:	00000013          	nop
+  400154:	01c12403          	lw	s0,28(sp)
+  400158:	02010113          	add	sp,sp,32
+  40015c:	00008067          	ret
+
+00400160 <main>:
+  400160:	fd010113          	add	sp,sp,-48
+  400164:	02112623          	sw	ra,44(sp)
+  400168:	02812423          	sw	s0,40(sp)
+  40016c:	03010413          	add	s0,sp,48
+  400170:	100107b7          	lui	a5,0x10010
+  400174:	fcf42c23          	sw	a5,-40(s0)
+  400178:	fe042623          	sw	zero,-20(s0)
+  40017c:	100117b7          	lui	a5,0x10011
+  400180:	00100713          	li	a4,1
+  400184:	00e7a023          	sw	a4,0(a5) # 10011000 <__stack_top>
+  400188:	fe042423          	sw	zero,-24(s0)
+  40018c:	fe042223          	sw	zero,-28(s0)
+  400190:	fe042023          	sw	zero,-32(s0)
+  400194:	0340006f          	j	4001c8 <main+0x68>
+  400198:	fe042783          	lw	a5,-32(s0)
+  40019c:	00279793          	sll	a5,a5,0x2
+  4001a0:	fd842703          	lw	a4,-40(s0)
+  4001a4:	00f707b3          	add	a5,a4,a5
+  4001a8:	fe042683          	lw	a3,-32(s0)
+  4001ac:	a5a5a737          	lui	a4,0xa5a5a
+  4001b0:	5a570713          	add	a4,a4,1445 # a5a5a5a5 <__global_pointer$+0x85a39da5>
+  4001b4:	00e6c733          	xor	a4,a3,a4
+  4001b8:	00e7a023          	sw	a4,0(a5)
+  4001bc:	fe042783          	lw	a5,-32(s0)
+  4001c0:	00178793          	add	a5,a5,1
+  4001c4:	fef42023          	sw	a5,-32(s0)
+  4001c8:	fe042703          	lw	a4,-32(s0)
+  4001cc:	3bf00793          	li	a5,959
+  4001d0:	fce7f4e3          	bgeu	a5,a4,400198 <main+0x38>
+  4001d4:	fc042e23          	sw	zero,-36(s0)
+  4001d8:	05c0006f          	j	400234 <main+0xd4>
+  4001dc:	fdc42783          	lw	a5,-36(s0)
+  4001e0:	00279793          	sll	a5,a5,0x2
+  4001e4:	fd842703          	lw	a4,-40(s0)
+  4001e8:	00f707b3          	add	a5,a4,a5
+  4001ec:	0007a783          	lw	a5,0(a5)
+  4001f0:	fcf42a23          	sw	a5,-44(s0)
+  4001f4:	fe842703          	lw	a4,-24(s0)
+  4001f8:	fd442783          	lw	a5,-44(s0)
+  4001fc:	00f747b3          	xor	a5,a4,a5
+  400200:	fef42423          	sw	a5,-24(s0)
+  400204:	fdc42703          	lw	a4,-36(s0)
+  400208:	a5a5a7b7          	lui	a5,0xa5a5a
+  40020c:	5a578793          	add	a5,a5,1445 # a5a5a5a5 <__global_pointer$+0x85a39da5>
+  400210:	00f747b3          	xor	a5,a4,a5
+  400214:	fd442703          	lw	a4,-44(s0)
+  400218:	00f70863          	beq	a4,a5,400228 <main+0xc8>
+  40021c:	fe442783          	lw	a5,-28(s0)
+  400220:	00178793          	add	a5,a5,1
+  400224:	fef42223          	sw	a5,-28(s0)
+  400228:	fdc42783          	lw	a5,-36(s0)
+  40022c:	00178793          	add	a5,a5,1
+  400230:	fcf42e23          	sw	a5,-36(s0)
+  400234:	fdc42703          	lw	a4,-36(s0)
+  400238:	3bf00793          	li	a5,959
+  40023c:	fae7f0e3          	bgeu	a5,a4,4001dc <main+0x7c>
+  400240:	04900513          	li	a0,73
+  400244:	de1ff0ef          	jal	400024 <uart_putc>
+  400248:	05400513          	li	a0,84
+  40024c:	dd9ff0ef          	jal	400024 <uart_putc>
+  400250:	03a00513          	li	a0,58
+  400254:	dd1ff0ef          	jal	400024 <uart_putc>
+  400258:	02000513          	li	a0,32
+  40025c:	dc9ff0ef          	jal	400024 <uart_putc>
+  400260:	fec42503          	lw	a0,-20(s0)
+  400264:	e25ff0ef          	jal	400088 <uart_put_hex>
+  400268:	00a00513          	li	a0,10
+  40026c:	db9ff0ef          	jal	400024 <uart_putc>
+  400270:	00d00513          	li	a0,13
+  400274:	db1ff0ef          	jal	400024 <uart_putc>
+  400278:	04300513          	li	a0,67
+  40027c:	da9ff0ef          	jal	400024 <uart_putc>
+  400280:	05300513          	li	a0,83
+  400284:	da1ff0ef          	jal	400024 <uart_putc>
+  400288:	03a00513          	li	a0,58
+  40028c:	d99ff0ef          	jal	400024 <uart_putc>
+  400290:	02000513          	li	a0,32
+  400294:	d91ff0ef          	jal	400024 <uart_putc>
+  400298:	fe842503          	lw	a0,-24(s0)
+  40029c:	dedff0ef          	jal	400088 <uart_put_hex>
+  4002a0:	00a00513          	li	a0,10
+  4002a4:	d81ff0ef          	jal	400024 <uart_putc>
+  4002a8:	00d00513          	li	a0,13
+  4002ac:	d79ff0ef          	jal	400024 <uart_putc>
+  4002b0:	04500513          	li	a0,69
+  4002b4:	d71ff0ef          	jal	400024 <uart_putc>
+  4002b8:	05200513          	li	a0,82
+  4002bc:	d69ff0ef          	jal	400024 <uart_putc>
+  4002c0:	05200513          	li	a0,82
+  4002c4:	d61ff0ef          	jal	400024 <uart_putc>
+  4002c8:	03a00513          	li	a0,58
+  4002cc:	d59ff0ef          	jal	400024 <uart_putc>
+  4002d0:	02000513          	li	a0,32
+  4002d4:	d51ff0ef          	jal	400024 <uart_putc>
+  4002d8:	fe442503          	lw	a0,-28(s0)
+  4002dc:	dadff0ef          	jal	400088 <uart_put_hex>
+  4002e0:	00a00513          	li	a0,10
+  4002e4:	d41ff0ef          	jal	400024 <uart_putc>
+  4002e8:	00d00513          	li	a0,13
+  4002ec:	d39ff0ef          	jal	400024 <uart_putc>
+  4002f0:	00a00513          	li	a0,10
+  4002f4:	d31ff0ef          	jal	400024 <uart_putc>
+  4002f8:	00d00513          	li	a0,13
+  4002fc:	d29ff0ef          	jal	400024 <uart_putc>
+  400300:	fe442783          	lw	a5,-28(s0)
+  400304:	00079c63          	bnez	a5,40031c <main+0x1bc>
+  400308:	100117b7          	lui	a5,0x10011
+  40030c:	fec42703          	lw	a4,-20(s0)
+  400310:	0ff77713          	zext.b	a4,a4
+  400314:	00e7a023          	sw	a4,0(a5) # 10011000 <__stack_top>
+  400318:	0100006f          	j	400328 <main+0x1c8>
+  40031c:	100117b7          	lui	a5,0x10011
+  400320:	0f000713          	li	a4,240
+  400324:	00e7a023          	sw	a4,0(a5) # 10011000 <__stack_top>
+  400328:	fec42783          	lw	a5,-20(s0)
+  40032c:	00178793          	add	a5,a5,1
+  400330:	fef42623          	sw	a5,-20(s0)
+  400334:	001e87b7          	lui	a5,0x1e8
+  400338:	48078513          	add	a0,a5,1152 # 1e8480 <_start-0x217b80>
+  40033c:	de9ff0ef          	jal	400124 <delay>
+  400340:	e49ff06f          	j	400188 <main+0x28>

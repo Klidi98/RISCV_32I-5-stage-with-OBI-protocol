@@ -1,0 +1,108 @@
+
+main:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00400000 <_start>:
+  400000:	1fc21197          	auipc	gp,0x1fc21
+  400004:	80018193          	add	gp,gp,-2048 # 20020800 <__global_pointer$>
+  400008:	0fc11117          	auipc	sp,0xfc11
+  40000c:	ff810113          	add	sp,sp,-8 # 10011000 <__stack_top>
+  400010:	00010433          	add	s0,sp,zero
+  400014:	010000ef          	jal	400024 <main>
+
+00400018 <el>:
+  400018:	0000006f          	j	400018 <el>
+  40001c:	00000013          	nop
+  400020:	00000013          	nop
+
+00400024 <main>:
+  400024:	10011137          	lui	sp,0x10011
+  400028:	00002537          	lui	a0,0x2
+  40002c:	71050513          	add	a0,a0,1808 # 2710 <_start-0x3fd8f0>
+  400030:	10013d37          	lui	s10,0x10013
+  400034:	10014db7          	lui	s11,0x10014
+  400038:	000d2403          	lw	s0,0(s10) # 10013000 <CYCLE_ADDR>
+  40003c:	000da483          	lw	s1,0(s11) # 10014000 <INST_ADDR>
+  400040:	00100393          	li	t2,1
+  400044:	00200e13          	li	t3,2
+  400048:	00300e93          	li	t4,3
+  40004c:	00400f13          	li	t5,4
+  400050:	00500f93          	li	t6,5
+
+00400054 <benchmark_loop>:
+  400054:	01c383b3          	add	t2,t2,t3
+  400058:	01de0e33          	add	t3,t3,t4
+  40005c:	01ee8eb3          	add	t4,t4,t5
+  400060:	fff50513          	add	a0,a0,-1
+  400064:	fe0518e3          	bnez	a0,400054 <benchmark_loop>
+  400068:	000d2903          	lw	s2,0(s10)
+  40006c:	000da983          	lw	s3,0(s11)
+  400070:	40890933          	sub	s2,s2,s0
+  400074:	409989b3          	sub	s3,s3,s1
+  400078:	04300513          	li	a0,67
+  40007c:	044000ef          	jal	4000c0 <uart_putc>
+  400080:	03a00513          	li	a0,58
+  400084:	03c000ef          	jal	4000c0 <uart_putc>
+  400088:	00090513          	mv	a0,s2
+  40008c:	05c000ef          	jal	4000e8 <uart_put_hex>
+  400090:	00a00513          	li	a0,10
+  400094:	02c000ef          	jal	4000c0 <uart_putc>
+  400098:	04900513          	li	a0,73
+  40009c:	024000ef          	jal	4000c0 <uart_putc>
+  4000a0:	03a00513          	li	a0,58
+  4000a4:	01c000ef          	jal	4000c0 <uart_putc>
+  4000a8:	00098513          	mv	a0,s3
+  4000ac:	03c000ef          	jal	4000e8 <uart_put_hex>
+  4000b0:	100112b7          	lui	t0,0x10011
+  4000b4:	00100313          	li	t1,1
+  4000b8:	0062a023          	sw	t1,0(t0) # 10011000 <__stack_top>
+
+004000bc <loop_forever>:
+  4000bc:	0000006f          	j	4000bc <loop_forever>
+
+004000c0 <uart_putc>:
+  4000c0:	100125b7          	lui	a1,0x10012
+
+004000c4 <wait_busy>:
+  4000c4:	0005a603          	lw	a2,0(a1) # 10012000 <UART_REG>
+  4000c8:	010006b7          	lui	a3,0x1000
+  4000cc:	00d67633          	and	a2,a2,a3
+  4000d0:	fe061ae3          	bnez	a2,4000c4 <wait_busy>
+  4000d4:	10000693          	li	a3,256
+  4000d8:	00d56633          	or	a2,a0,a3
+  4000dc:	00c5a023          	sw	a2,0(a1)
+  4000e0:	00a5a023          	sw	a0,0(a1)
+  4000e4:	00008067          	ret
+
+004000e8 <uart_put_hex>:
+  4000e8:	fe010113          	add	sp,sp,-32 # 10010fe0 <__bss_start+0xfe0>
+  4000ec:	00112e23          	sw	ra,28(sp)
+  4000f0:	00812c23          	sw	s0,24(sp)
+  4000f4:	00912a23          	sw	s1,20(sp)
+  4000f8:	00050413          	mv	s0,a0
+  4000fc:	00700493          	li	s1,7
+
+00400100 <hex_loop>:
+  400100:	00249713          	sll	a4,s1,0x2
+  400104:	00e45533          	srl	a0,s0,a4
+  400108:	00f57513          	and	a0,a0,15
+  40010c:	00a00793          	li	a5,10
+  400110:	00f54663          	blt	a0,a5,40011c <low_digit>
+  400114:	03750513          	add	a0,a0,55
+  400118:	0080006f          	j	400120 <print_digit>
+
+0040011c <low_digit>:
+  40011c:	03050513          	add	a0,a0,48
+
+00400120 <print_digit>:
+  400120:	fa1ff0ef          	jal	4000c0 <uart_putc>
+  400124:	fff48493          	add	s1,s1,-1
+  400128:	fff00793          	li	a5,-1
+  40012c:	fcf49ae3          	bne	s1,a5,400100 <hex_loop>
+  400130:	01412483          	lw	s1,20(sp)
+  400134:	01812403          	lw	s0,24(sp)
+  400138:	01c12083          	lw	ra,28(sp)
+  40013c:	02010113          	add	sp,sp,32
+  400140:	00008067          	ret

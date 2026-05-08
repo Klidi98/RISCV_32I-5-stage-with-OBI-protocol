@@ -1,0 +1,610 @@
+# vsim -c -do "run -all; quit -f" work.tb_random_mem -gLATENCY=2 
+# Start time: 20:48:41 on May 08,2026
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_textio(body)
+# Loading verilog.vl_types(body)
+# Loading std.env(body)
+# Loading work.tb_random_mem(beh)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.core_riscv32i(rtl)
+# Loading work.fetch(rtl)
+# Loading work.request_handler(rtl)
+# Loading work.pc(behavioral)
+# Loading work.generic_reg(behavioral)
+# Loading work.adder(behavioral)
+# Loading work.pipe_if_id(rtl)
+# Loading work.id_stage(rtl)
+# Loading work.controlunit(beh)
+# Loading work.register_file(behavioral)
+# Loading work.immediateextension32(structural)
+# Loading work.mux4to1(beh)
+# Loading work.mux2to1(rtl)
+# Loading work.estensoresegnotipo1(beh)
+# Loading work.estensoresegnotipo2(beh)
+# Loading work.pipe_id_ex(rtl)
+# Loading work.exe_stage(rtl)
+# Loading work.alu(rtl)
+# Loading work.alu_comparator(beh)
+# Loading work.adder_sub(behavioral)
+# Loading work.pipe_ex_mem(rtl)
+# Loading work.mem_stage(rtl)
+# Loading work.sign_extensor(beh)
+# Loading work.pipe_mem_wb(rtl)
+# Loading work.writeback(beh)
+# Loading work.pipe_staller(rtl)
+# Loading work.forwardingunit(behavioral)
+# Loading work.hazard_detection_unit(behavioral)
+# Loading work.pipe_flusher(beh)
+# Loading sv_std.std
+# Loading work.branch_predictor_sv_unit
+# Loading work.branch_predictor
+# Loading work.random_memory
+# run -all
+# ** Note: loading :main.bin and data_mem.txt
+#    Time: 0 ps  Iteration: 0  Instance: /tb_random_mem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_random_mem/uut/EXE_STAGE/alu
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_random_mem/uut/ID_STAGE/RF
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_random_mem/uut/ID_STAGE/RF
+# Memory SUCCESSFULLY loaded with main.bin
+# Memory SUCCESSFULLY loaded with data_mem.txt
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /tb_random_mem/uut/ID_STAGE/RF
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /tb_random_mem/uut/ID_STAGE/RF
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 127 ns  Iteration: 3  Instance: /tb_random_mem/uut/EXE_STAGE/alu/comparator
+# ** Note: 00400000;0500006F ; 0: 00400004
+#    Time: 149 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400050;00000093 ; 1: 00000000
+#    Time: 193 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400054;00000113 ; 2: 00000000
+#    Time: 237 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400058;00000193 ; 3: 00000000
+#    Time: 249 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040005C;00000213 ; 4: 00000000
+#    Time: 273 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400060;00000293 ; 5: 00000000
+#    Time: 299 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400064;00000313 ; 6: 00000000
+#    Time: 327 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400068;00000393 ; 7: 00000000
+#    Time: 357 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040006C;00000413 ; 8: 00000000
+#    Time: 385 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400070;00000493 ; 9: 00000000
+#    Time: 413 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400074;00000513 ; 10: 00000000
+#    Time: 439 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400078;00000593 ; 11: 00000000
+#    Time: 461 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040007C;00000613 ; 12: 00000000
+#    Time: 495 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400080;00000693 ; 13: 00000000
+#    Time: 537 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400084;00000713 ; 14: 00000000
+#    Time: 563 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400088;00000793 ; 15: 00000000
+#    Time: 583 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040008C;00000813 ; 16: 00000000
+#    Time: 611 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400090;00000893 ; 17: 00000000
+#    Time: 625 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400094;00000913 ; 18: 00000000
+#    Time: 639 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400098;00000993 ; 19: 00000000
+#    Time: 661 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040009C;00000A13 ; 20: 00000000
+#    Time: 691 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000A0;00000A93 ; 21: 00000000
+#    Time: 723 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000A4;00000B13 ; 22: 00000000
+#    Time: 751 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000A8;00000B93 ; 23: 00000000
+#    Time: 789 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000AC;00000C13 ; 24: 00000000
+#    Time: 821 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000B0;00000C93 ; 25: 00000000
+#    Time: 849 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000B4;00000D13 ; 26: 00000000
+#    Time: 867 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000B8;00000D93 ; 27: 00000000
+#    Time: 883 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000BC;00000E13 ; 28: 00000000
+#    Time: 913 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000C0;00000E93 ; 29: 00000000
+#    Time: 933 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000C4;00000F13 ; 30: 00000000
+#    Time: 967 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000C8;00000F93 ; 31: 00000000
+#    Time: 997 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000CC;F1402573 ; 10: 00000000
+#    Time: 1025 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000D0;00051063 ; 0: 00000000
+#    Time: 1065 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000D4;00000297 ; 5: 004000D4
+#    Time: 1093 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000D8;01028293 ; 5: 004000E4
+#    Time: 1113 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000DC;30529073 ; 0: 008001C8
+#    Time: 1149 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000E0;74445073 ; 0: 00000000
+#    Time: 1183 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000E4;00000297 ; 5: 004000E4
+#    Time: 1205 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000E8;01028293 ; 5: 004000F4
+#    Time: 1251 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000EC;30529073 ; 0: 008001E8
+#    Time: 1277 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000F0;18005073 ; 0: 00000000
+#    Time: 1291 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000F4;00000297 ; 5: 004000F4
+#    Time: 1321 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000F8;02028293 ; 5: 00400114
+#    Time: 1351 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004000FC;30529073 ; 0: 00800228
+#    Time: 1393 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400100;800002B7 ; 5: 80000000
+#    Time: 1407 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400104;FFF28293 ; 5: 7FFFFFFF
+#    Time: 1435 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400108;3B029073 ; 0: 7FFFFFFF
+#    Time: 1463 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040010C;01F00293 ; 5: 0000001F
+#    Time: 1485 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400110;3A029073 ; 0: 0000001F
+#    Time: 1501 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400114;30405073 ; 0: 00000000
+#    Time: 1515 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400118;00000297 ; 5: 00400118
+#    Time: 1547 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040011C;01428293 ; 5: 0040012C
+#    Time: 1575 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400120;30529073 ; 0: 00800258
+#    Time: 1607 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400124;30205073 ; 0: 00000000
+#    Time: 1641 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400128;30305073 ; 0: 00000000
+#    Time: 1663 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040012C;00000193 ; 3: 00000000
+#    Time: 1681 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400130;00000297 ; 5: 00400130
+#    Time: 1701 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400134;ED428293 ; 5: 00400004
+#    Time: 1717 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400138;30529073 ; 0: 00800008
+#    Time: 1757 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040013C;00100513 ; 10: 00000001
+#    Time: 1777 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400140;01F51513 ; 10: 80000000
+#    Time: 1793 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400144;00054C63 ; 24: 80000001
+#    Time: 1823 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040015C;00000293 ; 5: 00000000
+#    Time: 1869 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400160;00028A63 ; 20: 00000001
+#    Time: 1885 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400174;30005073 ; 0: 00000000
+#    Time: 1945 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400178;00000297 ; 5: 00400178
+#    Time: 1979 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040017C;01428293 ; 5: 0040018C
+#    Time: 1997 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400180;34129073 ; 0: 0040018C
+#    Time: 2027 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400184;F1402573 ; 10: 00000000
+#    Time: 2047 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400188;30200073 ; 0: 00000000
+#    Time: 2071 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040018C;00200193 ; 3: 00000002
+#    Time: 2093 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400190;00FF16B7 ; 13: 00FF1000
+#    Time: 2117 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400194;F0068693 ; 13: 00FF0F00
+#    Time: 2133 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400198;F0F6C713 ; 14: FF00F00F
+#    Time: 2147 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040019C;FF00F3B7 ; 7: FF00F000
+#    Time: 2171 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001A0;00F38393 ; 7: FF00F00F
+#    Time: 2191 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001A4;1C771663 ; 12: 00000000
+#    Time: 2205 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001A8;00300193 ; 3: 00000003
+#    Time: 2231 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001AC;0FF016B7 ; 13: 0FF01000
+#    Time: 2245 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001B0;FF068693 ; 13: 0FF00FF0
+#    Time: 2277 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001B4;0F06C713 ; 14: 0FF00F00
+#    Time: 2313 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001B8;0FF013B7 ; 7: 0FF01000
+#    Time: 2337 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001BC;F0038393 ; 7: 0FF00F00
+#    Time: 2365 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001C0;1A771863 ; 16: 00000000
+#    Time: 2393 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001C4;00400193 ; 3: 00000004
+#    Time: 2419 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001C8;00FF16B7 ; 13: 00FF1000
+#    Time: 2439 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001CC;8FF68693 ; 13: 00FF08FF
+#    Time: 2471 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001D0;70F6C713 ; 14: 00FF0FF0
+#    Time: 2483 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001D4;00FF13B7 ; 7: 00FF1000
+#    Time: 2499 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001D8;FF038393 ; 7: 00FF0FF0
+#    Time: 2529 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001DC;18771A63 ; 20: 00000000
+#    Time: 2553 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001E0;00500193 ; 3: 00000005
+#    Time: 2577 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001E4;F00FF6B7 ; 13: F00FF000
+#    Time: 2607 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001E8;00F68693 ; 13: F00FF00F
+#    Time: 2627 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001EC;0F06C713 ; 14: F00FF0FF
+#    Time: 2661 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001F0;F00FF3B7 ; 7: F00FF000
+#    Time: 2685 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001F4;0FF38393 ; 7: F00FF0FF
+#    Time: 2701 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001F8;16771C63 ; 24: 00000000
+#    Time: 2715 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004001FC;00600193 ; 3: 00000006
+#    Time: 2741 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400200;FF00F5B7 ; 11: FF00F000
+#    Time: 2761 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400204;70058593 ; 11: FF00F700
+#    Time: 2779 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400208;70F5C593 ; 11: FF00F00F
+#    Time: 2807 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040020C;FF00F3B7 ; 7: FF00F000
+#    Time: 2835 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400210;00F38393 ; 7: FF00F00F
+#    Time: 2861 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400214;14759E63 ; 28: 00000000
+#    Time: 2879 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400218;00700193 ; 3: 00000007
+#    Time: 2905 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040021C;00000213 ; 4: 00000000
+#    Time: 2935 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400220;0FF010B7 ; 1: 0FF01000
+#    Time: 2965 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400224;FF008093 ; 1: 0FF00FF0
+#    Time: 2989 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400228;0F00C713 ; 14: 0FF00F00
+#    Time: 3027 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040022C;00070313 ; 6: 0FF00F00
+#    Time: 3059 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400230;00120213 ; 4: 00000001
+#    Time: 3081 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400234;00200293 ; 5: 00000002
+#    Time: 3117 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400238;FE5214E3 ; 9: FFFFFFFF
+#    Time: 3131 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400220;0FF010B7 ; 1: 0FF01000
+#    Time: 3177 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400224;FF008093 ; 1: 0FF00FF0
+#    Time: 3195 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400228;0F00C713 ; 14: 0FF00F00
+#    Time: 3211 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040022C;00070313 ; 6: 0FF00F00
+#    Time: 3233 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400230;00120213 ; 4: 00000002
+#    Time: 3257 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400234;00200293 ; 5: 00000002
+#    Time: 3273 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400238;FE5214E3 ; 9: 00000000
+#    Time: 3309 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040023C;0FF013B7 ; 7: 0FF01000
+#    Time: 3375 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400240;F0038393 ; 7: 0FF00F00
+#    Time: 3405 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400244;12731663 ; 12: 00000000
+#    Time: 3439 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400248;00800193 ; 3: 00000008
+#    Time: 3471 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040024C;00000213 ; 4: 00000000
+#    Time: 3495 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400250;00FF10B7 ; 1: 00FF1000
+#    Time: 3517 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400254;8FF08093 ; 1: 00FF08FF
+#    Time: 3549 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400258;70F0C713 ; 14: 00FF0FF0
+#    Time: 3579 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040025C;00000013 ; 0: 00000000
+#    Time: 3601 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400260;00070313 ; 6: 00FF0FF0
+#    Time: 3625 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400264;00120213 ; 4: 00000001
+#    Time: 3643 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400268;00200293 ; 5: 00000002
+#    Time: 3671 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040026C;FE5212E3 ; 5: FFFFFFFF
+#    Time: 3693 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400250;00FF10B7 ; 1: 00FF1000
+#    Time: 3735 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400254;8FF08093 ; 1: 00FF08FF
+#    Time: 3765 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400258;70F0C713 ; 14: 00FF0FF0
+#    Time: 3793 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040025C;00000013 ; 0: 00000000
+#    Time: 3835 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400260;00070313 ; 6: 00FF0FF0
+#    Time: 3851 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400264;00120213 ; 4: 00000002
+#    Time: 3885 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400268;00200293 ; 5: 00000002
+#    Time: 3903 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040026C;FE5212E3 ; 5: 00000000
+#    Time: 3919 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400270;00FF13B7 ; 7: 00FF1000
+#    Time: 3979 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400274;FF038393 ; 7: 00FF0FF0
+#    Time: 3997 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400278;0E731C63 ; 24: 00000000
+#    Time: 4035 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040027C;00900193 ; 3: 00000009
+#    Time: 4067 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400280;00000213 ; 4: 00000000
+#    Time: 4105 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400284;F00FF0B7 ; 1: F00FF000
+#    Time: 4141 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400288;00F08093 ; 1: F00FF00F
+#    Time: 4157 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040028C;0F00C713 ; 14: F00FF0FF
+#    Time: 4175 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400290;00000013 ; 0: 00000000
+#    Time: 4207 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400294;00000013 ; 0: 00000000
+#    Time: 4251 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400298;00070313 ; 6: F00FF0FF
+#    Time: 4265 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040029C;00120213 ; 4: 00000001
+#    Time: 4277 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002A0;00200293 ; 5: 00000002
+#    Time: 4299 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002A4;FE5210E3 ; 1: FFFFFFFF
+#    Time: 4339 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400284;F00FF0B7 ; 1: F00FF000
+#    Time: 4369 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400288;00F08093 ; 1: F00FF00F
+#    Time: 4397 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040028C;0F00C713 ; 14: F00FF0FF
+#    Time: 4417 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400290;00000013 ; 0: 00000000
+#    Time: 4443 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400294;00000013 ; 0: 00000000
+#    Time: 4473 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400298;00070313 ; 6: F00FF0FF
+#    Time: 4501 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040029C;00120213 ; 4: 00000002
+#    Time: 4515 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002A0;00200293 ; 5: 00000002
+#    Time: 4543 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002A4;FE5210E3 ; 1: 00000000
+#    Time: 4561 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002A8;F00FF3B7 ; 7: F00FF000
+#    Time: 4585 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002AC;0FF38393 ; 7: F00FF0FF
+#    Time: 4609 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002B0;0C731063 ; 0: 00000000
+#    Time: 4637 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002B4;00A00193 ; 3: 0000000A
+#    Time: 4665 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002B8;00000213 ; 4: 00000000
+#    Time: 4685 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002BC;0FF010B7 ; 1: 0FF01000
+#    Time: 4701 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002C0;FF008093 ; 1: 0FF00FF0
+#    Time: 4727 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002C4;0F00C713 ; 14: 0FF00F00
+#    Time: 4747 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002C8;00120213 ; 4: 00000001
+#    Time: 4763 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002CC;00200293 ; 5: 00000002
+#    Time: 4779 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002D0;FE5216E3 ; 13: FFFFFFFF
+#    Time: 4803 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002BC;0FF010B7 ; 1: 0FF01000
+#    Time: 4855 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002C0;FF008093 ; 1: 0FF00FF0
+#    Time: 4887 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002C4;0F00C713 ; 14: 0FF00F00
+#    Time: 4907 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002C8;00120213 ; 4: 00000002
+#    Time: 4931 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002CC;00200293 ; 5: 00000002
+#    Time: 4963 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002D0;FE5216E3 ; 13: 00000000
+#    Time: 5005 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002D4;0FF013B7 ; 7: 0FF01000
+#    Time: 5079 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002D8;F0038393 ; 7: 0FF00F00
+#    Time: 5095 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002DC;08771A63 ; 20: 00000000
+#    Time: 5127 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002E0;00B00193 ; 3: 0000000B
+#    Time: 5143 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002E4;00000213 ; 4: 00000000
+#    Time: 5161 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002E8;00FF10B7 ; 1: 00FF1000
+#    Time: 5195 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002EC;FFF08093 ; 1: 00FF0FFF
+#    Time: 5225 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002F0;00000013 ; 0: 00000000
+#    Time: 5251 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002F4;00F0C713 ; 14: 00FF0FF0
+#    Time: 5279 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002F8;00120213 ; 4: 00000001
+#    Time: 5305 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002FC;00200293 ; 5: 00000002
+#    Time: 5325 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400300;FE5214E3 ; 9: FFFFFFFF
+#    Time: 5351 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002E8;00FF10B7 ; 1: 00FF1000
+#    Time: 5397 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002EC;FFF08093 ; 1: 00FF0FFF
+#    Time: 5425 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002F0;00000013 ; 0: 00000000
+#    Time: 5457 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002F4;00F0C713 ; 14: 00FF0FF0
+#    Time: 5493 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002F8;00120213 ; 4: 00000002
+#    Time: 5525 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 004002FC;00200293 ; 5: 00000002
+#    Time: 5555 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400300;FE5214E3 ; 9: 00000000
+#    Time: 5581 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400304;00FF13B7 ; 7: 00FF1000
+#    Time: 5621 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400308;FF038393 ; 7: 00FF0FF0
+#    Time: 5669 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040030C;06771263 ; 4: 00000000
+#    Time: 5685 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400310;00C00193 ; 3: 0000000C
+#    Time: 5725 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400314;00000213 ; 4: 00000000
+#    Time: 5745 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400318;F00FF0B7 ; 1: F00FF000
+#    Time: 5767 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040031C;00F08093 ; 1: F00FF00F
+#    Time: 5797 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400320;00000013 ; 0: 00000000
+#    Time: 5829 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400324;00000013 ; 0: 00000000
+#    Time: 5859 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400328;0F00C713 ; 14: F00FF0FF
+#    Time: 5893 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040032C;00120213 ; 4: 00000001
+#    Time: 5919 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400330;00200293 ; 5: 00000002
+#    Time: 5943 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400334;FE5212E3 ; 5: FFFFFFFF
+#    Time: 5963 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400318;F00FF0B7 ; 1: F00FF000
+#    Time: 5987 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040031C;00F08093 ; 1: F00FF00F
+#    Time: 6013 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400320;00000013 ; 0: 00000000
+#    Time: 6065 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400324;00000013 ; 0: 00000000
+#    Time: 6103 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400328;0F00C713 ; 14: F00FF0FF
+#    Time: 6115 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040032C;00120213 ; 4: 00000002
+#    Time: 6133 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400330;00200293 ; 5: 00000002
+#    Time: 6147 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400334;FE5212E3 ; 5: 00000000
+#    Time: 6181 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400338;F00FF3B7 ; 7: F00FF000
+#    Time: 6227 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040033C;0FF38393 ; 7: F00FF0FF
+#    Time: 6249 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400340;02771863 ; 16: 00000000
+#    Time: 6281 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400344;00D00193 ; 3: 0000000D
+#    Time: 6313 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400348;0F004093 ; 1: 000000F0
+#    Time: 6339 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040034C;0F000393 ; 7: 000000F0
+#    Time: 6365 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400350;02709063 ; 0: 00000000
+#    Time: 6399 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400354;00E00193 ; 3: 0000000E
+#    Time: 6421 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400358;00FF00B7 ; 1: 00FF0000
+#    Time: 6459 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040035C;0FF08093 ; 1: 00FF00FF
+#    Time: 6481 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400360;70F0C013 ; 0: 00FF07F0
+#    Time: 6505 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400364;00000393 ; 7: 00000000
+#    Time: 6541 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400368;00701463 ; 8: 00000000
+#    Time: 6573 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040036C;02301063 ; 0: FFFFFFF3
+#    Time: 6603 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 0040038C;0FF0000F ; 0: 00000000
+#    Time: 6665 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: 00400390;00100193 ; 3: 00000001
+#    Time: 6685 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: RESULT: PASS
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note: Total instructions committed: 239
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R0: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R1: 00FF00FF
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R2: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R3: 00000001
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R4: 00000002
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R5: 00000002
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R6: F00FF0FF
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R7: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R8: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R9: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R10: 80000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R11: FF00F00F
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R12: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R13: F00FF00F
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R14: F00FF0FF
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R15: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R16: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R17: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R18: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R19: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R20: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R21: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R22: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R23: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R24: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R25: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R26: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R27: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R28: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R29: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R30: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# ** Note:   R31: 00000000
+#    Time: 6686 ns  Iteration: 1  Instance: /tb_random_mem
+# End time: 20:48:42 on May 08,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 6

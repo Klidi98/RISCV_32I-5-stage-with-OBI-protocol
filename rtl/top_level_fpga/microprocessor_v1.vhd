@@ -1,0 +1,276 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity microprocessor_v1 is
+    port(
+        x_clk_pll                   : in    std_logic;	                   
+        x_rst_n                     : in    std_logic;                          --asynchronous active low reset
+	    x_GPIO_LED_o			    : out   std_logic_vector(31 downto 0);
+        x_UART_tx_o                 : out   std_logic
+ 
+    );
+end entity;
+
+architecture rtl of microprocessor_v1 is
+	 
+signal x_clk														: std_logic;
+signal w_req_dm, w_wren_dm                                          : std_logic;
+signal w_valid_im, w_valid_dm, w_ready_im,w_ready_dm                : std_logic;     
+signal w_addr_im_cpu, w_addr_dm_cpu                                 : std_logic_vector(31 downto 0);
+signal w_dout_from_im, w_dout_from_dm, w_din_dm_cpu                 : std_logic_vector(31 downto 0);
+signal w_req_im_cpu, w_req_dm_cpu, w_wren_dm_cpu                    : std_logic;
+signal w_instr_commit                                               : std_logic;
+signal gpio_LED_reg                                                 : std_logic_vector(31 downto 0) := (others => '0');
+signal gpio_UART_tx_reg                                             : std_logic_vector(23 downto 0) := (others => '0');
+signal gpio_TX_status_reg										    : std_logic_vector(7 downto 0);
+signal w_sel_gpio_LED, w_data_memory_sel,w_sel_UART_tx, w_cs_dm     : std_logic;
+signal w_sel_commit_reg,w_valid_commit_reg		            		: std_logic := '0';
+signal w_valid_gpio_LED	,w_ready_peripherals		                : std_logic := '0';
+signal w_valid_uart_tx	,w_valid_peripherals		        		: std_logic := '0';
+signal w_valid_TIMER_1_reg, w_sel_TIMER_1                   		: std_logic := '0';
+signal w_byte_enable_dm_cpu								 	   	    : std_logic_vector(3 downto 0);
+signal rst_n_d1,rst_n_d2					    		            : std_logic := '0';
+signal w_data_to_core				   					            : std_logic_vector(31 downto 0);
+
+signal TIMER_1, commit_counter                                      : unsigned(31 downto 0) := (others => '0');
+--register that holds the value of the timer, located at address     
+signal Timer_1_reg, commit_counter_reg                              : std_logic_vector(31 downto 0) := (others => '0');
+
+
+begin
+
+--LED register output assignement
+x_GPIO_LED_o		<=    gpio_LED_reg;
+
+--data memory chip select (requires valid address and request from cpu)
+w_cs_dm             <= w_req_dm_cpu and w_data_memory_sel;
+
+
+--************************************************
+--* sampling of rst_n for metastability
+--asynchronous activation and synchronous deactivation of reset signal
+--************************************************
+process(x_clk,x_rst_n)
+begin
+if x_rst_n = '0' then
+	rst_n_d1 <= '0';
+	rst_n_d2 <= '0';
+elsif rising_edge(x_clk) then
+	rst_n_d1 <= x_rst_n;
+	rst_n_d2 <= rst_n_d1;
+end if;
+end process;
+
+
+--###########################################################
+--##PLL 90 Mhz
+--###########################################################
+PLL: entity work.PLL_77Mhz
+	port map(
+				inclk0			        =>    x_clk_pll,
+				c0					    =>	  x_clk
+			);
+	
+--*************************************************
+--** riscv_32i OBI core module instantiation
+--**************************************************
+core: entity work.core_riscv32i
+        port map(
+
+            x_i_rst_n                =>     rst_n_d2                ,
+            x_i_clk                  =>     x_clk                   ,
+            x_instr_commit_o         =>     w_instr_commit          ,
+            x_instr_32_i             =>     w_dout_from_im          ,
+            x_data_32_i              =>     w_data_to_core          ,
+            x_data_32_o              =>     w_din_dm_cpu            ,
+            x_ready_im_i             =>     w_ready_im              , 
+            x_ready_dm_i             =>     w_ready_peripherals     ,
+            x_valid_im_i             =>     w_valid_im              ,
+            x_valid_dm_i             =>     w_valid_peripherals     ,
+            x_request_im_o           =>     w_req_im_cpu            ,
+            x_request_dm_o           =>     w_req_dm_cpu            ,
+            x_wren_dm_o              =>     w_wren_dm_cpu           ,
+		    x_byte_enable_dm		 =>     w_byte_enable_dm_cpu    ,
+            x_addr32_im_o            =>     w_addr_im_cpu           ,
+            x_addr32_dm_o            =>     w_addr_dm_cpu
+    );
+
+--#######################################################################
+--##    Address decoder for peripherals
+--## note: for the moment really simple: peripherals are recognised by a single address bit
+-- data memory              : from address 0x10010000 to 0x10011000 
+-- GPIO LEDs register       : address 0x10011000
+-- UART TX register         : address 0x10012000
+-- register                 : address 0x10013000
+-- COMMIT COUNTER register  : address 0x10014000
+
+--#######################################################################
+addr_decoder: process(all)
+begin
+
+w_sel_gpio_led              <= '0';
+w_data_memory_sel           <= '0';
+w_sel_UART_tx               <= '0';
+w_sel_TIMER_1               <= '0';
+w_sel_commit_reg            <= '0';
+w_valid_peripherals         <= '0';
+w_ready_peripherals         <= '0';
+w_data_to_core		        <= (others =>'0');
+
+
+	 	--Timer_1 register reading selection
+    if  w_addr_dm_cpu(13) = '1' and w_addr_dm_cpu(12) = '1' then
+        w_sel_TIMER_1         <= '1';
+        w_ready_peripherals   <= '1';
+        w_valid_peripherals   <= w_valid_TIMER_1_reg;
+        w_data_to_core        <= Timer_1_reg;
+		  
+--LED register
+   elsif  w_addr_dm_cpu(12) = '1' then
+        w_sel_gpio_LED        <= '1';
+		  w_valid_peripherals <= w_valid_gpio_led;
+		  w_ready_peripherals <= '1';
+	     w_data_to_core       <= gpio_LED_reg;
+		
+	
+	elsif w_addr_dm_cpu(13) = '1' then
+        w_sel_UART_tx                <= '1';
+        w_valid_peripherals          <= w_valid_uart_tx;
+        w_ready_peripherals          <= '1';
+		w_data_to_core(31 downto 25) <= (OTHERS => '0'); 
+        w_data_to_core(24)           <= gpio_tx_status_reg(0);
+	    w_data_to_core(23 downto 0)  <= gpio_uart_tx_reg;
+		  
+--Commit counter register reading selection at address 0x10014000
+    elsif w_addr_dm_cpu(14)  = '1' then
+        w_sel_commit_reg             <= '1';
+        w_ready_peripherals          <= '1';
+        w_valid_peripherals          <= w_valid_commit_reg;
+        w_data_to_core               <= commit_counter_reg;
+
+    else
+         w_data_memory_sel   <= '1';
+	     w_valid_peripherals <= w_valid_dm;
+	     w_ready_peripherals <= w_ready_dm;
+	     w_data_to_core      <= w_dout_from_dm;
+    end if;
+end process;
+     
+--######################################################################
+--**4kB Instruction Memory instance with program already loaded
+--######################################################################
+instruction_memory: entity work.rom_8
+    port map(
+
+           clk                      =>      x_clk                     ,    
+           req                      =>      w_req_im_cpu              ,
+           we                       =>      '0'                       ,
+           addr                     =>      w_addr_im_cpu(11 downto 2),
+           wdata                    =>      (others => '0')           ,
+           ready                    =>      w_ready_im                ,
+           valid                    =>      w_valid_im                ,
+           rdata                    =>      w_dout_from_im
+    );
+
+--###################################################################
+--## 4kB Data Memory instance byte adressable
+--##################################################################
+data_memory: entity work.mem_fpga
+    port map(
+
+            clk                      =>      x_clk			            ,
+		    rst_n   	     	     =>      rst_n_d2		            ,
+            req                      =>      w_cs_dm	                ,
+            we                       =>      w_wren_dm_cpu		        ,
+		    be   	      		     =>      w_byte_enable_dm_cpu	    ,
+            addr                     =>      w_addr_dm_cpu(11 downto 2) ,
+            wdata                    =>      w_din_dm_cpu	            , 
+            ready                    =>      w_ready_dm		            ,
+            valid                    =>      w_valid_dm                 ,
+            rdata                    =>      w_dout_from_dm
+   );
+
+
+--##################################################################################
+--Register address for GPIOs
+--Generates valid and ready as required in order to correctly interface with OBI core
+--###################################################################################
+gpio_process:
+process(x_clk, rst_n_d2)
+
+begin
+
+    if rst_n_d2 = '0' then
+      gpio_LED_reg 		<= (others=> '0');
+      gpio_uart_tx_reg 	<= (others=> '0');
+	   w_valid_gpio_LED 	<= '0';
+      w_valid_uart_tx 	<= '0';
+		w_valid_TIMER_1_reg<= '0';
+		w_valid_commit_reg <= '0';
+		
+    elsif rising_edge(x_clk) then
+			w_valid_gpio_LED    <= '0';
+			w_valid_uart_tx     <= '0';
+            w_valid_TIMER_1_reg <= '0';
+			w_valid_commit_reg  <= '0';
+			
+        if  (w_sel_gpio_LED = '1' and w_req_dm_cpu = '1') then
+            gpio_LED_reg        <= w_din_dm_cpu;
+            w_valid_gpio_LED    <= '1';
+
+--UART TX register selection
+        elsif(w_sel_UART_tx = '1' and w_req_dm_cpu = '1') then
+            gpio_UART_tx_reg    <= w_din_dm_cpu(23 downto 0);
+            w_valid_uart_tx     <= '1';
+
+--TIMER_1 register reading selection (READ-ONLY TIMER)
+        elsif (w_sel_TIMER_1 = '1' and w_req_dm_cpu = '1') then
+            w_valid_TIMER_1_reg <= '1';
+
+--read only timer for committed instructions
+        elsif (w_sel_commit_reg = '1' and w_req_dm_cpu = '1') then
+            w_valid_commit_reg  <= '1';
+				
+            
+        end if;
+    end if;
+end process;
+
+
+--################################################################
+--UART TX module instance
+--################################################################
+uart_tx: entity work.uart_tx
+    port map(
+        Din         =>      gpio_uart_tx_reg(7 downto 0)    , 
+        wr          =>      gpio_uart_tx_reg(8)             ,
+        clk         =>      x_clk                           ,
+        rst         =>      not (rst_n_d2)                  ,
+        Tx_line     =>      x_uart_tx_o                     ,
+        busy        =>      gpio_tx_status_reg(0)
+    );
+
+--################################################################
+-- 32 bit Timer Module instance and committed instructions counter
+--this counts number of cycles and number of commited instruction by the core
+--################################################################
+CounterProcess:
+process(x_clk, rst_n_d2)
+begin
+    if rst_n_d2 = '0' then
+        Timer_1 <= (others => '0');
+		  commit_counter<= (others => '0');
+
+    elsif rising_edge(x_clk) then
+        Timer_1 <= Timer_1 + 1;
+        if w_instr_commit = '1' then
+            commit_counter <= commit_counter + 1; 
+        end if;
+    end if;
+    end process;
+
+Timer_1_reg        <= std_logic_vector(TIMER_1);
+commit_counter_reg <= std_logic_vector(commit_counter);
+
+end rtl;

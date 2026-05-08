@@ -1,0 +1,16 @@
+Fitter Status : Successful - Thu May 07 21:56:14 2026
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Revision Name : micro_v2
+Top-level Entity Name : microprocessor_v1
+Family : Cyclone 10 LP
+Device : 10CL025YU256C8G
+Timing Models : Final
+Total logic elements : 2,147 / 24,624 ( 9 % )
+    Total combinational functions : 1,915 / 24,624 ( 8 % )
+    Dedicated logic registers : 961 / 24,624 ( 4 % )
+Total registers : 961
+Total pins : 35 / 151 ( 23 % )
+Total virtual pins : 0
+Total memory bits : 67,584 / 608,256 ( 11 % )
+Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )
+Total PLLs : 1 / 4 ( 25 % )

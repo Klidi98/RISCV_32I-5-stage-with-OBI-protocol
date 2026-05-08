@@ -1,0 +1,52 @@
+
+main:     file format elf32-littleriscv
+
+
+Disassembly of section .init:
+
+00400000 <_start>:
+  400000:	1fc18197          	auipc	gp,0x1fc18
+  400004:	02818193          	addi	gp,gp,40 # 20018028 <__global_pointer$>
+  400008:	7fbff117          	auipc	sp,0x7fbff
+  40000c:	ff410113          	addi	sp,sp,-12 # 7fffeffc <__stack_top>
+  400010:	00010433          	add	s0,sp,zero
+  400014:	010000ef          	jal	ra,400024 <main>
+
+00400018 <el>:
+  400018:	0000006f          	j	400018 <el>
+  40001c:	00000013          	nop
+  400020:	00000013          	nop
+
+Disassembly of section .text:
+
+00400024 <main>:
+  400024:	10010537          	lui	a0,0x10010
+  400028:	ff010113          	addi	sp,sp,-16
+  40002c:	00050513          	mv	a0,a0
+  400030:	00a00593          	li	a1,10
+  400034:	00112623          	sw	ra,12(sp)
+  400038:	014000ef          	jal	ra,40004c <bubble_sort>
+  40003c:	00c12083          	lw	ra,12(sp)
+  400040:	00000513          	li	a0,0
+  400044:	01010113          	addi	sp,sp,16
+  400048:	00008067          	ret
+
+0040004c <bubble_sort>:
+  40004c:	00100793          	li	a5,1
+  400050:	04b7f063          	bgeu	a5,a1,400090 <bubble_sort+0x44>
+  400054:	00259613          	slli	a2,a1,0x2
+  400058:	00c50633          	add	a2,a0,a2
+  40005c:	00100813          	li	a6,1
+  400060:	00450513          	addi	a0,a0,4 # 10010004 <test_array+0x4>
+  400064:	00050793          	mv	a5,a0
+  400068:	ffc7a703          	lw	a4,-4(a5)
+  40006c:	0007a683          	lw	a3,0(a5)
+  400070:	00e6d663          	bge	a3,a4,40007c <bubble_sort+0x30>
+  400074:	fed7ae23          	sw	a3,-4(a5)
+  400078:	00e7a023          	sw	a4,0(a5)
+  40007c:	00478793          	addi	a5,a5,4
+  400080:	fef614e3          	bne	a2,a5,400068 <bubble_sort+0x1c>
+  400084:	fff58593          	addi	a1,a1,-1
+  400088:	ffc60613          	addi	a2,a2,-4
+  40008c:	fd059ce3          	bne	a1,a6,400064 <bubble_sort+0x18>
+  400090:	00008067          	ret
