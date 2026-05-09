@@ -121,7 +121,7 @@ IPC computed offline.
 > **Technical Status:** Branch predictor enabled. 
 > With the branch prediction unit enabled, performance increases drastically. The IPC (Instructions Per Cycle) scales nearly to 1 for subsequent test programs, minimizing branch penalties.
 
-# Note
+> [!TIP]
 > The demo software executed by the core in these animations can be found in the following directory:
 > [`tests/sw_presentation/src`](tests/presentation_sw/src)
 
