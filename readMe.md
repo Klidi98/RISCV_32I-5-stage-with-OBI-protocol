@@ -92,7 +92,7 @@ This ensures correct operation under realistic and worst-case timing scenarios.
 - IPC measurement using cycle and instruction counters  
 - FPGA validation using LEDs and UART output
 
-## Demonstration and performance evaluation
+## 🎬 Demonstration and Performance Evaluation
 
 Performance has been measured using:
 - hardware cycle counter
@@ -123,10 +123,10 @@ IPC computed offline.
 
 ---
 
-### 📝 Technical Note
+## Note
 > [!TIP]
-> The demo software executed by the core in these animations can be found in the directory:
-> [`tests/presentation_sw/src`](tests/presentation_sw/src)
+> The demo software executed by the core in these animations can be found in the following directory:
+> [`tests/sw_presentation/src`](tests/presentation_sw/src)
 
 ---
 
