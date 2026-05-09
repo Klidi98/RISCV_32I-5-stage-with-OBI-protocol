@@ -123,7 +123,7 @@ IPC computed offline.
 
 > [!TIP]
 > The demo software executed by the core in these animations can be found in the following directory:
-> [`tests/sw_presentation/src`](tests/presentation_sw/src)
+> [`tests/sw_presentation/src`](tests/presentation_sw/src/main.c)
 
 ---
 
