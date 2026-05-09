@@ -40,15 +40,17 @@ stp_priv/
 #*.pof
 *.ekp
 *.jic
+.gitignore
 
 # --- Strumenti di Simulazione (ModelSim, Questa, VCS) ---
-# Esclude le librerie di compilazione e i database delle onde
 work/
 msim_transcript
 vsim.wlf
 *.vstf
 *.vsim
 *.wlf
+
+
 transcript
 modelsim.ini
 
