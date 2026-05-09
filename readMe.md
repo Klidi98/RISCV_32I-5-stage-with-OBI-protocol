@@ -101,14 +101,34 @@ Performance has been measured using:
 
 IPC computed offline.
 
-### branch predictor OFF
+## 🚫 Branch Predictor: OFF
 
-<img width="900" height="400" alt="2026-05-0721-50-17-ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/d0166eb0-7a4b-47d3-aad8-b73e26728201" />
+<p align="center">
+  <img width="900" height="400" alt="Branch Predictor Disabled Demo" src="https://github.com/user-attachments/assets/d0166eb0-7a4b-47d3-aad8-b73e26728201" />
+</p>
 
+> **Technical Status:** Branch predictor disabled. 
+> In this configuration, `bp_update` signal is forced to `0` during HW recompilation.
 
-### branch predicotr ON
+---
 
-<img width="900" height="400" alt="2026-05-0722-00-58-ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/166673dc-5b9d-42a8-ae2e-caf163312f9b" />
+## ✅ Branch Predictor: ON
+
+<p align="center">
+  <img width="900" height="400" alt="Branch Predictor Enabled Demo" src="https://github.com/user-attachments/assets/166673dc-5b9d-42a8-ae2e-caf163312f9b" />
+</p>
+
+> **Technical Status:** Branch predictor enabled. 
+> With the branch prediction unit enabled, performance increases drastically. The IPC (Instructions Per Cycle) scales nearly to 1 for subsequent test programs, minimizing branch penalties.
+
+---
+
+### 📝 Technical Note
+> [!TIP]
+> The demo software executed by the core in these animations can be found in the directory:
+> [`tests/presentation_sw/src`](tests/presentation_sw/src)
+
+---
 
 
 
