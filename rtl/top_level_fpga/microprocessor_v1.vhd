@@ -1,4 +1,4 @@
-library ieee;
+  library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
@@ -32,7 +32,8 @@ signal w_valid_TIMER_1_reg, w_sel_TIMER_1                   		: std_logic := '0'
 signal w_byte_enable_dm_cpu								 	   	    : std_logic_vector(3 downto 0);
 signal rst_n_d1,rst_n_d2					    		            : std_logic := '0';
 signal w_data_to_core				   					            : std_logic_vector(31 downto 0);
-
+signal w_dout_from_im_b                                             : std_logic_vector(31 downto 0);
+signal w_instr_mem_sel, w_cs_im , w_valid_im_b                      : std_logic;
 signal TIMER_1, commit_counter                                      : unsigned(31 downto 0) := (others => '0');
 --register that holds the value of the timer, located at address     
 signal Timer_1_reg, commit_counter_reg                              : std_logic_vector(31 downto 0) := (others => '0');
@@ -45,7 +46,7 @@ x_GPIO_LED_o		<=    gpio_LED_reg;
 
 --data memory chip select (requires valid address and request from cpu)
 w_cs_dm             <= w_req_dm_cpu and w_data_memory_sel;
-
+w_cs_im             <= w_req_dm_cpu and w_instr_mem_sel;
 
 --************************************************
 --* sampling of rst_n for metastability
@@ -59,6 +60,7 @@ if x_rst_n = '0' then
 elsif rising_edge(x_clk) then
 	rst_n_d1 <= x_rst_n;
 	rst_n_d2 <= rst_n_d1;
+	
 end if;
 end process;
 
@@ -66,9 +68,9 @@ end process;
 --###########################################################
 --##PLL 90 Mhz
 --###########################################################
-PLL: entity work.PLL_77Mhz
+PLL: entity work.PLL_60Mhz
 	port map(
-				inclk0			        =>    x_clk_pll,
+				inclk0			    =>     x_clk_pll,
 				c0					    =>	  x_clk
 			);
 	
@@ -91,7 +93,7 @@ core: entity work.core_riscv32i
             x_request_im_o           =>     w_req_im_cpu            ,
             x_request_dm_o           =>     w_req_dm_cpu            ,
             x_wren_dm_o              =>     w_wren_dm_cpu           ,
-		    x_byte_enable_dm		 =>     w_byte_enable_dm_cpu    ,
+		      x_byte_enable_dm		     =>     w_byte_enable_dm_cpu    ,
             x_addr32_im_o            =>     w_addr_im_cpu           ,
             x_addr32_dm_o            =>     w_addr_dm_cpu
     );
@@ -109,18 +111,26 @@ core: entity work.core_riscv32i
 addr_decoder: process(all)
 begin
 
-w_sel_gpio_led              <= '0';
-w_data_memory_sel           <= '0';
-w_sel_UART_tx               <= '0';
-w_sel_TIMER_1               <= '0';
-w_sel_commit_reg            <= '0';
-w_valid_peripherals         <= '0';
-w_ready_peripherals         <= '0';
-w_data_to_core		        <= (others =>'0');
+w_sel_gpio_led                <= '0';
+w_data_memory_sel             <= '0';
+w_instr_mem_sel                  <= '0';
+w_sel_UART_tx                 <= '0';
+w_sel_TIMER_1                 <= '0';
+w_sel_commit_reg              <= '0';
+w_valid_peripherals           <= '0';
+w_ready_peripherals           <= '0';
+
+w_data_to_core		          <= (others =>'0');
 
 
-	 	--Timer_1 register reading selection
-    if  w_addr_dm_cpu(13) = '1' and w_addr_dm_cpu(12) = '1' then
+   if  w_addr_dm_cpu(31 downto 23) = "000000000" and w_addr_dm_cpu(22) = '1' then
+       w_instr_mem_sel       <= '1';
+       w_ready_peripherals   <= '1';
+       w_valid_peripherals   <= w_valid_im_b;
+       w_data_to_core        <= w_dout_from_im_b;
+
+--Timer_1 register reading selection
+    elsif  w_addr_dm_cpu(13) = '1' and w_addr_dm_cpu(12) = '1' then
         w_sel_TIMER_1         <= '1';
         w_ready_peripherals   <= '1';
         w_valid_peripherals   <= w_valid_TIMER_1_reg;
@@ -129,25 +139,27 @@ w_data_to_core		        <= (others =>'0');
 --LED register
    elsif  w_addr_dm_cpu(12) = '1' then
         w_sel_gpio_LED        <= '1';
-		  w_valid_peripherals <= w_valid_gpio_led;
-		  w_ready_peripherals <= '1';
-	     w_data_to_core       <= gpio_LED_reg;
+		w_valid_peripherals     <= w_valid_gpio_led;
+		w_ready_peripherals     <= '1';
+	    w_data_to_core         <= gpio_LED_reg;
 		
 	
+--UART TX register		  
 	elsif w_addr_dm_cpu(13) = '1' then
-        w_sel_UART_tx                <= '1';
-        w_valid_peripherals          <= w_valid_uart_tx;
-        w_ready_peripherals          <= '1';
+        w_sel_UART_tx       <= '1';
+        w_valid_peripherals <= w_valid_uart_tx;
+        w_ready_peripherals <= '1';
 		w_data_to_core(31 downto 25) <= (OTHERS => '0'); 
-        w_data_to_core(24)           <= gpio_tx_status_reg(0);
-	    w_data_to_core(23 downto 0)  <= gpio_uart_tx_reg;
+        w_data_to_core(24)         <= gpio_tx_status_reg(0);
+	    w_data_to_core(23 downto 0) <= gpio_uart_tx_reg;
 		  
 --Commit counter register reading selection at address 0x10014000
     elsif w_addr_dm_cpu(14)  = '1' then
-        w_sel_commit_reg             <= '1';
-        w_ready_peripherals          <= '1';
-        w_valid_peripherals          <= w_valid_commit_reg;
-        w_data_to_core               <= commit_counter_reg;
+        w_sel_commit_reg    <= '1';
+        w_ready_peripherals <= '1';
+        w_valid_peripherals <= w_valid_commit_reg;
+        w_data_to_core      <= commit_counter_reg;
+
 
     else
          w_data_memory_sel   <= '1';
@@ -160,17 +172,20 @@ end process;
 --######################################################################
 --**4kB Instruction Memory instance with program already loaded
 --######################################################################
-instruction_memory: entity work.rom_8
+instruction_memory: entity work.rom_9
     port map(
 
            clk                      =>      x_clk                     ,    
            req                      =>      w_req_im_cpu              ,
-           we                       =>      '0'                       ,
-           addr                     =>      w_addr_im_cpu(11 downto 2),
-           wdata                    =>      (others => '0')           ,
+           req_b                    =>      w_cs_im                   ,
+      --     we                       =>      '0'                       ,
+           addr_a                   =>      w_addr_im_cpu(11 downto 2),
+           addr_b                   =>      w_addr_dm_cpu(11 downto 2),
+   --        wdata_a                    =>      (others => '0')           ,
            ready                    =>      w_ready_im                ,
            valid                    =>      w_valid_im                ,
-           rdata                    =>      w_dout_from_im
+           rdata_a                  =>      w_dout_from_im            ,
+           rdata_b                  =>      w_dout_from_im_b          
     );
 
 --###################################################################
@@ -180,10 +195,10 @@ data_memory: entity work.mem_fpga
     port map(
 
             clk                      =>      x_clk			            ,
-		    rst_n   	     	     =>      rst_n_d2		            ,
+		      rst_n   	     	          =>      rst_n_d2		            ,
             req                      =>      w_cs_dm	                ,
             we                       =>      w_wren_dm_cpu		        ,
-		    be   	      		     =>      w_byte_enable_dm_cpu	    ,
+		      be   	      		       =>      w_byte_enable_dm_cpu	    ,
             addr                     =>      w_addr_dm_cpu(11 downto 2) ,
             wdata                    =>      w_din_dm_cpu	            , 
             ready                    =>      w_ready_dm		            ,
@@ -214,14 +229,22 @@ begin
 			w_valid_uart_tx     <= '0';
             w_valid_TIMER_1_reg <= '0';
 			w_valid_commit_reg  <= '0';
-			
+            w_valid_im_b        <= '0';
+    --LED register
         if  (w_sel_gpio_LED = '1' and w_req_dm_cpu = '1') then
-            gpio_LED_reg        <= w_din_dm_cpu;
+				if w_wren_dm_cpu = '1' then
+					gpio_LED_reg        <= w_din_dm_cpu;
+				end if;
             w_valid_gpio_LED    <= '1';
+        --imem reading ro data
+        elsif (w_cs_im = '1') then
+            w_valid_im_b    <= '1';
 
 --UART TX register selection
         elsif(w_sel_UART_tx = '1' and w_req_dm_cpu = '1') then
-            gpio_UART_tx_reg    <= w_din_dm_cpu(23 downto 0);
+				if w_wren_dm_cpu = '1' then
+					gpio_UART_tx_reg    <= w_din_dm_cpu(23 downto 0);
+				end if;
             w_valid_uart_tx     <= '1';
 
 --TIMER_1 register reading selection (READ-ONLY TIMER)
@@ -259,8 +282,8 @@ CounterProcess:
 process(x_clk, rst_n_d2)
 begin
     if rst_n_d2 = '0' then
-        Timer_1 <= (others => '0');
-		  commit_counter<= (others => '0');
+        Timer_1        <= (others => '0');
+		  commit_counter <= (others => '0');
 
     elsif rising_edge(x_clk) then
         Timer_1 <= Timer_1 + 1;
@@ -268,7 +291,7 @@ begin
             commit_counter <= commit_counter + 1; 
         end if;
     end if;
-    end process;
+end process;
 
 Timer_1_reg        <= std_logic_vector(TIMER_1);
 commit_counter_reg <= std_logic_vector(commit_counter);

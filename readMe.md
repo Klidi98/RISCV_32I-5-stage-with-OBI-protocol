@@ -1,8 +1,11 @@
+
 # RISCV32I Core (5-stage Pipeline, OBI Interface)
 
 A 5-stage RV32I RISC-V core with Harvard architecture and Open Bus Interface (OBI),with full forwarding unit and 2-bit dynamic branch predictor, synthesized on **Intel Cyclone 10 LP FPGA**.
 
 The core implements a classic **IF–ID–EX–MEM–WB pipeline**, supports **37 RV32I instructions** (currently excluding `FENCE`, `ECALL`, and `EBREAK`), and communicates with instruction/data memory and peripherals through the **OBI handshake protocol**.
+
+<img width="1501" height="800" alt="top_level" src="https://github.com/user-attachments/assets/6effc4f8-ad76-4eee-9d31-c3aa7d49ac63" />
 
 ---
 
@@ -100,11 +103,14 @@ IPC computed offline.
 
 ### branch predictor OFF
 
-//video
+<img width="900" height="400" alt="2026-05-0721-50-17-ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/d0166eb0-7a4b-47d3-aad8-b73e26728201" />
 
 
 ### branch predicotr ON
 
-//video
+<img width="900" height="400" alt="2026-05-0722-00-58-ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/166673dc-5b9d-42a8-ae2e-caf163312f9b" />
+
+
+
 
 
