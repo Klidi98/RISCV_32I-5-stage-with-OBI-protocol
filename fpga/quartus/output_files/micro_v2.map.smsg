@@ -1,1 +1,0 @@
-Warning (10268): Verilog HDL information at random_memory.sv(62): always construct contains both blocking and non-blocking assignments File: C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/random_memory.sv Line: 62
