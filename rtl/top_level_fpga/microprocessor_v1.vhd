@@ -1,4 +1,15 @@
-  library ieee;
+--########################################################
+--## Top level of the microprocessor design for FPGA implementation
+--##It includes the core and the instruction and data memory, as well as the peripherals (GPIO LEDs and UART TX)
+--## The peripherals are connected to the core through an address decoder 
+--## that decodes the address of the memory access and generates select signals for the peripherals and for the instruction and data memory.
+--## The instruction memory is a ROM with the program already loaded.
+
+--Author: Klides Kaba 
+--########################################################
+
+
+library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 

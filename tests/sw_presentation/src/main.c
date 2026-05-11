@@ -53,7 +53,7 @@ static void delay( uint32_t d) {
 }
 
 // =========================
-// ASCII LOGO (safe width)
+// ASCII LOGO 
 // =========================
 
 static void print_logo() {
@@ -73,7 +73,7 @@ uart_puts("\n\r");
 }
 
 // =========================
-// Benchmark (branch heavy)
+// Benchmark 
 // =========================
 
 static void run_benchmark() {
@@ -102,7 +102,7 @@ static void run_benchmark() {
 
     __asm__ __volatile__ (
         "li      %[i], 0            \n\t" // i = 0
-        "1:                         \n\t" // Label per l'inizio del loop
+        "1:                         \n\t" 
         "bge     %[i], %[iters], 2f \n\t" 
         
        
@@ -112,20 +112,20 @@ static void run_benchmark() {
         
         
         "andi    t0, %[c], 1        \n\t" // t0 = c & 1
-        "beqz    t0, 3f             \n\t" // se t0 == 0, vai a else (label 3)
+        "beqz    t0, 3f             \n\t"
         
         // Parte IF
         "addi    %[a], %[a], 3      \n\t" // a += 3
-        "j       4f                 \n\t" // vai a incremento (label 4)
+        "j       4f                 \n\t" 
         
         // Parte ELSE
-        "3:                         \n\t" // Label Else
+        "3:                         \n\t" 
         "addi    %[b], %[b], 7      \n\t" // b += 7
         
         // Incremento e salto
-        "4:                         \n\t" // Label Next
+        "4:                         \n\t" 
         "addi    %[i], %[i], 1      \n\t" // i++
-        "j       1b                 \n\t" // Salta indietro (b = backward) a label 1
+        "j       1b                 \n\t" 
         
         "2:                         \n\t" // Label End
         : [a] "+r" (a), [b] "+r" (b), [c] "+r" (c), [i] "+r" (i) // Output/Input (registri aggiornati)
@@ -172,8 +172,6 @@ uart_puts("-----------------------------\n\r");
 
 
 
-
-
 int main() {
 
     LED_REG = 0x1;
@@ -206,7 +204,7 @@ int main() {
 
     LED_REG = 0x00;
   
-
+    /* Continuosly toggle LEDs */
     while (1) {
 
         LED_REG ^= 0xFF;

@@ -30,12 +30,10 @@ architecture rtl of mem_fpga is
     signal mem2 : byte_mem_t := (others => (others => '0'));
     signal mem3 : byte_mem_t := (others => (others => '0'));
 
-    -- Attributo per forzare Quartus a non fare controlli di lettura/scrittura contemporanea
-    -- che spesso impediscono l'inferenza della RAM hardware
 
 begin
 
-    -- Memoria sempre pronta per rispondere (protocollo OBI semplificato)
+    --synthetised memory on FPGA always ready
     ready <= '1';
 
     process(clk)
@@ -59,14 +57,14 @@ begin
         end if;
     end process;
 
-    -- Gestione del segnale valid (separata per permettere il reset)
+    -- Gestione del segnale valid 
     process(clk)
     begin
         if rising_edge(clk) then
             if rst_n = '0' then
                 valid <= '0';
             else
-                valid <= req; -- Il dato è valido nel ciclo successivo alla richiesta
+                valid <= req; 
             end if;
         end if;
     end process;

@@ -1,5 +1,5 @@
 /* random memory module that generates random ready and valid signals for validation of OBI protocol */
-
+/* Klides Kaba */
 
 /* LATENCY_TYPE: 3 possible values:
 -   0    -> full speed : ready always active, 1 cycle delay for valid 
@@ -23,7 +23,7 @@ module random_memory #(
     output logic [31:0] data_out
 );
 
-    // --- Dichiarazioni interne (devono stare dentro il modulo) ---
+    
     int lat;
     int ready_dist;
     logic [31:0] mem [MEM_SIZE];

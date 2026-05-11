@@ -5,9 +5,7 @@ entity request_handler is
     port (
         clk           : in  std_logic;
         rst_n         : in  std_logic;
---      block_pp      : in  std_logic;     -- stalling pipeline signal (if active pipe is stalled)
---      flush_pp      : in  std_logic;     -- signal to flush the pipeline (if active pipe stop request)
-        i_block_ftch  : in  std_logic;   -- signal that indicates if the fetch stage is blocked (stall or flush)
+        i_block_ftch  : in  std_logic;      -- signal that indicates if the fetch stage is blocked (stall or flush)
         ready_i       : in  std_logic;     -- memory ready to receive
         valid_i       : in  std_logic;     -- memory has responded to last request
         req_o         : out std_logic;     -- request to  Instruction memory
@@ -22,7 +20,7 @@ architecture rtl of request_handler is
 begin
 
     --process for handling pending  request
-    --When req and ready high in the same cycle, memory has granted request. Pending_req will be high untill a new valid        arrives.
+    --When req and ready high in the same cycle, memory has granted request. Pending_req will be high untill a new valid arrives.
     process(rst_n, clk)
     begin
         if rst_n = '0' then
@@ -36,9 +34,7 @@ begin
         end if;
     end process;
     
-    --------------------------------------------------------------------
-    --  (Mealy) FSM
-    --------------------------------------------------------------------
+
     process(state, ready_i, valid_i, i_block_ftch)
     begin
         req_o <= '0';
@@ -46,35 +42,35 @@ begin
 
         case state is
             when INIT =>
-                next_state <= START_REQ;            -- passa subito a inviare richiesta
+                next_state <= START_REQ;            
                 req_o <= '0';
             when START_REQ =>
                 if i_block_ftch = '0' then              
-                    req_o <= '1';               -- invia richiesta
+                    req_o <= '1';             
                     if ready_i = '1' then              
-                        next_state <= ISSUE_NEXT;   -- passa in attesa
+                        next_state <= ISSUE_NEXT;   
                     end if;
                 else
-                    next_state <= START_REQ;        -- pipeline bloccata: ferma richieste
+                    next_state <= START_REQ;       
                 end if;
             when ISSUE_NEXT =>
                 if i_block_ftch = '1' then
-                                                      -- pipeline bloccata: ferma richieste
+                                                      
                     if valid_i = '1' then             --if a valid arrives during stall then go in start_req
                         next_state <= START_REQ;
                     end if;
 
                 elsif valid_i = '1' then
                     
-                    req_o <= '1';                   -- nuova richiesta immediata nello stesso ciclo
+                    req_o <= '1';                   -- New immediate request
                     
                     if ready_i = '1' then 
-                        next_state <= ISSUE_NEXT;   -- resta in attesa della nuova
+                        next_state <= ISSUE_NEXT;   
                     else 
-                        next_state <= START_REQ;    -- no ready: ferma richieste
+                        next_state <= START_REQ;    -- no ready: stop requests
                     end if;
                 else
-                    next_state <= ISSUE_NEXT;       -- no ready: ferma richieste
+                    next_state <= ISSUE_NEXT;      
 
                  end if;
             when others => next_state <= INIT;

@@ -15,7 +15,7 @@ end ImmediateExtension32;
 
 architecture Structural of ImmediateExtension32 is
 
-    -- Dichiarazione dei segnali interni (corrispondenti ai wire)
+
     signal w_ImmI         : std_logic_vector(11 downto 0);
     signal w_ImmS         : std_logic_vector(11 downto 0);
     signal w_ImmSB        : std_logic_vector(11 downto 0);
@@ -26,7 +26,6 @@ architecture Structural of ImmediateExtension32 is
     signal w_outExtSign1  : std_logic_vector(31 downto 0);
     signal w_outExtSign2  : std_logic_vector(31 downto 0);
 
-    -- Dichiarazione dei Componenti
 
     component mux4to1
         generic ( N : integer );
@@ -107,7 +106,7 @@ begin
             q       => w_outExtSign2
         );
 
-    -- Istanza Mux Finale
+    -- Mux Finale
     MX3: mux2to1
         generic map ( N => 32 )
         port map (

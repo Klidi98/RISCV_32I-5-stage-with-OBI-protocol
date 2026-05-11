@@ -22,7 +22,7 @@ architecture beh of pipe_flusher is
 
 begin
 
-    -- Output is immediate when jump_taken is asserted (combinational),
+    -- Output is immediate when a misprediction is asserted (combinational),
     -- and also stays asserted if reg_flush was latched previously.
     flush <= reg_flush or i_misprediction;
    -- flush<= reg_flush;
@@ -37,9 +37,8 @@ begin
         elsif i_misprediction = '1' then
             reg_flush <= '1';
         
-        -- If there is a pending request in the fetch stage, wait until the relative valid and delete the instruction
-        -- else flush untill a program counter enable, since no instruction is being fetched.#
-
+        -- If there is a pending request in the fetch stage, wait until the relative valid signal and delete the instruction
+        -- else flush untill a program counter enable, since no instruction is being fetched.
         elsif i_pending_req = '1' then
             if valid_im = '1' then
                 reg_flush <= '0';

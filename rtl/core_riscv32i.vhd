@@ -266,13 +266,10 @@ IF_ID_PP : entity work.pipe_IF_ID
             instruction_i           =>   w_fetched_instr_if     ,
             i_predict_taken         =>   w_predict_taken_if     ,
             i_predict_trgt          =>   w_predict_trgt_if      ,
---          current_PC_i            =>   w_current_PC_if        , 
             previous_PC_i           =>   w_previous_pc_if       ,
             o_predict_taken         =>   w_predict_taken_id     ,
             o_predict_trgt          =>   w_predict_trgt_id      ,
             Instruction_o           =>   w_fetched_instr_id     ,
-
---          current_pc_o            =>   w_current_pc_id        ,
             previous_pc_o           =>   w_previous_pc_id       
 
         );

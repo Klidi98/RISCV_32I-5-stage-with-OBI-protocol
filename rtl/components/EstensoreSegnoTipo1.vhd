@@ -14,7 +14,7 @@ end EstensoreSegnoTipo1;
 
 architecture beh of EstensoreSegnoTipo1 is
 
-begin  -- architecture beh
+begin  
 
   q(11 downto 0)<=idato;
   process (iSIGNED,idato) is

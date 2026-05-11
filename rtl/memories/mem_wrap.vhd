@@ -14,15 +14,15 @@ entity mem_wrap is
         addr    : in  std_logic_vector(9 downto 0);   
         wdata   : in  std_logic_vector(31 downto 0);  
 
-        ready   : out std_logic;                      -- sempre '1', memoria sempre pronta
-        valid   : out std_logic;                      -- valido a '1' per 1 ciclo dopo una lettura
-        rdata   : out std_logic_vector(31 downto 0)   -- dato letto
+        ready   : out std_logic;                    ì
+        valid   : out std_logic;                      
+        rdata   : out std_logic_vector(31 downto 0)   
     );
 end entity;
 
 architecture beh of mem_wrap is
 
-    -- COMPONENTE: dichiarazione della memoria SRAM vera e propria
+    
     component sram_32_1024_freepdk45 is
         port (
             clk0  : in std_logic;

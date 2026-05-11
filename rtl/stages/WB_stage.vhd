@@ -4,8 +4,6 @@ use ieee.std_logic_1164.all;
 entity WriteBack is
     port (
         
-  --      i_dato_dm          : in  std_logic_vector(31 downto 0);
- --       i_alu_result       : in  std_logic_vector(31 downto 0);
         i_dato_mem         : in  std_logic_vector(31 downto 0);
         i_ctr_lui          : in  std_logic;
         i_ctr_jal          : in  std_logic;

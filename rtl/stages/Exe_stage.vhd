@@ -18,7 +18,6 @@ entity exe_stage is
         i_ctr_jalr      :   in std_logic;                       
         i_ctr_jal       :   in std_logic;
 
- --       i_next_pc       :   in std_logic_vector(31 downto 0);   --program counter of instruction being executed
 
         i_prediction_taken:   in std_logic;                         -- signal that says if the instruction is predicted taken or not
         i_predicted_target:   in std_logic_vector(31 downto 2) ; --propagted predicted target of BP in order to compare it with actual calculated target for JALR instructions
@@ -85,7 +84,6 @@ begin
 
     w_branch <= i_ctr_jalr or ctr_branch or i_ctr_jal;
 
-
     w_trgt_misalign <= '1' when (i_predicted_target /= w_pc_jump(31 downto 2) and i_ctr_jalr = '1') else '0';
 
 --process for recognizing misprediction from branch predictor
@@ -136,7 +134,7 @@ alu    :  entity work.alu
 		    q       =>  w_mux_fu1
         );
 
---muxer that checks if anything has to be forwarded to the second src of the alu
+--muxer that checks if anything has to be forwarded to the second  input src of ALU
     muxfu_2:    entity work.mux4to1
 
         port map(
@@ -148,7 +146,7 @@ alu    :  entity work.alu
 		    q       =>  (w_mux_fu2)
         );              
 
---muxer that chooses the secodn src for the alu 
+--muxer that chooses the second src for the alu 
     mux_alu_src_2:  entity work.mux2to1
 	generic map (n => 32)
         port map(
@@ -158,7 +156,7 @@ alu    :  entity work.alu
 		    q       =>  w_alu_src2
         );
 
---adder used to calculate jump branch
+--adder used to calculate jump branch target
 branch_adder:   entity work.adder
         port map(
         a           =>  current_pc_i,    

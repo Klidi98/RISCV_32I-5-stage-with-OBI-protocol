@@ -64,6 +64,7 @@ begin
 
         when "10" =>                    --lw
             d_out <= d_in;
+            
 	when others =>
 		d_out <= d_in;
     end case;

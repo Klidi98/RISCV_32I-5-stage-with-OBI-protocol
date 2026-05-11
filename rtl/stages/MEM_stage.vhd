@@ -8,18 +8,16 @@ entity mem_stage is
         rst_n              : in  std_logic;               -- Reset input (active low)
 
     --signal for blocking pipeline
-
         i_ctr_jalr           : in  std_logic;               --control unit signal    
         i_ctr_jal            : in  std_logic;
         i_ctr_branch         : in  std_logic;
         i_ctr_size_access    : in  std_logic_vector(1 downto 0);
         i_ctr_signed_ld      : in  std_logic;
       
- --       pc_jump_o          : out std_logic_vector(31 downto 0);
- --       pc_branch_i        : in  std_logic_vector(31 downto 0);
+
         i_Alu_result_MEM   : in  std_logic_vector(31 downto 0);
         
- --       o_sel_next_pc      : out std_logic; 
+
     --Data memory signals
         dm_rdata_i         : in  std_logic_vector(31 downto 0);
         dm_wdata_i         : in  std_logic_vector(31 downto 0); 
