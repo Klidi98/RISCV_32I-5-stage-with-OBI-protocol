@@ -192,7 +192,6 @@ begin
 --                                    '0'-> pipe stalled
 stall_sig: stall_pipe          <=    not(stall_pipe_n);          
 
-
 w_pp_if_id_enable   <=   w_instr_valid_if and (stall_pipe and not(w_stall_hdu));
 
 --prorgram counter depends on stall from hdu and pipe staller

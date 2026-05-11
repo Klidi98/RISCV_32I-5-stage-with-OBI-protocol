@@ -9,16 +9,16 @@ typedef struct packed {
 module branch_predictor (
     input  logic        clk,
     input  logic        rst_n,
-    // Interfaccia Fetch (Lettura)
+    
     input  logic [31:2] pc,
     output logic        predict_taken,
     output logic [31:0] predict_target,
     
-    // Interfaccia Execute (Aggiornamento)
-    input  logic        update_en,      // Attivo quando un branch viene risolto
-    input  logic [31:0] pc_update,      // PC del branch che si sta risolvendo
-    input  logic [31:0] actual_target,  // Dove doveva andare veramente
-    input  logic        actual_taken    // Se doveva saltare veramente
+
+    input  logic        update_en,      // Active when a branch is resolved in the execute stage
+    input  logic [31:0] pc_update,      // PC of branch instruction to update (from execute stage)
+    input  logic [31:0] actual_target,  // Actual target address of the branch (from execute stage)
+    input  logic        actual_taken    // If jump was actually taken or not
 );
 
 
@@ -27,7 +27,7 @@ logic [4:0] btb_addr;
 logic [4:0] btb_addr_upd;
 
 
-assign btb_addr = pc[6:2];
+assign btb_addr = pc[6:2]; 
 assign btb_addr_upd = pc_update[6:2];
 
 

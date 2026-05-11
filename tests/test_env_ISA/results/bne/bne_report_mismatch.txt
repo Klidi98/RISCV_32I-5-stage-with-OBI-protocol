@@ -1,6 +1,0 @@
-=== REPORT DI VERIFICA RISC-V ===
-Istruzioni totali: GS=323 | RTL=323
-----------------------------------------------------------------------
-
-
-ESITO: PASS - logs perfectly match.
