@@ -14,7 +14,7 @@ Stores the simulation outputs. To validate the robustness of the OBI handshake, 
 * **`lat_0`**: Zero-latency memory (single-cycle access). The "ideal" scenario.
 * **`lat_1`**: Light memory delays affecting `ready` and `valid` signals.
 * **`lat_2`**: Extreme memory delays to stress-test pipeline stalls and backpressure.
-Each of above folders contains the result of each ISA test reporting golden reference report, testbench report and mismatch report.
+Each of the above cases contains the results of each ISA test reporting golden reference report, testbench report and mismatch report.
 
 > **Note**: These delays are not fixed; they are generated using a **SystemVerilog random constraint module** to simulate unpredictable memory behavior.
 
