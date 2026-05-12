@@ -15,7 +15,7 @@ The core implements a classic **IF–ID–EX–MEM–WB pipeline**, supports **3
 - OBI-based memory and peripheral interface (ready/valid handshake)
 - Full forwarding unit and hazard detection implemented.
 - Branch decision in execution stage.
-- 2 bit dynamic branch predictor> [`tests/sw_presentation/src`](tests/presentation_sw/src/main.c)
+- 2 bit dynamic branch predictor>
 - ISA test environment with risc_v core golden model written C for rapid and complete ISA instruction verification. [`test/test_env_ISA`](tests/test_env_ISA)
 - Synthesized and tested on FPGA @ **60 MHz**
 - Passed **official RISC-V ISA compliance tests** and custom stress tests with randomic memory delays.
