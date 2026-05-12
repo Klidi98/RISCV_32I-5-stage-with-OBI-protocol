@@ -104,7 +104,7 @@ core: entity work.core_riscv32i
             x_request_im_o           =>     w_req_im_cpu            ,
             x_request_dm_o           =>     w_req_dm_cpu            ,
             x_wren_dm_o              =>     w_wren_dm_cpu           ,
-		      x_byte_enable_dm		     =>     w_byte_enable_dm_cpu    ,
+		    x_byte_enable_dm		 =>     w_byte_enable_dm_cpu    ,
             x_addr32_im_o            =>     w_addr_im_cpu           ,
             x_addr32_dm_o            =>     w_addr_dm_cpu
     );
@@ -192,7 +192,6 @@ instruction_memory: entity work.rom_9
       --     we                       =>      '0'                       ,
            addr_a                   =>      w_addr_im_cpu(11 downto 2),
            addr_b                   =>      w_addr_dm_cpu(11 downto 2),
-   --        wdata_a                    =>      (others => '0')           ,
            ready                    =>      w_ready_im                ,
            valid                    =>      w_valid_im                ,
            rdata_a                  =>      w_dout_from_im            ,
@@ -206,10 +205,10 @@ data_memory: entity work.mem_fpga
     port map(
 
             clk                      =>      x_clk			            ,
-		      rst_n   	     	          =>      rst_n_d2		            ,
+		    rst_n   	     	     =>      rst_n_d2		            ,
             req                      =>      w_cs_dm	                ,
             we                       =>      w_wren_dm_cpu		        ,
-		      be   	      		       =>      w_byte_enable_dm_cpu	    ,
+		    be   	      		     =>      w_byte_enable_dm_cpu	    ,
             addr                     =>      w_addr_dm_cpu(11 downto 2) ,
             wdata                    =>      w_din_dm_cpu	            , 
             ready                    =>      w_ready_dm		            ,
