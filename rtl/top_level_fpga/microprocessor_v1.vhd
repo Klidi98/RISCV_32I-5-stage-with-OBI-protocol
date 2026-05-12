@@ -124,7 +124,7 @@ begin
 
 w_sel_gpio_led                <= '0';
 w_data_memory_sel             <= '0';
-w_instr_mem_sel                  <= '0';
+w_instr_mem_sel               <= '0';
 w_sel_UART_tx                 <= '0';
 w_sel_TIMER_1                 <= '0';
 w_sel_commit_reg              <= '0';
