@@ -60,7 +60,6 @@ w_cs_dm             <= w_req_dm_cpu and w_data_memory_sel;
 w_cs_im             <= w_req_dm_cpu and w_instr_mem_sel;
 
 --************************************************
---* sampling of rst_n for metastability
 --asynchronous activation and synchronous deactivation of reset signal
 --************************************************
 process(x_clk,x_rst_n)
@@ -77,7 +76,7 @@ end process;
 
 
 --###########################################################
---##PLL 90 Mhz
+--##PLL 60 Mhz
 --###########################################################
 PLL: entity work.PLL_60Mhz
 	port map(

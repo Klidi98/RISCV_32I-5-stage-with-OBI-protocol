@@ -18,7 +18,7 @@ entity rom_11 is
         addr_a : in  std_logic_vector(9 downto 0);  -- word address
         addr_b : in  std_logic_vector(9 downto 0);
         wdata  : in  std_logic_vector(31 downto 0);
-
+        
         ready  : out std_logic;
         valid  : out std_logic;
         be_b   : in  std_logic_vector(3 downto 0);

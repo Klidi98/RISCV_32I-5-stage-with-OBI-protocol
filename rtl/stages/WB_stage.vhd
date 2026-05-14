@@ -21,7 +21,7 @@ begin
 
 
 
-    w_sel_output <= i_ctr_JAL & i_ctr_LUI;  --concatenazione di due segnali control unit
+    w_sel_output <= i_ctr_JAL & i_ctr_LUI; 
     
 
     output_muxer: entity work.mux4to1

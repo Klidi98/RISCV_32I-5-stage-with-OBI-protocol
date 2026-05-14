@@ -26,7 +26,6 @@ architecture rtl of rom_9 is
 
     type mem_t is array (0 to WORDS-1) of std_logic_vector(31 downto 0);
 
-    -- Inizializzazione (Tagliata per brevità, tieni la tua originale)
     constant ROM_INIT : mem_t := (
 	 
 x"0fc11197",
@@ -410,7 +409,7 @@ x"000d0a2d",
     signal mem : mem_t := ROM_INIT;
 
 begin
-    -- La memoria BRAM è a singolo ciclo, quindi ready può essere fisso a '1'
+    
     ready <= '1';
 
     -- Porta A: Canale Istruzioni (Fetch)

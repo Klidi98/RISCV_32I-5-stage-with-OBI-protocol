@@ -69,10 +69,10 @@ w_slt_res <= (others => '0') when o_comp_res = '0' else
 --left shift unit
 w_sll_res <= std_logic_vector(shift_left(unsigned(i_alu_src1), shmt));
 
---logic right shift unit
+--logic right shift
 w_srl_res <= std_logic_vector(shift_right(unsigned(i_alu_src1), shmt));
 
---right shift arithmetic unit
+--right shift arithmetic
 w_srai_res <= std_logic_vector(shift_right(signed(i_alu_src1), shmt));
 
 w_alu_res <= w_adder_res when i_ctr_alu_op = "000" else

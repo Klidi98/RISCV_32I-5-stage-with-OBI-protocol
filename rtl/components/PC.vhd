@@ -17,10 +17,9 @@ begin
     process (clk, rst_n)
     begin
         if rst_n = '0' then
-            -- Asynchronous reset
             reg <= x"00400000";
         elsif rising_edge(clk) then
-            -- Synchronous update on rising edge of the clock
+            
             if enable = '1' then
                 reg <= data_in;
             end if;

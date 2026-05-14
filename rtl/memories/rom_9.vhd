@@ -410,7 +410,7 @@ x"000d0a2d",
     signal mem : mem_t := ROM_INIT;
 
 begin
-    -- La memoria BRAM è a singolo ciclo, quindi ready può essere fisso a '1'
+  
     ready <= '1';
 
     -- Porta A: Canale Istruzioni (Fetch)
