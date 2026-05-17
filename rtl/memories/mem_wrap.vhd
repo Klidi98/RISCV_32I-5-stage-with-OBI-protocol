@@ -14,7 +14,7 @@ entity mem_wrap is
         addr    : in  std_logic_vector(9 downto 0);   
         wdata   : in  std_logic_vector(31 downto 0);  
 
-        ready   : out std_logic;                    ì
+        ready   : out std_logic;                   
         valid   : out std_logic;                      
         rdata   : out std_logic_vector(31 downto 0)   
     );

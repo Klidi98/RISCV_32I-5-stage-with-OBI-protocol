@@ -25,11 +25,13 @@ module branch_predictor (
 btb_s btb_entry [0:31];
 logic [4:0] btb_addr;
 logic [4:0] btb_addr_upd;
+logic tag_match;     
 
 
 assign btb_addr = pc[6:2]; 
 assign btb_addr_upd = pc_update[6:2];
 
+assign match_entry = (btb_entry[btb_addr].pc_tag == pc_update[31:7]) && btb_entry[btb_addr].valid;
 
 //combinational process for generating the prediction based on the current PC
 //prediction is needed in the same cycle of fetching
@@ -57,17 +59,15 @@ if(!rst_n) begin
     end
 end
 
+//update btb entry only if branch is resolved.
 else if (update_en) begin    //If branch instruction is resolved in exe stage
 
     if(actual_taken) begin   //if the branch is taken
     
-        /* update btb entry only if branch is taken.
-        If not taken, update only the state of the entry, but not the target and tag, 
+        /* If not taken, update only the state of the entry, but not the target and tag, 
         because not used in case of not taken branch. */
-    
-        
-
-        if( btb_entry[btb_addr_upd].pc_tag == pc_update[31:7] && btb_entry[btb_addr_upd].valid ) begin
+        /*If branch taken and instruction already present in btb, update entry state  */
+        if( match_entry ) begin
             case(btb_entry[btb_addr_upd].state)
                 2'b00: btb_entry[btb_addr_upd].state <= 2'b01;
                 2'b01: btb_entry[btb_addr_upd].state <= 2'b10;
@@ -77,8 +77,8 @@ else if (update_en) begin    //If branch instruction is resolved in exe stage
             endcase
         end
         else begin    
-
-            btb_entry[btb_addr_upd].valid <= 1'b1;
+        /* If branch taken, but not already present in btb update btb entry  */
+            btb_entry[btb_addr_upd].valid   <= 1'b1;
             btb_entry[btb_addr_upd].pc_tag  <= pc_update[31:7];
             btb_entry[btb_addr_upd].target  <= actual_target[31:2];
             btb_entry[btb_addr_upd].state   <= 2'b10;

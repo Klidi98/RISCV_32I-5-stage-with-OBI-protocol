@@ -15,7 +15,7 @@ entity rom_10 is
 
         req    : in  std_logic;
         we     : in  std_logic;
-        addr   : in  std_logic_vector(9 downto 0);  -- word address
+        addr   : in  std_logic_vector(9 downto 0); 
         wdata  : in  std_logic_vector(31 downto 0);
 
         ready  : out std_logic;
@@ -345,7 +345,7 @@ begin
                         mem(to_integer(unsigned(addr))) <= wdata;
                     end if;
 
-                    -- lettura sincrona
+            
                     rdata <= mem(to_integer(unsigned(addr)));
                     valid <= '1';
                 end if;

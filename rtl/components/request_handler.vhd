@@ -56,18 +56,18 @@ begin
             when ISSUE_NEXT =>
                 if i_block_ftch = '1' then
                                                       
-                    if valid_i = '1' then             --if a valid arrives during stall then go in start_req
+                    if valid_i = '1' then                --if a valid arrives during stall then go in start_req
                         next_state <= START_REQ;
                     end if;
 
                 elsif valid_i = '1' then
                     
-                    req_o <= '1';                   -- New immediate request
+                    req_o <= '1';                       -- New immediate request
                     
                     if ready_i = '1' then 
                         next_state <= ISSUE_NEXT;   
                     else 
-                        next_state <= START_REQ;    -- no ready: stop requests
+                        next_state <= START_REQ;        -- no ready: stop requests
                     end if;
                 else
                     next_state <= ISSUE_NEXT;      

@@ -67,7 +67,7 @@ begin
 
 
 --prcoess for signal generation for Data Memory during store instruction(write operation).
-process(i_ctr_size_access, i_Alu_result_MEM, dm_wdata_i)
+store_data_mngr: process(i_ctr_size_access, i_Alu_result_MEM, dm_wdata_i)
 begin
     case i_ctr_size_access is
         when "10" =>  --word

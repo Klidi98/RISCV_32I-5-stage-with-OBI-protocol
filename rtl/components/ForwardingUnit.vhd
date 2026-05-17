@@ -7,8 +7,7 @@ entity ForwardingUnit is
         
         writeback_prev        : in std_logic;                       -- write signal coming coming from mem_stage
 
-        i_ctr_U_UJ_I          : in std_logic;                       -- tells type of instruction 
-        i_ctr_lui_prev        : in std_logic;                       -- Indicates if the instruction in MEM stage is LUI    
+        i_ctr_lui_prev        : in std_logic;                       -- Indicates if the instruction in MEM stage is LUI, in that case the immediate value has to be forwarded   
 	    writeback_pre_prev    : in std_logic;                       -- write signal coming from wb_stage
 
        -- writeRF_WB: in std_logic;
@@ -25,7 +24,7 @@ architecture Behavioral of ForwardingUnit is
 
 signal w_ctr_rs1,w_ctr_rs2 :std_logic_vector(1 downto 0);
 begin
-    process (writeback_prev,writeback_pre_prev, load_rd_prev,load_rd_pre_prev, exec_rs1, exec_rs2, i_ctr_lui_prev)
+    process (all)
     begin
    
     w_ctr_rs1 <= (others => '0');
@@ -46,7 +45,7 @@ else
     w_ctr_rs1 <= "00";
 
 end if;
---end if;
+
 
 --forwarding for register rs2.
 --if exec_rs2 /= "00000" then                                     -- don't forward register x0
@@ -65,7 +64,7 @@ end if;
         
 end process;
 
-
 forward_ctrl_rs1<=w_ctr_rs1;
 forward_ctrl_rs2<=w_ctr_rs2;
+
 end Behavioral;

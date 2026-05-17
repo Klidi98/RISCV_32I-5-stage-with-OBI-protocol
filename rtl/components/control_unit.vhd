@@ -23,7 +23,7 @@ entity ControlUnit is
     ctr_Signed      : out std_logic;
     ctr_tipo_U_UJ   : out std_logic;
     ctr_MuxFinale   : out std_logic;
-    ctr_branch      : out std_logic;    --signals if jump instruction.
+    ctr_branch      : out std_logic;      --signals if jump instruction.
     ctr_JALRMux     : out std_logic;   
     ctr_LUIMux      : out std_logic; 
     ctr_U_UJ_I      : out std_logic;
@@ -168,7 +168,6 @@ begin
 
           when SLLI_FT3 =>
             ctr_alu_op <= "001"; -- SLLI
---            ctr_signed <= '1';
 
           when SRLI_FT3 =>        -- SRLI/SRAI
             ctr_alu_op <= "101"; 

@@ -164,7 +164,7 @@ signal       w_pc_enable                :   std_logic;
 signal       w_current_pc_mem           :   std_logic_vector(31 downto 0);
 signal       w_current_pc_wb            :   std_logic_vector(31 downto 0);
 signal       w_dout_dm_mem              :   std_logic_vector(31 downto 0);
-signal       w_jump_taken               :   std_logic;
+signal       w_actual_taken             :   std_logic;
 signal       w_flush_exe_pipe           :   std_logic;
 signal       w_jump_target_ex           :   std_logic_vector(31 downto 0);
 
@@ -175,7 +175,6 @@ signal       w_instr_mem, w_instr_wb    :   std_logic_vector(31 downto 0);
 signal       w_prediction_bp            :   std_logic;
 signal       w_predicted_target_bp      :   std_logic_vector(31 downto 0);
 signal       w_update_btb               :   std_logic;
-signal       w_jump_taken_bp            :   std_logic;
 signal       w_misprediction            :   std_logic;
 signal       w_predict_taken_ex	        :   std_logic;
 signal       w_predict_taken_id         :   std_logic;
@@ -199,15 +198,18 @@ w_stall_fetch       <=   stall_pipe_n or w_stall_hdu;
 
 --program counter enable 
 --program counter is advanced when both request and ready from Instruction Memory are active 
---w_pc_enable         <=   w_req_im_cpu and x_ready_im_i;  
-                                                                             
+--w_pc_enable         <=   w_req_im_cpu and x_ready_im_i;                                                                          
 w_pc_enable     <= (w_req_im_cpu and x_ready_im_i) or (w_flush_pipe and w_misprediction);
 
 --signal that indicates a branch instruction has been decised in exe stage
 w_update_btb    <= (w_ctr_branch_ex OR w_ctr_jal_ex OR w_ctr_jalr_ex ) and stall_pipe;
 
 
-w_jump_taken    <= w_misprediction xor (w_predict_taken_ex);
+--A jump is actual taken when misprediction and actual prediction from btb are different:
+--If there is a misprediction, and jump was predicted taken, jump is actually not taken
+--while if there is a misprediction and jump was predicted not taken, then jump is actually taken. 
+--If there is no misprediction, then actual jump taken is the same as the prediction from btb.
+w_actual_taken    <= w_misprediction xor (w_predict_taken_ex);
 
 --* Pipe IF_ID for instr_valid signal
 --* instr_valid_id chooses in ID stage if instruction fetched from IF stage is valid or not, by choosing the output of 
@@ -546,7 +548,6 @@ FORWARD_UNIT: entity work.ForwardingUnit
             writeback_prev          =>  w_ctr_write_rf_mem      ,       
             writeback_pre_prev      =>  w_ctr_write_rf_wb       ,
             i_ctr_lui_prev          =>  w_ctr_lui_mem           ,               
-            i_ctr_U_UJ_I            =>  w_ctr_U_UJ_I_ex         ,
             load_rd_prev            =>  w_dreg_mem              ,
             load_rd_pre_prev        =>  w_dreg_wb               ,
             exec_rs1                =>  w_rf_rs1_ex             ,
@@ -597,7 +598,7 @@ bp: entity work.branch_predictor
         update_en       =>  w_update_btb                ,
         pc_update       =>  w_prev_pc_ex                ,
         actual_target   =>  w_jump_target_ex            ,
-        actual_taken    =>  w_jump_taken
+        actual_taken    =>  w_actual_taken
     );
 
 --**********OUTPUTS ASSIGNMENTS**********--
