@@ -14,8 +14,7 @@ entity Hazard_Detection_Unit is
 end Hazard_Detection_Unit;
 
 
---saerebbe ancora da considerare i casi di tutti i tipi di istruzione e gestirli di conseguenza, perche' fin'ora non comprende ancora tutti i casi
--- e puo' (anzi sicuramente fara' nelle giuste condizioni) generare errori.
+
 architecture Behavioral of Hazard_Detection_Unit is
 
 constant load_opcode : std_logic_vector(6 downto 0) := "0000011"; -- LW opcode

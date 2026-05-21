@@ -37,6 +37,7 @@ entity exe_stage is
         i_immediate_mem :   in std_logic_vector(31 downto 0);   --immediate forwarded from MEM stage
         wb_muxer_i      :   in std_logic_vector(31 downto 0);   --Immediate value forwarded from MEM stage
 
+        jump_taken_o    :   out std_logic;                      -- signal that says if the instruction in EXE stage is a jump and it is taken
         o_misprediction :   out std_logic;                      -- signal that indicates if there has been a misprediction
         o_target_jump   :   out std_logic_vector(31 downto 0);  -- target address of jump instruction calculated in the EXE stage
         o_next_pc       :   out std_logic_vector(31 downto 0) ; -- next pc from current instruction(+4), to be propagated through next pipelines for JAL
@@ -164,9 +165,10 @@ branch_adder:   entity work.adder
         sum         =>  w_target_jmp
         );
 
-alu_res_o <= w_alu_res;             --ALU result going to memory stage
-o_rs2_exe <= w_mux_fu2;             -- output to memory stage
-o_next_pc <= w_next_pc;
+alu_res_o    <= w_alu_res;             --ALU result going to memory stage
+o_rs2_exe    <= w_mux_fu2;             -- output to memory stage
+o_next_pc    <= w_next_pc;
+jump_taken_o <= w_jump_taken;
 
 
 end rtl;

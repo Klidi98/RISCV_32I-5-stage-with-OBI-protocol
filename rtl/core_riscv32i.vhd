@@ -182,7 +182,7 @@ signal       w_pending_req              :   std_logic;
 signal       w_predict_trgt_if          :   std_logic_vector(31 downto 2) ;
 signal       w_predict_trgt_id          :   std_logic_vector(31 downto 2) ;
 signal       w_predict_trgt_ex          :   std_logic_vector(31 downto 2) ;
-
+signaL       w_jump_taken_ex            :   std_logic;
 
 
 begin
@@ -209,7 +209,7 @@ w_update_btb    <= (w_ctr_branch_ex OR w_ctr_jal_ex OR w_ctr_jalr_ex ) and stall
 --If there is a misprediction, and jump was predicted taken, jump is actually not taken
 --while if there is a misprediction and jump was predicted not taken, then jump is actually taken. 
 --If there is no misprediction, then actual jump taken is the same as the prediction from btb.
-w_actual_taken    <= w_misprediction xor (w_predict_taken_ex);
+--w_actual_taken    <= w_misprediction xor (w_predict_taken_ex);
 
 --* Pipe IF_ID for instr_valid signal
 --* instr_valid_id chooses in ID stage if instruction fetched from IF stage is valid or not, by choosing the output of 
@@ -406,7 +406,8 @@ EXE_STAGE : entity work.exe_stage
              alu_res_o          =>  w_alu_res_ex                ,
              o_next_pc          =>  w_current_pc_ex             ,
              o_rs2_exe          =>  w_rs2_fw_exe                ,
-             o_target_jump      =>  w_jump_target_ex            
+             o_target_jump      =>  w_jump_target_ex            ,
+             jump_taken_o       =>  w_jump_taken_ex               
   
         );
 
@@ -598,7 +599,7 @@ bp: entity work.branch_predictor
         update_en       =>  w_update_btb                ,
         pc_update       =>  w_prev_pc_ex                ,
         actual_target   =>  w_jump_target_ex            ,
-        actual_taken    =>  w_actual_taken
+        actual_taken    =>  w_jump_taken_ex
     );
 
 --**********OUTPUTS ASSIGNMENTS**********--
