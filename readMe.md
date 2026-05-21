@@ -7,7 +7,7 @@ The core implements a classic **IF–ID–EX–MEM–WB pipeline**, supports **3
 
 <img width="1501" height="800" alt="top_level" src="https://github.com/user-attachments/assets/6effc4f8-ad76-4eee-9d31-c3aa7d49ac63" />
 
-For a more detailed block diagram refer to : 
+> For a more detailed block diagram refer to : 
 > [`doc/cpu_jpg`](doc/cpu.jpg)
 ---
 
