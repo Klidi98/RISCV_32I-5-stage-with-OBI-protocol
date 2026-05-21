@@ -13,8 +13,6 @@ entity Hazard_Detection_Unit is
     );
 end Hazard_Detection_Unit;
 
-
-
 architecture Behavioral of Hazard_Detection_Unit is
 
 constant load_opcode : std_logic_vector(6 downto 0) := "0000011"; -- LW opcode
@@ -35,14 +33,6 @@ begin
         else
         	stall <= '0';
     end if;
+end process;
 
-        -- Detect other data dependencies
---    if  previousInstr_op /= "0000000" then
-
---        if (load_rd = exec_rs1) or (load_rd = exec_rs2)  then--(load_op /= "0000011") and ((load_rd = exec_rs1) or (load_rd = exec_rs2)) then
---            forward_enable <= '1';  -- Initialize forwarding unit when there's a data dependency
-           
- --       end if;
-   -- end if;
-    end process;
 end Behavioral;
