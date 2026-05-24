@@ -71,7 +71,7 @@ A complete automated verification flow has been developed to validate the proces
 - RTL and reference execution logs compared **instruction-by-instruction**  
 - Python-based comparison tool generates automatic **PASS/FAIL reports**  
 - Automated regression script runs all tests sequentially  
-
+> [`tests/test_env_ISA`](tests/test_env_ISA)
 ### Randomized Memory Stress Testing
 
 A SystemVerilog random memory model is used to validate the OBI interface under variable latency.
