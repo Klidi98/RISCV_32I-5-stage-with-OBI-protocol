@@ -18,6 +18,7 @@ Stores the simulation outputs. To validate the robustness of the OBI handshake, 
 Each of the above cases contains the results of each ISA test reporting golden reference report, testbench report and mismatch report.
 
 > **Note**: These delays are not fixed; they are generated using a **SystemVerilog random constraint module** to simulate unpredictable memory behavior.
+> > [`tests/tb/random_memory.sv`](tests/tb/random_memory.sv)
 
 ---
 
