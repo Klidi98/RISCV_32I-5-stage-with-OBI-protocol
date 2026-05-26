@@ -91,7 +91,7 @@ This ensures correct operation under realistic and worst-case timing scenarios.
   - forwarding logic  
   - branch handling  
   - back-to-back memory transactions  
-- IPC measurement using cycle and instruction counters  
+- IPC measurement using cycle and instructions counter
 - FPGA validation using LEDs and UART output
 
 ## 🎬 Demonstration and Performance Evaluation
