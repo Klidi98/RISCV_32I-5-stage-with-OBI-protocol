@@ -19,3 +19,11 @@ Address range given to each peripheral is the sequent:
 -   UART Tx Register: 0x10012000 -> 4 bytes --> 8 bits of data, 1 of 'wr_en', 1 of busy/ready
 -   Cycle counter : 0x10013000 -> 32 bit counter clock cycles.
 -   Retired Instruction counter -> 32 bit counter for commited instructions
+
+## Quartus Compilation
+
+<img width="1022" height="498" alt="Screenshot 2026-05-27 112200" src="https://github.com/user-attachments/assets/5abe95d2-0bce-487f-be4b-d690d2a4da56" />
+
+<img width="1650" height="612" alt="immagine" src="https://github.com/user-attachments/assets/fda4015c-cd77-4f13-91f2-626029344620" />
+
+
