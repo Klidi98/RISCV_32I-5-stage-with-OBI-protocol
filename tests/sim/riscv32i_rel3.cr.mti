@@ -1,13 +1,4 @@
-{C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/data_mem.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/data_mem.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity data_mem
--- Compiling architecture rtl of data_mem
-
-} {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/pipes/pipe_EX_MEM.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/pipes/pipe_EX_MEM.vhd}
+{C:/Users/kabak/Desktop/official riscV/REL3/rtl/pipes/pipe_EX_MEM.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/pipes/pipe_EX_MEM.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -15,6 +6,15 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package NUMERIC_STD
 -- Compiling entity pipe_EX_MEM
 -- Compiling architecture rtl of pipe_EX_MEM
+
+} {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/data_mem.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/data_mem.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity data_mem
+-- Compiling architecture rtl of data_mem
 
 } {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/test/tb/tb_microprocessor.vhd} {1 {vcom -work work -2008 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/test/tb/tb_microprocessor.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -36,15 +36,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity mux2to1
 -- Compiling architecture rtl of mux2to1
 
-} {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/adder_sub.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/adder_sub.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity Adder_sub
--- Compiling architecture Behavioral of adder_sub
-
 } {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/rom_10.vhd} {2 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/rom_10.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
@@ -55,6 +46,15 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling architecture rtl of rom_10
 ** Warning: C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/rom_10.vhd(325): (vcom-1074) Non-locally static OTHERS choice is allowed only if it is the only choice of the only association.
 
+} {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/adder_sub.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/adder_sub.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity Adder_sub
+-- Compiling architecture Behavioral of adder_sub
+
 } {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/EstensoreSegnoTipo2.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/EstensoreSegnoTipo2.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
@@ -63,24 +63,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package NUMERIC_STD
 -- Compiling entity EstensoreSegnoTipo2
 -- Compiling architecture beh of EstensoreSegnoTipo2
-
-} {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/top_level_sim/cpu_handler_states.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/top_level_sim/cpu_handler_states.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity cpu_handler_states
--- Compiling architecture beh of cpu_handler_states
-
-} {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/register_file.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/register_file.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity register_file
--- Compiling architecture Behavioral of register_file
 
 } {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/rom_4.vhd} {2 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/rom_4.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -91,6 +73,24 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity rom_4
 -- Compiling architecture rtl of rom_4
 ** Warning: C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/rom_4.vhd(153): (vcom-1074) Non-locally static OTHERS choice is allowed only if it is the only choice of the only association.
+
+} {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/register_file.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/register_file.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity register_file
+-- Compiling architecture Behavioral of register_file
+
+} {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/top_level_sim/cpu_handler_states.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/top_level_sim/cpu_handler_states.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity cpu_handler_states
+-- Compiling architecture beh of cpu_handler_states
 
 } {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/random_obi_memory.vhd} {1 {vcom -work work -2008 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/random_obi_memory.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -190,6 +190,14 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity mux_to_mem
 -- Compiling architecture beh of mux_to_mem
 
+} {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/Hazard_Detection_Unit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/Hazard_Detection_Unit.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Hazard_Detection_Unit
+-- Compiling architecture Behavioral of Hazard_Detection_Unit
+
 } {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/pipes/pipe_MEM_WB.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/pipes/pipe_MEM_WB.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
@@ -198,14 +206,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package NUMERIC_STD
 -- Compiling entity pipe_MEM_WB
 -- Compiling architecture rtl of Pipe_MEM_WB
-
-} {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/Hazard_Detection_Unit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/Hazard_Detection_Unit.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity Hazard_Detection_Unit
--- Compiling architecture Behavioral of Hazard_Detection_Unit
 
 } {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/core_riscv32i.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/core_riscv32i.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -286,7 +286,17 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity generic_reg
 -- Compiling architecture Behavioral of generic_reg
 
-} {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/ForwardingUnit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/ForwardingUnit.vhd}
+} {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/stages/MEM_stage.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/stages/MEM_stage.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity mem_stage
+-- Compiling architecture rtl of mem_stage
+-- Loading entity sign_extensor
+
+} {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/ForwardingUnit.vhd} {1 {vcom -work work -2008 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/ForwardingUnit.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -303,16 +313,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity rom_3
 -- Compiling architecture rtl of rom_3
 ** Warning: C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/rom_3.vhd(205): (vcom-1074) Non-locally static OTHERS choice is allowed only if it is the only choice of the only association.
-
-} {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/stages/MEM_stage.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/stages/MEM_stage.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity mem_stage
--- Compiling architecture rtl of mem_stage
--- Loading entity sign_extensor
 
 } {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/rom_5.vhd} {2 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/rom_5.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -350,7 +350,7 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package NUMERIC_STD
 -- Compiling entity rom_9
 -- Compiling architecture rtl of rom_9
-** Warning: C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/rom_9.vhd(212): (vcom-1074) Non-locally static OTHERS choice is allowed only if it is the only choice of the only association.
+** Warning: C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/rom_9.vhd(407): (vcom-1074) Non-locally static OTHERS choice is allowed only if it is the only choice of the only association.
 
 } {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/test/tb/tb_random_mem.vhd} {2 {vcom -work work -2008 -explicit -stats=none {C:\Users\kabak\Desktop\official riscV\REL3\test\tb\tb_random_mem.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -368,6 +368,15 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 ** Warning: C:\Users\kabak\Desktop\official riscV\REL3\test\tb\tb_random_mem.vhd(50): (vcom-1514) Range choice direction (downto) does not determine aggregate index range direction (to).
 ** Warning: C:\Users\kabak\Desktop\official riscV\REL3\test\tb\tb_random_mem.vhd(51): (vcom-1514) Range choice direction (downto) does not determine aggregate index range direction (to).
 
+} {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/mem_wrap.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/mem_wrap.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity mem_wrap
+-- Compiling architecture beh of mem_wrap
+
 } {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/PC.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/PC.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
@@ -377,15 +386,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package STD_LOGIC_UNSIGNED
 -- Compiling entity PC
 -- Compiling architecture Behavioral of PC
-
-} {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/mem_wrap.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/mem_wrap.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity mem_wrap
--- Compiling architecture beh of mem_wrap
 
 } {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/stages/ID_stage.vhdl} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/stages/ID_stage.vhdl}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -413,6 +413,14 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading entity mux4to1
 -- Loading entity Adder
 
+} {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/pipes/pipe_staller.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/pipes/pipe_staller.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity pipe_staller
+-- Compiling architecture rtl of pipe_staller
+
 } {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/Increment_PC.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/Increment_PC.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
@@ -421,14 +429,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package NUMERIC_STD
 -- Compiling entity increment_PC
 -- Compiling architecture Behavioral of increment_PC
-
-} {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/pipes/pipe_staller.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/pipes/pipe_staller.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity pipe_staller
--- Compiling architecture rtl of pipe_staller
 
 } {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/control_unit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/components/control_unit.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -455,13 +455,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity mux4to1
 -- Compiling architecture beh of mux4to1
 
-} {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/random_memory.sv} {1 {vlog -work work -sv -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/random_memory.sv}
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module random_memory
-
-Top level modules:
-	random_memory
-
 } {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/pipes/pipe_IF_ID.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/pipes/pipe_IF_ID.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
@@ -471,20 +464,12 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity pipe_IF_ID
 -- Compiling architecture rtl of pipe_IF_ID
 
-} {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/stages/IF_stage.vhd} {1 {vcom -work work -2008 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/stages/IF_stage.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity fetch
--- Compiling architecture rtl of fetch
--- Loading entity request_handler
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading entity PC
--- Loading entity generic_reg
--- Loading entity Adder
+} {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/random_memory.sv} {1 {vlog -work work -sv -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/memories/random_memory.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module random_memory
+
+Top level modules:
+	random_memory
 
 } {} {}} {C:/Users/kabak/Desktop/official riscV/REL3/rtl/top_level_sim/micro_cpu_instant.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/kabak/Desktop/official riscV/REL3/rtl/top_level_sim/micro_cpu_instant.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016

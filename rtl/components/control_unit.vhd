@@ -141,7 +141,8 @@ begin
         case FUNCT3 is
           when ADDI_FT3 =>
             ctr_alu_op <= "000"; -- ADDI
-            ctr_signed <= '1';
+          ctr_signed <= '1';
+        --ctr_signed <= '0';
           when SLTI_FT3 =>
             ctr_signed <= '1';    --indicates immediate value is signed
             ctr_alu_op <= "010";  -- SLTI

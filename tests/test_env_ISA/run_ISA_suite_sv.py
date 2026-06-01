@@ -3,6 +3,7 @@ import os
 import shutil
 import sys
 
+
 # --- CONFIGURAZIONE PERCORSI (Relativi a test_env_isa) ---
 ISA_BIN_DIR = "ISA/hex"
 TB_NAME     = "../sim/work.tb_randon_mem" # Esce da test_env_isa e entra in sim
@@ -26,11 +27,25 @@ def run_command(cmd, working_dir="."):
         cwd=working_dir  # <--- Fondamentale per far funzionare 'working_dir'
     )
 
+
+
+subprocess.run(["vcom", "-2008", "-work", "work", "pipe_if_id.vhd"])
+subprocess.run(["vcom", "-2008", "-work", "work", "pipe_id_ex.vhd"])
+subprocess.run(["vcom", "-2008", "-work", "work", "pipe_ex_mem.vhd"])
+subprocess.run(["vcom", "-2008", "-work", "work", "pipe_if_id.vhd"])
+subprocess.run(["vcom", "-2008", "-work", "work", "pipe_if_id.vhd"])
+subprocess.run(["vcom", "-2008", "-work", "work", "pipe_if_id.vhd"])
+subprocess.run(["vcom", "-2008", "-work", "work", "pipe_if_id.vhd"])
+subprocess.run(["vcom", "-2008", "-work", "work", "pipe_if_id.vhd"])
+subprocess.run(["vcom", "-2008", "-work", "work", "pipe_if_id.vhd"])
+subprocess.run(["vcom", "-2008", "-work", "work", "pipe_if_id.vhd"])
+subprocess.run(["vcom", "-2008", "-work", "work", "pipe_if_id.vhd"])
+
 if not os.path.exists("results"):
     os.makedirs("results")
 
 for latency in range(0,3): 
-    print(f"\n{BOLD}=== TEST CON LATENZA: {latency} ==={RESET}")
+    print(f"\n{BOLD}=== TEST LATENCY TYPE: {latency} ==={RESET}")
     results_summary = {}
 
     for test in tests:
@@ -46,15 +61,14 @@ for latency in range(0,3):
         elif test in ["sb", "sh"]:  data_file = f"{ISA_BIN_DIR}/{test}_data.txt"
         else:                       data_file = "data_mem.txt"
 
-        # Log finale (Percorsi assoluti per non far sbagliare ModelSim)
+        # Log finale (Percorsi assoluti)
         ref_log = os.path.abspath(f"{test_dir}/{test}_log_ref.txt")
         rtl_log = f"../test_env_ISA/{test_dir}/{test}_log_rtl.txt"
         mismatch_report = os.path.abspath(f"{test_dir}/{test}_report_mismatch.txt")
 
-        print(f"Esecuzione {test.upper():<6}...", end=" ", flush=True)
+        print(f"Executing {test.upper():<6}...", end=" ", flush=True)
 
-        # 2. Lancio Simulatore C
-        # Nota: riscv32i.exe deve essere lanciato senza ./ su Windows CMD
+        # 2. run Simulatore C
         cmd_gold = f"{GOLDEN_EXE} {instr_file} {data_file}"
         res_gold = run_command(cmd_gold)
 
@@ -64,10 +78,9 @@ for latency in range(0,3):
             print(f"{RED}ERR GOLD{RESET}")
             continue
 
-        # 3. Lancio ModelSim
-        # Importante: ModelSim viene lanciato da test_env_isa, 
+        #ModelSim viene lanciato da test_env_isa, 
         # quindi deve andare indietro di uno per trovare il testbench in ../sim/
-    # --- LOGICA PER MODELSIM (Parte da ../sim) ---
+        # --- LOGICA PER MODELSIM (Parte da ../sim) ---
         sim_dir = "../sim" # Cartella dove c'è la 'work'
 
         shutil.copy2(instr_file, os.path.join(sim_dir, "main.bin"))
@@ -81,9 +94,9 @@ for latency in range(0,3):
         if os.path.exists(temp_rtl_log):
             os.remove(temp_rtl_log)
 
-        # 2. Costruiamo il comando con l'ordine CORRETTO:
+        # 2.
         # vsim [options] [library.entity] [generics]
-    # 4. Lancio ModelSim pulito (senza -g, usa i default)
+
         cmd_vsim = f'vsim -c -do "run -all; quit -f" -gLATENCY="{latency}" work.tb_random_mem'
 
         print(f"(RTL)...", end=" ", flush=True)
@@ -110,4 +123,3 @@ for latency in range(0,3):
             print(f"{RED}FAIL ✘{RESET}")
             results_summary[test] = "FAIL"
 
-    # Tabella finale... (omessa per brevità, rimane uguale)
