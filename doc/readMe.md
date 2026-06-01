@@ -30,6 +30,7 @@ The top-level view of the core exposes the following interface ports, compliant 
 #### Verification & Status Signals
 - `committed_instruction`: Hardware strobe indicating that an instruction has successfully retired/completed execution.
 
+<img width="767" height="471" alt="top_level_block_diagram" src="https://github.com/user-attachments/assets/f1907df9-d992-45f5-8169-9b1ba85f4537" />
 
 
 ---
@@ -38,5 +39,6 @@ The top-level view of the core exposes the following interface ports, compliant 
 
 Below is a detailed block diagram of the core's internal microarchitecture, highlighting the pipeline stages (Fetch, Decode, Execute, Memory, and Writeback). Although this diagram aims to be as specific and comprehensive as possible, certain interconnections have been omitted to maintain visual clarity. For the precise behavior of these signals, please refer directly to the RTL source code.
 
+<img width="3078" height="1525" alt="cpu" src="https://github.com/user-attachments/assets/9bd28f1a-a743-4646-9bb5-55e175e8124e" />
 
 
